@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CinemaMobileClient.Views.HomePage"
+             BackgroundColor="#1C0038"
+             Padding="0">
+
+
+    <Grid BackgroundColor="#1C0038" RowDefinitions="0.08*, 0.92*">
+        <Grid Grid.Row="0"
+           BackgroundColor="#7B09A3">
+            <Grid.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                    <GradientStopCollection>
+                        <GradientStop Offset="0" Color="#2E043D"/>
+                        <GradientStop Offset="1" Color="#7B09A3"/>
+                    </GradientStopCollection>
+                </LinearGradientBrush>
+            </Grid.Background>
+
+            <Image Source="logo.png"
+                VerticalOptions="Center"
+                HorizontalOptions="Start"/>
+            <Label Text="CINÉPOLIS"
+                FontSize="18"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                TextColor="White"/>
+            <Image Source="home.png"
+                VerticalOptions="Center"
+                HorizontalOptions="End"
+                Margin="0,0,20,0">
+            </Image>
+
+        </Grid>
+
+
+        <ScrollView Grid.Row="1">
+            <StackLayout>
+                <Grid Grid.Row="0" BackgroundColor="#912D93" RowDefinitions="0.08*, 0.93*" Margin="0,20,0,0">
+                    <Grid.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                            <GradientStopCollection>
+                                <GradientStop Offset="0" Color="#2C0E2D"/>
+                                <GradientStop Offset="1" Color="#912D93"/>
+                            </GradientStopCollection>
+                        </LinearGradientBrush>
+                    </Grid.Background>
+                    <Grid Grid.Row="0">
+                        <Label Text="Estrenos"
+                        HorizontalOptions="Start"
+                        FontSize="14"
+                        VerticalOptions="Center"
+                        FontAttributes="Bold"
+                        TextColor="White"
+                        Margin="10,10,0,0"/>
+                    </Grid>
+
+                    <CollectionView Grid.Row="1" ItemsSource="{Binding Estrenos}"
+                                    SelectionMode="Single"
+                                    SelectionChanged="OnCollectionViewSelectionChangedEstrenos">
+                        <!--Espacioado entre imagenes-->
+                        <CollectionView.ItemsLayout>
+                            <LinearItemsLayout ItemSpacing="0" Orientation="Horizontal" />
+                        </CollectionView.ItemsLayout>
+
+
+                        <!--Contenedor-->
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid HeightRequest="170" WidthRequest="110" Margin="10,20,10,10">
+                                    <Image Aspect="AspectFill" Source="{Binding Image}"/>
+                                </Grid>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </Grid>
+
+                <Grid Grid.Row="1" BackgroundColor="#912D93" RowDefinitions="0.08*, 0.93*" Margin="0,20,0,0">
+                    <Grid.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                            <GradientStopCollection>
+                                <GradientStop Offset="0" Color="#2C0E2D"/>
+                                <GradientStop Offset="1" Color="#912D93"/>
+                            </GradientStopCollection>
+                        </LinearGradientBrush>
+                    </Grid.Background>
+                    <Grid Grid.Row="0">
+                        <Label Text="Cartelera"
+                     HorizontalOptions="Start"
+                     FontSize="14"
+                     VerticalOptions="Center"
+                     FontAttributes="Bold"
+                     TextColor="White"
+                     Margin="10,10,0,0"/>
+                    </Grid>
+
+                    <CollectionView Grid.Row="1" ItemsSource="{Binding CarteleraImage}"
+                                    SelectionMode="Single"
+                                    SelectionChanged="OnCollectionViewSelectionChangedCartelera">
+                        <!--Espacioado entre imagenes-->
+                        <CollectionView.ItemsLayout>
+                            <LinearItemsLayout ItemSpacing="0" Orientation="Horizontal" />
+                        </CollectionView.ItemsLayout>
+
+
+                        <!--Contenedor-->
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid HeightRequest="170" WidthRequest="110" Margin="10,20,10,10">
+                                    <Image Aspect="AspectFill" Source="{Binding Image}"/>
+                                </Grid>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </Grid>
+
+                <Grid Grid.Row="2" BackgroundColor="#912D93" RowDefinitions="0.08*, 0.93*" Margin="0,20,0,0">
+                    <Grid.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                            <GradientStopCollection>
+                                <GradientStop Offset="0" Color="#2C0E2D"/>
+                                <GradientStop Offset="1" Color="#912D93"/>
+                            </GradientStopCollection>
+                        </LinearGradientBrush>
+                    </Grid.Background>
+                    <Grid Grid.Row="0">
+                        <Label Text="Preventa"
+                         HorizontalOptions="Start"
+                         FontSize="14"
+                         VerticalOptions="Center"
+                         FontAttributes="Bold"
+                         TextColor="White"
+                         Margin="10,10,0,0"/>
+                    </Grid>
+
+                    <CollectionView Grid.Row="1" ItemsSource="{Binding Estrenos}">
+                        <!--Espacioado entre imagenes-->
+                        <CollectionView.ItemsLayout>
+                            <LinearItemsLayout ItemSpacing="0" Orientation="Horizontal" />
+                        </CollectionView.ItemsLayout>
+
+
+                        <!--Contenedor-->
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid HeightRequest="170" WidthRequest="110" Margin="10,20,10,10">
+                                    <Image Aspect="AspectFill" Source="{Binding Image}"/>
+                                </Grid>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </Grid>
+
+                <Grid Grid.Row="3" BackgroundColor="#912D93" RowDefinitions="0.08*, 0.93*" Margin="0,20,0,0">
+                    <Grid.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                            <GradientStopCollection>
+                                <GradientStop Offset="0" Color="#2C0E2D"/>
+                                <GradientStop Offset="1" Color="#912D93"/>
+                            </GradientStopCollection>
+                        </LinearGradientBrush>
+                    </Grid.Background>
+                    <Grid Grid.Row="0">
+                        <Label Text="Estrenos"
+                      HorizontalOptions="Start"
+                      FontSize="14"
+                      VerticalOptions="Center"
+                      FontAttributes="Bold"
+                      TextColor="White"
+                      Margin="10,10,0,0"/>
+                    </Grid>
+
+                    <CollectionView Grid.Row="1" ItemsSource="{Binding Estrenos}">
+                        <!--Espacioado entre imagenes-->
+                        <CollectionView.ItemsLayout>
+                            <LinearItemsLayout ItemSpacing="0" Orientation="Horizontal" />
+                        </CollectionView.ItemsLayout>
+
+
+                        <!--Contenedor-->
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid HeightRequest="170" WidthRequest="110" Margin="10,20,10,10">
+                                    <Image Aspect="AspectFill" Source="{Binding Image}"/>
+                                </Grid>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </Grid>
+            </StackLayout>
+        </ScrollView>
+
+    </Grid>
+</ContentPage>
