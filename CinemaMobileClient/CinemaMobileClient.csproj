@@ -62,6 +62,7 @@
       <None Remove="Resources\Images\carteleratres.png" />
       <None Remove="Resources\Images\cartelerauno.png" />
       <None Remove="Resources\Images\cines.png" />
+      <None Remove="Resources\Images\flecha.png" />
       <None Remove="Resources\Images\garfield.png" />
       <None Remove="Resources\Images\home.png" />
       <None Remove="Resources\Images\intensamente.png" />

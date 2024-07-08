@@ -4,7 +4,23 @@
              x:Class="CinemaMobileClient.Views.HomePage"
              BackgroundColor="#1C0038"
              Padding="0">
-
+    <ContentPage.Resources>
+        <Style TargetType="Grid">
+            <Setter Property="VisualStateManager.VisualStateGroups">
+                <VisualStateGroupList>
+                    <VisualStateGroup x:Name="CommonStates">
+                        <VisualState x:Name="Normal" />
+                        <VisualState x:Name="Selected">
+                            <VisualState.Setters>
+                                <Setter Property="BackgroundColor"
+                                        Value="#912D93" />
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateGroupList>
+            </Setter>
+        </Style>
+    </ContentPage.Resources>
 
     <Grid BackgroundColor="#1C0038" RowDefinitions="0.08*, 0.92*">
         <Grid Grid.Row="0"

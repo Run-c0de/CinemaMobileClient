@@ -1,11 +1,22 @@
 namespace CinemaMobileClient.Views;
 using CinemaMobileClient.Models;
+using System.Collections.ObjectModel;
 
 public partial class ReservacionPage : ContentPage
 {
-	public ReservacionPage(IReadOnlyList<object> currentSelection, String TipoDePelicula)
+    public ObservableCollection<string> Horario { get; set; }
+    public ReservacionPage(IReadOnlyList<object> currentSelection, String TipoDePelicula)
 	{
 		InitializeComponent();
+        // Inicializamos la colección con los nombres de las imágenes
+        Horario = new ObservableCollection<string>
+            {
+                "Dom",
+                "Lun",
+                "Mar",
+                "Mié"
+            };
+        BindingContext = this;
 
         // Realiza una conversión explícita a IList<object>
         IList<object> itemList = currentSelection.ToList();
@@ -26,5 +37,10 @@ public partial class ReservacionPage : ContentPage
             }
         }
 
+    }
+
+    private async void OnCloseButtonClicked(object sender, EventArgs e)
+    {
+        await Navigation.PopModalAsync();
     }
 }

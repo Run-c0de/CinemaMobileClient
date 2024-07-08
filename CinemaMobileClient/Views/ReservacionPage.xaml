@@ -2,14 +2,108 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CinemaMobileClient.Views.ReservacionPage"
-             Title="ReservacionPage">
-    <VerticalStackLayout>
-        <Label 
-        Text="Welcome to .NET MAUI!"
-        VerticalOptions="Center" 
-        HorizontalOptions="Center" />
-        <Image
-        x:Name="imagen"
-        Aspect="AspectFit"/>
-    </VerticalStackLayout>
+             Title="ReservacionPage"
+             BackgroundColor="#1C0038">
+
+
+    <Grid BackgroundColor="#1C0038" RowDefinitions="0.08*, 0.58*, 0.10*, 0.05*, 0.19*">
+        <Grid Grid.Row="0"
+          BackgroundColor="#7B09A3">
+            <Grid.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                    <GradientStopCollection>
+                        <GradientStop Offset="0" Color="#2E043D"/>
+                        <GradientStop Offset="1" Color="#7B09A3"/>
+                    </GradientStopCollection>
+                </LinearGradientBrush>
+            </Grid.Background>
+
+            <ImageButton Source="flecha.png"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Start"
+                    Margin="15,0,20,0"
+                    Clicked="OnCloseButtonClicked"
+                    MaximumWidthRequest="28"
+                    MinimumHeightRequest="28">
+                <!--<Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnCloseButtonClicked" />
+                </Image.GestureRecognizers>-->
+            </ImageButton>
+            <Label Text="RESERVACIÓN"
+                FontSize="18"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                TextColor="White"/>
+        </Grid>
+
+       <!--Grid para pelicula, duración, titulo y descripción-->
+        <Grid Grid.Row="1" Margin="10,10,10,0" RowDefinitions="0.50*, 0.05*, 0.025*, 0.07*, 0.025*, 0.33*">
+            
+            <Image
+                Grid.Row="0" Grid.RowSpan="6"
+                 x:Name="imagen"
+                Aspect="AspectFill"/>
+
+            <BoxView Grid.Row="0" Grid.RowSpan="6">
+                <BoxView.Background>
+                    <LinearGradientBrush StartPoint="0,1" EndPoint="0,0">
+                        <GradientStop Color="#1C0038" Offset="0" />
+                        <GradientStop Color="#331C0038" Offset="1" />
+                        <!--<GradientStop Color="#00000000" Offset="1" />-->
+                    </LinearGradientBrush>
+                </BoxView.Background>
+            </BoxView>
+
+            <Grid Grid.Row="1" Margin="10,0,0,0">
+                <Label
+                    Text="Duración: 2 h 25 min"
+                    FontSize="18"
+                    TextColor="White"/>
+            </Grid>
+            <Grid Grid.Row="3" Margin="10,0,0,0">
+                <Label
+                  Text="El planeta de los simios"
+                  FontSize="22"
+                  TextColor="White"
+                  FontAttributes="Bold"/>
+            </Grid>
+            <Grid Grid.Row="5" Margin="10,0,10,0">
+                <Label
+                  Text='César se siente profundamente traicionado por Rodman y la raza humana, por lo que empieza a crear un revolución dentro del "santuario", primero dominando a los líderes y luego robándole muestras del virus ALZ-113 a Rodman, para aplicarlas al resto de los simios del "santuario".'
+                  FontSize="15"
+                  TextColor="White"/>
+            </Grid>
+        </Grid>
+
+        <!--<Grid Grid.Row="2" BackgroundColor="#D9D9D9" Margin="0,10,0,0">-->
+        <CollectionView Grid.Row="2" Margin="0,10,0,0" ItemsSource="{Binding Horario}" SelectionMode="Single" BackgroundColor="#D9D9D9">
+                <CollectionView.ItemsLayout>
+                     <!--Distribuir en 4 columnas-->
+                <GridItemsLayout Orientation="Vertical" Span="4" />
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid HeightRequest="70">
+                        <Label
+                                Text="{Binding .}"
+                                TextColor="Black"
+                                VerticalOptions="Center"
+                                HorizontalOptions="Center"
+                                FontAttributes="Bold"/>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        <!--</Grid>-->
+
+        <Label
+            Margin="25,20,0,0"
+            Grid.Row="3"
+            Text="Cines"
+            FontSize="18"
+            FontAttributes="Bold"
+            TextColor="White"
+            />
+    </Grid>
+
 </ContentPage>

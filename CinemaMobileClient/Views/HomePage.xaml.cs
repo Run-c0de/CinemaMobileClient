@@ -14,6 +14,7 @@ public partial class HomePage : ContentPage
 	{
 		InitializeComponent();
         InicializarImagenes();
+        //Quita la barra de navegación
         NavigationPage.SetHasNavigationBar(this, false);
         //ItemSelectedCommand = new Command<CarteleraImage>(OnItemSelected);
         BindingContext = this;
@@ -39,15 +40,68 @@ public partial class HomePage : ContentPage
 
     private async void OnCollectionViewSelectionChangedCartelera(object sender, SelectionChangedEventArgs e)
     {
-        await Navigation.PushModalAsync(new ReservacionPage(e.CurrentSelection, "Cartelera"));
+        if (sender is CollectionView collectionView)
+        {
+            // Deshabilitar el evento temporalmente para evitar loops
+            collectionView.SelectionChanged -= OnCollectionViewSelectionChangedCartelera;
+
+            try
+            {
+                // Navegación a la nueva página
+                await Navigation.PushModalAsync(new ReservacionPage(e.CurrentSelection, "Cartelera"));
+
+                // Deseleccionar el elemento cambiando el SelectionMode
+                collectionView.SelectedItem=null;
+            }
+            catch (Exception ex)
+            {
+                await Application.Current.MainPage.DisplayAlert("Error", $"Error al navegar: {ex.Message}", "OK");
+            }
+            finally
+            {
+                // Volver a habilitar el evento
+                collectionView.SelectionChanged += OnCollectionViewSelectionChangedCartelera;
+            }
+        }
+        else
+        {
+            await Application.Current.MainPage.DisplayAlert("Error", "CollectionView no es válido.", "OK");
+        }
         //Application.Current.MainPage = new Reservacion();
-        //await Navigation.PushAsync(new Reservacion());
+        //await Navigation.PushAsync(new ReservacionPage(e.CurrentSelection, "Cartelera"));
+
     }
 
     private async void OnCollectionViewSelectionChangedEstrenos(object sender, SelectionChangedEventArgs e)
     {
-        await Navigation.PushModalAsync(new ReservacionPage(e.CurrentSelection, "Estrenos"));
+        if (sender is CollectionView collectionView)
+        {
+            // Deshabilitar el evento temporalmente para evitar loops
+            collectionView.SelectionChanged -= OnCollectionViewSelectionChangedEstrenos;
+
+            try
+            {
+                // Navegación a la nueva página
+                await Navigation.PushModalAsync(new ReservacionPage(e.CurrentSelection, "Estrenos"));
+
+                // Deseleccionar el elemento cambiando el SelectionMode
+                collectionView.SelectedItem = null;
+            }
+            catch (Exception ex)
+            {
+                await Application.Current.MainPage.DisplayAlert("Error", $"Error al navegar: {ex.Message}", "OK");
+            }
+            finally
+            {
+                // Volver a habilitar el evento
+                collectionView.SelectionChanged += OnCollectionViewSelectionChangedEstrenos;
+            }
+        }
+        else
+        {
+            await Application.Current.MainPage.DisplayAlert("Error", "CollectionView no es válido.", "OK");
+        }
         //Application.Current.MainPage = new Reservacion();
-        //await Navigation.PushAsync(new Reservacion());
+        //await Navigation.PushAsync(new ReservacionPage(e.CurrentSelection, "Estrenos"));
     }
 }
