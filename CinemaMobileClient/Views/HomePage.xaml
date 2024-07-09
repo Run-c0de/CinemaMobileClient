@@ -4,6 +4,7 @@
              x:Class="CinemaMobileClient.Views.HomePage"
              BackgroundColor="#1C0038"
              Padding="0">
+    
     <ContentPage.Resources>
         <Style TargetType="Grid">
             <Setter Property="VisualStateManager.VisualStateGroups">

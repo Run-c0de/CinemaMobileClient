@@ -4,10 +4,14 @@ using System.Collections.ObjectModel;
 
 public partial class ReservacionPage : ContentPage
 {
+    IReadOnlyList<object> datos;
+    String TipoDePelicula;
     public ObservableCollection<string> Horario { get; set; }
     public ReservacionPage(IReadOnlyList<object> currentSelection, String TipoDePelicula)
 	{
 		InitializeComponent();
+        datos=currentSelection;
+        this.TipoDePelicula = TipoDePelicula;
         // Inicializamos la colección con los nombres de las imágenes
         Horario = new ObservableCollection<string>
             {
@@ -42,5 +46,10 @@ public partial class ReservacionPage : ContentPage
     private async void OnCloseButtonClicked(object sender, EventArgs e)
     {
         await Navigation.PopModalAsync();
+    }
+
+    private async void OnDetalle(object sender, EventArgs e)
+    {
+        await Navigation.PushModalAsync(new DetallePage(datos,TipoDePelicula));
     }
 }

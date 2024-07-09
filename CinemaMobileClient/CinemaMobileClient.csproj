@@ -86,6 +86,9 @@
       <MauiXaml Update="Views\ConfiteriaPage.xaml">
         <Generator>MSBuild:Compile</Generator>
       </MauiXaml>
+      <MauiXaml Update="Views\DetallePage.xaml">
+        <Generator>MSBuild:Compile</Generator>
+      </MauiXaml>
       <MauiXaml Update="Views\HomePage.xaml">
         <Generator>MSBuild:Compile</Generator>
       </MauiXaml>

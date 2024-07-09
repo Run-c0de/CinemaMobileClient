@@ -86,24 +86,34 @@
                     <Grid HeightRequest="70">
                         <Label
                                 Text="{Binding .}"
+                    
                                 TextColor="Black"
                                 VerticalOptions="Center"
                                 HorizontalOptions="Center"
                                 FontAttributes="Bold"/>
-                        </Grid>
-                    </DataTemplate>
+                    </Grid>
+                </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
         <!--</Grid>-->
 
         <Label
-            Margin="25,20,0,0"
             Grid.Row="3"
+            Margin="25,20,0,0"
             Text="Cines"
             FontSize="18"
             FontAttributes="Bold"
             TextColor="White"
             />
+
+        <Button
+            Grid.Row="4"
+            Text="Detalle"
+            WidthRequest="50"
+            HeightRequest="20"
+            Clicked="OnDetalle"/>
+
+
     </Grid>
 
 </ContentPage>

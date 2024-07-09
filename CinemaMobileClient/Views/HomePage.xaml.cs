@@ -11,8 +11,8 @@ public partial class HomePage : ContentPage
     public ObservableCollection<CarteleraImage> CarteleraImage { get; set; }
     public ICommand ItemSelectedCommand { get; private set; }
     public HomePage()
-	{
-		InitializeComponent();
+    {
+        InitializeComponent();
         InicializarImagenes();
         //Quita la barra de navegación
         NavigationPage.SetHasNavigationBar(this, false);
@@ -51,7 +51,7 @@ public partial class HomePage : ContentPage
                 await Navigation.PushModalAsync(new ReservacionPage(e.CurrentSelection, "Cartelera"));
 
                 // Deseleccionar el elemento cambiando el SelectionMode
-                collectionView.SelectedItem=null;
+                collectionView.SelectedItem = null;
             }
             catch (Exception ex)
             {
@@ -67,9 +67,6 @@ public partial class HomePage : ContentPage
         {
             await Application.Current.MainPage.DisplayAlert("Error", "CollectionView no es válido.", "OK");
         }
-        //Application.Current.MainPage = new Reservacion();
-        //await Navigation.PushAsync(new ReservacionPage(e.CurrentSelection, "Cartelera"));
-
     }
 
     private async void OnCollectionViewSelectionChangedEstrenos(object sender, SelectionChangedEventArgs e)
@@ -101,7 +98,6 @@ public partial class HomePage : ContentPage
         {
             await Application.Current.MainPage.DisplayAlert("Error", "CollectionView no es válido.", "OK");
         }
-        //Application.Current.MainPage = new Reservacion();
-        //await Navigation.PushAsync(new ReservacionPage(e.CurrentSelection, "Estrenos"));
     }
+
 }
