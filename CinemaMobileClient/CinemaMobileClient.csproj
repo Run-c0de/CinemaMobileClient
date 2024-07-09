@@ -58,19 +58,30 @@
 
     <ItemGroup>
       <None Remove="Resources\Images\badboys.jpg" />
+      <None Remove="Resources\Images\camara.png" />
+      <None Remove="Resources\Images\candado.png" />
       <None Remove="Resources\Images\cartelerados.png" />
       <None Remove="Resources\Images\carteleratres.png" />
       <None Remove="Resources\Images\cartelerauno.png" />
       <None Remove="Resources\Images\cines.png" />
+      <None Remove="Resources\Images\clave.png" />
+      <None Remove="Resources\Images\contrasena.png" />
+      <None Remove="Resources\Images\correo.png" />
       <None Remove="Resources\Images\flecha.png" />
       <None Remove="Resources\Images\garfield.png" />
       <None Remove="Resources\Images\home.png" />
       <None Remove="Resources\Images\intensamente.png" />
       <None Remove="Resources\Images\logo.png" />
+      <None Remove="Resources\Images\logosesion.png" />
+      <None Remove="Resources\Images\noclave.png" />
+      <None Remove="Resources\Images\nombre.png" />
       <None Remove="Resources\Images\palomitas.png" />
       <None Remove="Resources\Images\perfil.png" />
       <None Remove="Resources\Images\planetasimios.png" />
+      <None Remove="Resources\Images\rusuario.png" />
+      <None Remove="Resources\Images\telefono.png" />
       <None Remove="Resources\Images\user.png" />
+      <None Remove="Resources\Images\usuario.png" />
     </ItemGroup>
 
     <ItemGroup>
@@ -92,13 +103,28 @@
       <MauiXaml Update="Views\HomePage.xaml">
         <Generator>MSBuild:Compile</Generator>
       </MauiXaml>
+      <MauiXaml Update="Views\loginPage.xaml">
+        <Generator>MSBuild:Compile</Generator>
+      </MauiXaml>
       <MauiXaml Update="Views\MenuPage.xaml">
+        <Generator>MSBuild:Compile</Generator>
+      </MauiXaml>
+      <MauiXaml Update="Views\Nueva_contrasenaPage.xaml">
         <Generator>MSBuild:Compile</Generator>
       </MauiXaml>
       <MauiXaml Update="Views\PerfilPage.xaml">
         <Generator>MSBuild:Compile</Generator>
       </MauiXaml>
+      <MauiXaml Update="Views\RegistroPage.xaml">
+        <Generator>MSBuild:Compile</Generator>
+      </MauiXaml>
       <MauiXaml Update="Views\ReservacionPage.xaml">
+        <Generator>MSBuild:Compile</Generator>
+      </MauiXaml>
+      <MauiXaml Update="Views\restablecer_contrasenaPage.xaml">
+        <Generator>MSBuild:Compile</Generator>
+      </MauiXaml>
+      <MauiXaml Update="Views\verificar_contrasenaPage.xaml">
         <Generator>MSBuild:Compile</Generator>
       </MauiXaml>
     </ItemGroup>

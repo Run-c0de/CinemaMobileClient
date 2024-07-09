@@ -27,5 +27,13 @@
                  HorizontalOptions="End"
                  Margin="0,0,20,0"/>
         </Grid>
+        
+        <Grid Grid.Row="1" RowDefinitions="0.20*,0.30*,0.05*,0.10*,0.05*,0.10*,0.20*">
+            <!-- Agregar Imagen Aquí -->
+            <Image Grid.Row="1" Source="Images/logosesion.png" MaximumWidthRequest="250" MaximumHeightRequest="250" Aspect="AspectFit"/>
+
+            <Button Grid.Row="3" x:Name="btnIniciarSesion" Text="Iniciar sesión" WidthRequest="200" HeightRequest="50" BackgroundColor="#670769" TextColor="White" FontSize="16" Clicked="btnIniciarSesion_Clicked"/>
+            <Button Grid.Row="5" x:Name="btnRegistro" Text="Crear Usuario" WidthRequest="200" HeightRequest="50" BackgroundColor="#670769" TextColor="White" FontSize="16" Clicked="btnRegistro_Clicked"/>
+        </Grid>
     </Grid>
 </ContentPage>

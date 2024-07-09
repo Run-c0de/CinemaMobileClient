@@ -7,4 +7,14 @@ public partial class PerfilPage : ContentPage
 		InitializeComponent();
         NavigationPage.SetHasNavigationBar(this, false);
     }
+
+    private async void btnRegistro_Clicked(object sender, EventArgs e)
+    {
+        await Navigation.PushModalAsync(new RegistroPage());
+    }
+
+    private async void btnIniciarSesion_Clicked(object sender, EventArgs e)
+    {
+        await Navigation.PushModalAsync(new loginPage());
+    }
 }
