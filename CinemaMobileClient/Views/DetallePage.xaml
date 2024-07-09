@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CinemaMobileClient.Views.DetallePage"
+             BackgroundColor="#1C0038">
+
+
+    <Grid BackgroundColor="#1C0038" RowDefinitions="0.08*, 0.30*, 0.05*, 0.47*, 0.10*">
+        <Grid Grid.Row="0"
+       BackgroundColor="#7B09A3">
+            <Grid.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                    <GradientStopCollection>
+                        <GradientStop Offset="0" Color="#2E043D"/>
+                        <GradientStop Offset="1" Color="#7B09A3"/>
+                    </GradientStopCollection>
+                </LinearGradientBrush>
+            </Grid.Background>
+
+            <ImageButton Source="flecha.png"
+                 VerticalOptions="Center"
+                 HorizontalOptions="Start"
+                 Margin="15,0,20,0"
+                 Clicked="OnCloseButtonClicked"
+                 MaximumWidthRequest="28"
+                 MinimumHeightRequest="28">
+                <!--<Image.GestureRecognizers>
+                 <TapGestureRecognizer Tapped="OnCloseButtonClicked" />
+             </Image.GestureRecognizers>-->
+            </ImageButton>
+            <Label Text="DETALLE"
+             FontSize="18"
+             HorizontalOptions="Center"
+             VerticalOptions="Center"
+             TextColor="White"/>
+        </Grid>
+
+        <Grid Grid.Row="1" RowDefinitions="*,*,*,*,*" ColumnDefinitions="0.30*, 0.70*" Margin="10,20,10,0">
+            <Image
+                Grid.Row="0"
+                Grid.Column="0"
+                Grid.RowSpan="5"
+                 x:Name="imagen"
+                 Aspect="AspectFill"/>
+            <Label
+                  Grid.Column="1"
+                  Grid.Row="0"
+                  Margin="10,0,0,0"
+                  Text="El planeta de los simios"
+                  FontSize="20"
+                  TextColor="White"
+                  FontAttributes="Bold"/>
+            <Label
+                   Grid.Column="1"
+                   Grid.Row="1"
+                   Margin="10,0,0,0"
+                   Text="Duración: 2 h 25 min"
+                   FontSize="18"
+                   TextColor="White"/>
+            <Label
+                   Grid.Column="1"
+                   Grid.Row="2"
+                   Margin="10,0,0,0"
+                   Text="Formato: 2D Doblada"
+                   FontSize="18"
+                   TextColor="White"/>
+            <Label
+                   Grid.Column="1"
+                   Grid.Row="3"
+                   Margin="10,0,0,0"
+                   Text="Fecha: 12 Jun 3 pm."
+                   FontSize="18"
+                   TextColor="White"/>
+            <Label
+                   Grid.Column="1"
+                   Grid.Row="4"
+                   Margin="10,0,0,0"
+                   Text="Clasificación A"
+                   FontSize="18"
+                   TextColor="White"/>
+        </Grid>
+
+        <Label
+            Grid.Row="2"
+            Margin="15,15,0,0"
+            Text="Precios"
+            FontSize="20"
+            TextColor="White"/>
+
+        <Border 
+                Grid.Row="3"
+                BackgroundColor="#D9D9D9"
+                StrokeShape="RoundRectangle 30,30,30,30"
+                Margin="10,15,10,0">
+            <Grid RowDefinitions="*,*,*,*" ColumnDefinitions="0.40*, 0.21*, 0.13*, 0.13*, 0.13*">
+                <!-- ADULTO -->
+                <Label 
+                       Grid.Row="0"
+                       Grid.Column="0"
+                       Margin="10,0,0,0"
+                       Text="Adulto" 
+                       FontSize="20"
+                       TextColor="Black"
+                       FontAttributes="Bold"
+                       HorizontalOptions="Center" 
+                       VerticalOptions="Center" />
+                <Label 
+                       Grid.Row="0"
+                       Grid.Column="1"
+                       Text="55 LPS" 
+                       FontSize="16"
+                       TextColor="Black"
+                       FontAttributes="Bold"
+                       HorizontalOptions="Center" 
+                       VerticalOptions="Center" />
+                <Button
+                    x:Name="btnMenosAdulto"
+                    Grid.Row="0"
+                    Grid.Column="2"
+                    Text="-"
+                    FontSize="18"
+                    TextColor="White"
+                    FontAttributes="Bold"
+                    BackgroundColor="#7B09A3"
+                    HorizontalOptions="Center" 
+                    VerticalOptions="Center"
+                    Clicked="MenosAdulto"/>
+                <Label 
+                    x:Name="lblAdulto"
+                    Grid.Row="0"
+                    Grid.Column="3"
+                    Text="0" 
+                    TextColor="Black"
+                    FontAttributes="Bold"
+                    HorizontalOptions="Center" 
+                    VerticalOptions="Center" />
+                <Button
+                    x:Name="btnMasAdulto"
+                    Grid.Row="0"
+                    Grid.Column="4"
+                    Margin="0,0,10,0"
+                    Text="+"
+                    FontSize="18"
+                    TextColor="White"
+                    FontAttributes="Bold"
+                    BackgroundColor="#7B09A3"
+                    HorizontalOptions="Center" 
+                    VerticalOptions="Center"
+                    Clicked="MasAdulto"/>
+                <!-- NIÑO -->
+                <Label 
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    Margin="10,0,0,0"
+                    Text="Niño" 
+                    FontSize="20"
+                    TextColor="Black"
+                    FontAttributes="Bold"
+                    HorizontalOptions="Center" 
+                    VerticalOptions="Center" />
+                <Label 
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    Text="40 LPS" 
+                    FontSize="16"
+                    TextColor="Black"
+                    FontAttributes="Bold"
+                    HorizontalOptions="Center" 
+                    VerticalOptions="Center" />
+                <Button
+                     Grid.Row="1"
+                     Grid.Column="2"
+                     Text="-"
+                     FontSize="18"
+                     TextColor="White"
+                     FontAttributes="Bold"
+                     BackgroundColor="#7B09A3"
+                     HorizontalOptions="Center" 
+                     VerticalOptions="Center"/>
+                <Label 
+                     Grid.Row="1"
+                     Grid.Column="3"
+                     Text="2" 
+                     TextColor="Black"
+                     FontAttributes="Bold"
+                     HorizontalOptions="Center" 
+                     VerticalOptions="Center" />
+                <Button
+                     Grid.Row="1"
+                     Grid.Column="4"
+                     Margin="0,0,10,0"
+                     Text="+"
+                     FontSize="18"
+                     TextColor="White"
+                     FontAttributes="Bold"
+                     BackgroundColor="#7B09A3"
+                     HorizontalOptions="Center" 
+                     VerticalOptions="Center"/>
+                <!-- TERCERA EDAD -->
+                <Label 
+                     Grid.Row="2"
+                     Grid.Column="0"
+                     Margin="10,0,0,0"
+                     Text="Tercera edad" 
+                     FontSize="20"
+                     TextColor="Black"
+                     FontAttributes="Bold"
+                     HorizontalOptions="Center" 
+                     VerticalOptions="Center" />
+                <Label 
+                     Grid.Row="2"
+                     Grid.Column="1"
+                     Text="50 LPS" 
+                     FontSize="16"
+                     TextColor="Black"
+                     FontAttributes="Bold"
+                     HorizontalOptions="Center" 
+                     VerticalOptions="Center" />
+                <Button
+                      Grid.Row="2"
+                      Grid.Column="2"
+                      Text="-"
+                      FontSize="18"
+                      TextColor="White"
+                      FontAttributes="Bold"
+                      BackgroundColor="#7B09A3"
+                      HorizontalOptions="Center" 
+                      VerticalOptions="Center"/>
+                <Label 
+                      Grid.Row="2"
+                      Grid.Column="3"
+                      Text="2" 
+                      TextColor="Black"
+                      FontAttributes="Bold"
+                      HorizontalOptions="Center" 
+                      VerticalOptions="Center" />
+                <Button
+                      Grid.Row="2"
+                      Grid.Column="4"
+                      Margin="0,0,10,0"
+                      Text="+"
+                      FontSize="18"
+                      TextColor="White"
+                      FontAttributes="Bold"
+                      BackgroundColor="#7B09A3"
+                      HorizontalOptions="Center" 
+                      VerticalOptions="Center"/>
+                <!-- DISCAPACIDAD -->
+                <Label 
+                     Grid.Row="3"
+                     Grid.Column="0"
+                     Margin="10,0,0,0"
+                     Text="Discapacidad" 
+                     FontSize="20"
+                     TextColor="Black"
+                     FontAttributes="Bold"
+                     HorizontalOptions="Center" 
+                     VerticalOptions="Center" />
+                <Label 
+                     Grid.Row="3"
+                     Grid.Column="1"
+                     Text="45 LPS" 
+                     FontSize="16"
+                     TextColor="Black"
+                     FontAttributes="Bold"
+                     HorizontalOptions="Center" 
+                     VerticalOptions="Center" />
+                <Button
+                      Grid.Row="3"
+                      Grid.Column="2"
+                      Text="-"
+                      FontSize="18"
+                      TextColor="White"
+                      FontAttributes="Bold"
+                      BackgroundColor="#7B09A3"
+                      HorizontalOptions="Center" 
+                      VerticalOptions="Center"/>
+                <Label 
+                      Grid.Row="3"
+                      Grid.Column="3"
+                      Text="2" 
+                      TextColor="Black"
+                      FontAttributes="Bold"
+                      HorizontalOptions="Center" 
+                      VerticalOptions="Center" />
+                <Button
+                      Grid.Row="3"
+                      Grid.Column="4"
+                      Margin="0,0,10,0"
+                      Text="+"
+                      FontSize="18"
+                      TextColor="White"
+                      FontAttributes="Bold"
+                      BackgroundColor="#7B09A3"
+                      HorizontalOptions="Center" 
+                      VerticalOptions="Center"/>
+            </Grid>
+        </Border>
+
+        <Grid Grid.Row="4" BackgroundColor="#7B09A3" Margin="0,20,0,0">
+            <Label Text="100.00 LPS" 
+                   HorizontalOptions="Center" 
+                   VerticalOptions="Center" />
+        </Grid>
+    </Grid>
+
+</ContentPage>

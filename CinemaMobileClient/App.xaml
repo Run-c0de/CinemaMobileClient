@@ -5,8 +5,21 @@
              x:Class="CinemaMobileClient.App">
     <Application.Resources>
         <ResourceDictionary>
+            <Color x:Key="MainBackgroundColor">#2A073A</Color>
+            <Style TargetType="TabBar">
+                <Setter Property="Shell.TabBarBackgroundColor"
+                        Value="#2A073A" />
+                <Setter Property="Shell.TabBarTitleColor"
+                        Value="White" />
+                <Setter Property="Shell.TabBarUnselectedColor"
+                        Value="#C5C5C5" />
+                <Setter Property="Shell.TabBarForegroundColor"
+                        Value="White" />
+            </Style>
+
+
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="Resources/Styles/Colors.xaml" />
+                 <ResourceDictionary Source="Resources/Styles/Colors.xaml" />
                 <ResourceDictionary Source="Resources/Styles/Styles.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
