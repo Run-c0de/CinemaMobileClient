@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CinemaMobileClient.Views.loginPage">
+    
+    <Grid BackgroundColor="#1C0038" RowDefinitions="0.08*, 0.92*">
+        <Grid Grid.Row="0">
+            <Grid.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                    <GradientStopCollection>
+                        <GradientStop Offset="0" Color="#2E043D"/>
+                        <GradientStop Offset="1" Color="#7B09A3"/>
+                    </GradientStopCollection>
+                </LinearGradientBrush>
+            </Grid.Background>
+
+            <ImageButton Source="flecha.png"
+                VerticalOptions="Center"
+                HorizontalOptions="Start"
+                Margin="15,0,20,0"
+                Clicked="OnCloseButtonClicked"
+                MaximumWidthRequest="28"
+                MinimumHeightRequest="28">
+                <!--<Image.GestureRecognizers>
+                <TapGestureRecognizer Tapped="OnCloseButtonClicked" />
+            </Image.GestureRecognizers>-->
+            </ImageButton>
+            <Label Text="INICIAR SESIÓN"
+            FontSize="18"
+            HorizontalOptions="Center"
+            VerticalOptions="Center"
+            TextColor="White"/>
+        </Grid>
+
+        <Grid Grid.Row="1" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+            <VerticalStackLayout VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="300">
+
+                <Image Source="Images/logosesion.jpeg" WidthRequest="250" HeightRequest="250" Margin="0,0,0,20"/>
+
+                <Frame BackgroundColor="#9F75F9" CornerRadius="0" HasShadow="False" Padding="2">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Image Source="usuario.png" WidthRequest="24" HeightRequest="24" VerticalOptions="Center" />
+                        <Entry Grid.Column="1"
+                           Placeholder="Ingrese su usuario"
+                           TextColor="White"
+                           PlaceholderColor="White"
+                           Margin="10,0,0,0" />
+                    </Grid>
+                </Frame>
+                <BoxView HeightRequest="20" BackgroundColor="Transparent" />
+
+                <Frame BackgroundColor="#9F75F9" CornerRadius="0" HasShadow="False" Padding="2">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <Image x:Name="PasswordIcon"
+                         Source="contrasena.png"
+                         WidthRequest="24" HeightRequest="24"
+                         VerticalOptions="Center"
+                         Margin="5"/>
+                        <Entry Grid.Column="1"
+                         x:Name="PasswordEntry"
+                         Placeholder="Ingrese su contraseña"
+                         IsPassword="True"
+                         TextColor="White"
+                         PlaceholderColor="White"
+                         Margin="10,0,0,0" />
+                        <ImageButton x:Name="TogglePasswordVisibilityIcon"
+                         Grid.Column="2"
+                         BackgroundColor="Transparent"
+                         Clicked="TogglePasswordVisibility"
+                         VerticalOptions="Center"
+                         WidthRequest="24" HeightRequest="24"
+                         Margin="0">
+                            <ImageButton.Source>
+                                <FileImageSource File="noclave.png" />
+                            </ImageButton.Source>
+                        </ImageButton>
+                    </Grid>
+                </Frame>
+
+                <Label Text="Olvidé mi contraseña" TextColor="#7B09A3" HorizontalTextAlignment="End" Margin="10,12,5,20" TextDecorations="Underline">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer
+                        Tapped="OnForgotPasswordTapped"
+                        NumberOfTapsRequired="1" />
+                    </Label.GestureRecognizers>
+                </Label>
+
+                <Button Text="Iniciar sesión" WidthRequest="300" HeightRequest="50" BackgroundColor="#7B09A3" TextColor="White" FontSize="16"  Margin="0,10,5,20"/>
+
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Spacing="10" Margin="0,20,0,0">
+
+                </StackLayout>
+
+            </VerticalStackLayout>
+        </Grid>
+    </Grid>
+
+</ContentPage>
