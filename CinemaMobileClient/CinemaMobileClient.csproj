@@ -21,7 +21,7 @@
         <Nullable>enable</Nullable>
 
         <!-- Display name -->
-        <ApplicationTitle>CinemaMobileClient</ApplicationTitle>
+        <ApplicationTitle>Cinépolis</ApplicationTitle>
 
         <!-- App Identifier -->
         <ApplicationId>com.companyname.cinemamobileclient</ApplicationId>
@@ -40,11 +40,12 @@
 
     <ItemGroup>
         <!-- App Icon -->
-        <MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4" />
+        <!--<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#00000000" />-->
+		<MauiIcon Include="Resources\AppIcon\iconocine.png" ForegroundScale="0.65" Color="#00000000" />
 
         <!-- Splash Screen -->
-        <MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#512BD4" BaseSize="128,128" />
-
+		<MauiSplashScreen Include="Resources\Splash\inicio.png" Color="#512BD4" BaseSize="1008,1008" />
+		
         <!-- Images -->
         <MauiImage Include="Resources\Images\*" />
         <MauiImage Update="Resources\Images\dotnet_bot.png" Resize="True" BaseSize="300,185" />
@@ -57,6 +58,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <None Remove="Resources\AppIcon\iconocine.png" />
       <None Remove="Resources\Images\badboys.jpg" />
       <None Remove="Resources\Images\camara.png" />
       <None Remove="Resources\Images\candado.png" />
@@ -82,6 +84,7 @@
       <None Remove="Resources\Images\telefono.png" />
       <None Remove="Resources\Images\user.png" />
       <None Remove="Resources\Images\usuario.png" />
+      <None Remove="Resources\Splash\inicioo.png" />
     </ItemGroup>
 
     <ItemGroup>
