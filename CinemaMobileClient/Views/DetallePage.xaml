@@ -297,10 +297,30 @@
             </Grid>
         </Border>
 
-        <Grid Grid.Row="4" BackgroundColor="#7B09A3" Margin="0,20,0,0">
-            <Label Text="100.00 LPS" 
-                   HorizontalOptions="Center" 
-                   VerticalOptions="Center" />
+        <Grid Grid.Row="4" BackgroundColor="#7B09A3" Margin="0,20,0,0" ColumnDefinitions="0.25*,0.25*,0.20*,0.30*">
+                <Image Source="carrito.png"
+                       Margin="20,0,0,0"
+                       HorizontalOptions="Center" 
+                       VerticalOptions="Center"/>
+                <Label 
+                    Grid.Column="1"
+                    Text="100.00 LPS" 
+                    TextColor="White"
+                    HorizontalOptions="Center" 
+                    VerticalOptions="Center"
+                    Margin="0,0,0,0"
+                    FontAttributes="Bold"/>
+                <Button
+                    Grid.Column="3"
+                    Text="Continuar"
+                    FontAttributes="Bold"
+                    TextColor="Black"
+                    CornerRadius="30"
+                    BackgroundColor="#B8B8B8"
+                    Margin="0,5,20,5"
+                    HorizontalOptions="Center" 
+                    VerticalOptions="Center"/>
+           
         </Grid>
     </Grid>
 

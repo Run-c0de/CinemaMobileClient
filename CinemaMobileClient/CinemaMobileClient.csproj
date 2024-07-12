@@ -62,6 +62,7 @@
       <None Remove="Resources\Images\badboys.jpg" />
       <None Remove="Resources\Images\camara.png" />
       <None Remove="Resources\Images\candado.png" />
+      <None Remove="Resources\Images\carrito.png" />
       <None Remove="Resources\Images\cartelerados.png" />
       <None Remove="Resources\Images\carteleratres.png" />
       <None Remove="Resources\Images\cartelerauno.png" />
