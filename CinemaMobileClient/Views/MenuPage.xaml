@@ -14,7 +14,7 @@
             <ShellContent ContentTemplate="{DataTemplate local:ConfiteriaPage}" />
         </Tab>
         <Tab Title="Perfil" Icon="perfil.png">
-            <ShellContent ContentTemplate="{DataTemplate local:PerfilPage}" />
+            <ShellContent ContentTemplate="{DataTemplate local:pantalla_perfil}" />
         </Tab>
     </TabBar>
 </Shell>
