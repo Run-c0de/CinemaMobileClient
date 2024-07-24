@@ -9,6 +9,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net8.0-android|AnyCPU'">
     <DebuggerFlavor>ProjectDebugger</DebuggerFlavor>
   </PropertyGroup>
+<<<<<<< HEAD
   <ItemGroup>
     <MauiXaml Update="Servicios\Prueba.xaml">
       <SubType>Designer</SubType>
@@ -53,4 +54,7 @@
       <SubType>Designer</SubType>
     </MauiXaml>
   </ItemGroup>
+=======
+  <ItemGroup />
+>>>>>>> f6b164be5fbb5e0f016163ec89cc61204287254d
 </Project>
