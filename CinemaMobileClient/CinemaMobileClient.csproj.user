@@ -3,13 +3,14 @@
   <PropertyGroup>
     <IsFirstTimeProjectOpen>False</IsFirstTimeProjectOpen>
     <ActiveDebugFramework>net8.0-android</ActiveDebugFramework>
-    <ActiveDebugProfile>Xiaomi 2201117SL (Android 11.0 - API 30)</ActiveDebugProfile>
+    <ActiveDebugProfile>Xiaomi Redmi Note 9 Pro (Android 12.0 - API 31)</ActiveDebugProfile>
     <SelectedPlatformGroup>PhysicalDevice</SelectedPlatformGroup>
+    <DefaultDevice>pixel_5_-_api_34</DefaultDevice>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net8.0-android|AnyCPU'">
     <DebuggerFlavor>ProjectDebugger</DebuggerFlavor>
   </PropertyGroup>
-   <ItemGroup>
+  <ItemGroup>
     <MauiXaml Update="Servicios\Prueba.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>

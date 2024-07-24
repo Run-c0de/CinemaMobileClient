@@ -319,6 +319,7 @@
                     BackgroundColor="#B8B8B8"
                     Margin="0,5,20,5"
                     HorizontalOptions="Center" 
+                    Clicked="IrAsientos"
                     VerticalOptions="Center"/>
            
         </Grid>
