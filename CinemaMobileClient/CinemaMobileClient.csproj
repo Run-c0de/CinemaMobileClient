@@ -96,6 +96,9 @@
     </ItemGroup>
 
     <ItemGroup>
+      <MauiXaml Update="Servicios\Prueba.xaml">
+        <Generator>MSBuild:Compile</Generator>
+      </MauiXaml>
       <MauiXaml Update="Views\CinesPage.xaml">
         <Generator>MSBuild:Compile</Generator>
       </MauiXaml>
@@ -115,6 +118,9 @@
         <Generator>MSBuild:Compile</Generator>
       </MauiXaml>
       <MauiXaml Update="Views\Nueva_contrasenaPage.xaml">
+        <Generator>MSBuild:Compile</Generator>
+      </MauiXaml>
+      <MauiXaml Update="Views\pantalla_perfil.xaml">
         <Generator>MSBuild:Compile</Generator>
       </MauiXaml>
       <MauiXaml Update="Views\PerfilPage.xaml">

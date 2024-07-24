@@ -26,5 +26,77 @@
         HorizontalOptions="End"
         Margin="0,0,20,0"/>
         </Grid>
+
+        <Grid Grid.Row="1">
+            <StackLayout>
+                <!-- Header 
+            <Grid BackgroundColor="#550077" HeightRequest="50">
+                <Label Text="UBICACIONES" 
+                       VerticalOptions="Center" 
+                       HorizontalOptions="Center"
+                       TextColor="White"
+                       FontSize="Medium" />
+                <ImageButton Source="profile_icon.png"
+                             VerticalOptions="Center"
+                             HorizontalOptions="End"
+                             Margin="0,0,10,0"
+                             HeightRequest="30"
+                             WidthRequest="30"/>
+            </Grid> -->
+
+                <!-- Locations List -->
+                <StackLayout Padding="10">
+                    <!-- First Location -->
+                    <Frame BorderColor="#550077" CornerRadius="10" HasShadow="False">
+                        <Grid>
+                            <Image Source="san_pedro_sula_image.png" Aspect="AspectFill" HeightRequest="100" />
+                            <StackLayout BackgroundColor="LightGray" Opacity="0.8">
+                                <Label Text="Honduras - San Pedro Sula" 
+                                   FontSize="Medium" 
+                                   TextColor="Black" />
+                                <Label Text="Centro Comercial Galerías del Valle" 
+                                   FontSize="Small" 
+                                   TextColor="Black" />
+                            </StackLayout>
+                        </Grid>
+                    </Frame>
+
+                    <!-- Second Location -->
+                    <Frame BorderColor="#550077" CornerRadius="10" HasShadow="False">
+                        <Grid>
+                            <Image Source="tegucigalpa_image.png" Aspect="AspectFill" HeightRequest="100" />
+                            <StackLayout BackgroundColor="LightGray" Opacity="0.8">
+                                <Label Text="Honduras - Tegucigalpa" 
+                                   FontSize="Medium" 
+                                   TextColor="Black" />
+                                <Label Text="Cascadas Mall" 
+                                   FontSize="Small" 
+                                   TextColor="Black" />
+                            </StackLayout>
+                        </Grid>
+                    </Frame>
+                </StackLayout>
+
+                <!-- Use a CollectionView to bind dynamic data 
+            <StackLayout Padding="10">
+                <CollectionView ItemsSource="{Binding Locations}">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Frame BorderColor="#550077" CornerRadius="10" HasShadow="False">
+                                <Grid>
+                                    <Image Source="{Binding Imagen}" Aspect="AspectFill" HeightRequest="100" />
+                                    <StackLayout BackgroundColor="LightGray" Opacity="0.8">
+                                        <Label Text="{Binding Nombre}" FontSize="Medium" TextColor="Black" />
+                                        <Label Text="{Binding Descripcion}" FontSize="Small" TextColor="Black" />
+                                    </StackLayout>
+                                </Grid>
+                            </Frame>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </StackLayout> -->
+            </StackLayout>
+
+        </Grid>
     </Grid>
 </ContentPage>
