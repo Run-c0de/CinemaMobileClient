@@ -1,58 +1,14 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\kevin\\source\\repos\\CinemaMobileClient\\",
+  "WorkspaceRootPath": "C:\\Proyecto Movil 2\\CinemaMobileClient\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{661A271E-267F-4B22-8BE5-0E0414D1A4CF}|CinemaMobileClient\\CinemaMobileClient.csproj|c:\\users\\kevin\\source\\repos\\cinemamobileclient\\cinemamobileclient\\platforms\\android\\androidmanifest.xml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
-      "RelativeMoniker": "D:0:0:{661A271E-267F-4B22-8BE5-0E0414D1A4CF}|CinemaMobileClient\\CinemaMobileClient.csproj|solutionrelative:cinemamobileclient\\platforms\\android\\androidmanifest.xml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+      "AbsoluteMoniker": "D:0:0:{661A271E-267F-4B22-8BE5-0E0414D1A4CF}|CinemaMobileClient\\CinemaMobileClient.csproj|c:\\proyecto movil 2\\cinemamobileclient\\cinemamobileclient\\views\\asientospages.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{661A271E-267F-4B22-8BE5-0E0414D1A4CF}|CinemaMobileClient\\CinemaMobileClient.csproj|solutionrelative:cinemamobileclient\\views\\asientospages.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{661A271E-267F-4B22-8BE5-0E0414D1A4CF}|CinemaMobileClient\\CinemaMobileClient.csproj|c:\\users\\kevin\\source\\repos\\cinemamobileclient\\cinemamobileclient\\endpoints\\endpoints.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{661A271E-267F-4B22-8BE5-0E0414D1A4CF}|CinemaMobileClient\\CinemaMobileClient.csproj|solutionrelative:cinemamobileclient\\endpoints\\endpoints.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{661A271E-267F-4B22-8BE5-0E0414D1A4CF}|CinemaMobileClient\\CinemaMobileClient.csproj|c:\\users\\kevin\\source\\repos\\cinemamobileclient\\cinemamobileclient\\servicios\\prueba.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{661A271E-267F-4B22-8BE5-0E0414D1A4CF}|CinemaMobileClient\\CinemaMobileClient.csproj|solutionrelative:cinemamobileclient\\servicios\\prueba.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{661A271E-267F-4B22-8BE5-0E0414D1A4CF}|CinemaMobileClient\\CinemaMobileClient.csproj|c:\\users\\kevin\\source\\repos\\cinemamobileclient\\cinemamobileclient\\servicios\\prueba.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{661A271E-267F-4B22-8BE5-0E0414D1A4CF}|CinemaMobileClient\\CinemaMobileClient.csproj|solutionrelative:cinemamobileclient\\servicios\\prueba.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{661A271E-267F-4B22-8BE5-0E0414D1A4CF}|CinemaMobileClient\\CinemaMobileClient.csproj|c:\\users\\kevin\\source\\repos\\cinemamobileclient\\cinemamobileclient\\viewmodels\\cinesviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{661A271E-267F-4B22-8BE5-0E0414D1A4CF}|CinemaMobileClient\\CinemaMobileClient.csproj|solutionrelative:cinemamobileclient\\viewmodels\\cinesviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{661A271E-267F-4B22-8BE5-0E0414D1A4CF}|CinemaMobileClient\\CinemaMobileClient.csproj|c:\\users\\kevin\\source\\repos\\cinemamobileclient\\cinemamobileclient\\models\\sitios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{661A271E-267F-4B22-8BE5-0E0414D1A4CF}|CinemaMobileClient\\CinemaMobileClient.csproj|solutionrelative:cinemamobileclient\\models\\sitios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{661A271E-267F-4B22-8BE5-0E0414D1A4CF}|CinemaMobileClient\\CinemaMobileClient.csproj|c:\\users\\kevin\\source\\repos\\cinemamobileclient\\cinemamobileclient\\servicios\\cinesservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{661A271E-267F-4B22-8BE5-0E0414D1A4CF}|CinemaMobileClient\\CinemaMobileClient.csproj|solutionrelative:cinemamobileclient\\servicios\\cinesservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{661A271E-267F-4B22-8BE5-0E0414D1A4CF}|CinemaMobileClient\\CinemaMobileClient.csproj|c:\\users\\kevin\\source\\repos\\cinemamobileclient\\cinemamobileclient\\appshell.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{661A271E-267F-4B22-8BE5-0E0414D1A4CF}|CinemaMobileClient\\CinemaMobileClient.csproj|solutionrelative:cinemamobileclient\\appshell.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{661A271E-267F-4B22-8BE5-0E0414D1A4CF}|CinemaMobileClient\\CinemaMobileClient.csproj|c:\\users\\kevin\\source\\repos\\cinemamobileclient\\cinemamobileclient\\appshell.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{661A271E-267F-4B22-8BE5-0E0414D1A4CF}|CinemaMobileClient\\CinemaMobileClient.csproj|solutionrelative:cinemamobileclient\\appshell.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{661A271E-267F-4B22-8BE5-0E0414D1A4CF}|CinemaMobileClient\\CinemaMobileClient.csproj|c:\\users\\kevin\\source\\repos\\cinemamobileclient\\cinemamobileclient\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{661A271E-267F-4B22-8BE5-0E0414D1A4CF}|CinemaMobileClient\\CinemaMobileClient.csproj|solutionrelative:cinemamobileclient\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{661A271E-267F-4B22-8BE5-0E0414D1A4CF}|CinemaMobileClient\\CinemaMobileClient.csproj|c:\\users\\kevin\\source\\repos\\cinemamobileclient\\cinemamobileclient\\views\\menupage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{661A271E-267F-4B22-8BE5-0E0414D1A4CF}|CinemaMobileClient\\CinemaMobileClient.csproj|solutionrelative:cinemamobileclient\\views\\menupage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{661A271E-267F-4B22-8BE5-0E0414D1A4CF}|CinemaMobileClient\\CinemaMobileClient.csproj|c:\\users\\kevin\\source\\repos\\cinemamobileclient\\cinemamobileclient\\views\\menupage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{661A271E-267F-4B22-8BE5-0E0414D1A4CF}|CinemaMobileClient\\CinemaMobileClient.csproj|solutionrelative:cinemamobileclient\\views\\menupage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{661A271E-267F-4B22-8BE5-0E0414D1A4CF}|CinemaMobileClient\\CinemaMobileClient.csproj|c:\\users\\kevin\\source\\repos\\cinemamobileclient\\cinemamobileclient\\servicios\\icinesservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{661A271E-267F-4B22-8BE5-0E0414D1A4CF}|CinemaMobileClient\\CinemaMobileClient.csproj|solutionrelative:cinemamobileclient\\servicios\\icinesservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{661A271E-267F-4B22-8BE5-0E0414D1A4CF}|CinemaMobileClient\\CinemaMobileClient.csproj|c:\\proyecto movil 2\\cinemamobileclient\\cinemamobileclient\\views\\cinespage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{661A271E-267F-4B22-8BE5-0E0414D1A4CF}|CinemaMobileClient\\CinemaMobileClient.csproj|solutionrelative:cinemamobileclient\\views\\cinespage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     }
   ],
   "DocumentGroupContainers": [
@@ -71,164 +27,28 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "AndroidManifest.xml",
-              "DocumentMoniker": "C:\\Users\\kevin\\source\\repos\\CinemaMobileClient\\CinemaMobileClient\\Platforms\\Android\\AndroidManifest.xml",
-              "RelativeDocumentMoniker": "CinemaMobileClient\\Platforms\\Android\\AndroidManifest.xml",
-              "ToolTip": "C:\\Users\\kevin\\source\\repos\\CinemaMobileClient\\CinemaMobileClient\\Platforms\\Android\\AndroidManifest.xml",
-              "RelativeToolTip": "CinemaMobileClient\\Platforms\\Android\\AndroidManifest.xml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAALAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003576|",
-              "WhenOpened": "2024-07-25T01:00:32.875Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "App.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\kevin\\source\\repos\\CinemaMobileClient\\CinemaMobileClient\\App.xaml.cs",
-              "RelativeDocumentMoniker": "CinemaMobileClient\\App.xaml.cs",
-              "ToolTip": "C:\\Users\\kevin\\source\\repos\\CinemaMobileClient\\CinemaMobileClient\\App.xaml.cs",
-              "RelativeToolTip": "CinemaMobileClient\\App.xaml.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAAAAAA",
+              "Title": "AsientosPages.xaml.cs",
+              "DocumentMoniker": "C:\\Proyecto Movil 2\\CinemaMobileClient\\CinemaMobileClient\\Views\\AsientosPages.xaml.cs",
+              "RelativeDocumentMoniker": "CinemaMobileClient\\Views\\AsientosPages.xaml.cs",
+              "ToolTip": "C:\\Proyecto Movil 2\\CinemaMobileClient\\CinemaMobileClient\\Views\\AsientosPages.xaml.cs",
+              "RelativeToolTip": "CinemaMobileClient\\Views\\AsientosPages.xaml.cs",
+              "ViewState": "AQIAABUAAAAAAAAAAAAYwCAAAAAcAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-24T05:21:52.691Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "MenuPage.xaml",
-              "DocumentMoniker": "C:\\Users\\kevin\\source\\repos\\CinemaMobileClient\\CinemaMobileClient\\Views\\MenuPage.xaml",
-              "RelativeDocumentMoniker": "CinemaMobileClient\\Views\\MenuPage.xaml",
-              "ToolTip": "C:\\Users\\kevin\\source\\repos\\CinemaMobileClient\\CinemaMobileClient\\Views\\MenuPage.xaml",
-              "RelativeToolTip": "CinemaMobileClient\\Views\\MenuPage.xaml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAOAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-07-24T05:17:08.437Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "MenuPage.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\kevin\\source\\repos\\CinemaMobileClient\\CinemaMobileClient\\Views\\MenuPage.xaml.cs",
-              "RelativeDocumentMoniker": "CinemaMobileClient\\Views\\MenuPage.xaml.cs",
-              "ToolTip": "C:\\Users\\kevin\\source\\repos\\CinemaMobileClient\\CinemaMobileClient\\Views\\MenuPage.xaml.cs",
-              "RelativeToolTip": "CinemaMobileClient\\Views\\MenuPage.xaml.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-24T05:17:06.8Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "ICinesService.cs",
-              "DocumentMoniker": "C:\\Users\\kevin\\source\\repos\\CinemaMobileClient\\CinemaMobileClient\\Servicios\\ICinesService.cs",
-              "RelativeDocumentMoniker": "CinemaMobileClient\\Servicios\\ICinesService.cs",
-              "ToolTip": "C:\\Users\\kevin\\source\\repos\\CinemaMobileClient\\CinemaMobileClient\\Servicios\\ICinesService.cs",
-              "RelativeToolTip": "CinemaMobileClient\\Servicios\\ICinesService.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-24T05:15:11.38Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "CinesService.cs",
-              "DocumentMoniker": "C:\\Users\\kevin\\source\\repos\\CinemaMobileClient\\CinemaMobileClient\\Servicios\\CinesService.cs",
-              "RelativeDocumentMoniker": "CinemaMobileClient\\Servicios\\CinesService.cs",
-              "ToolTip": "C:\\Users\\kevin\\source\\repos\\CinemaMobileClient\\CinemaMobileClient\\Servicios\\CinesService.cs",
-              "RelativeToolTip": "CinemaMobileClient\\Servicios\\CinesService.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAADEAAAAMAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-24T05:14:29.885Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "CinesViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\kevin\\source\\repos\\CinemaMobileClient\\CinemaMobileClient\\ViewModels\\CinesViewModel.cs",
-              "RelativeDocumentMoniker": "CinemaMobileClient\\ViewModels\\CinesViewModel.cs",
-              "ToolTip": "C:\\Users\\kevin\\source\\repos\\CinemaMobileClient\\CinemaMobileClient\\ViewModels\\CinesViewModel.cs",
-              "RelativeToolTip": "CinemaMobileClient\\ViewModels\\CinesViewModel.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAfAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-24T05:14:16.288Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Prueba.xaml",
-              "DocumentMoniker": "C:\\Users\\kevin\\source\\repos\\CinemaMobileClient\\CinemaMobileClient\\Servicios\\Prueba.xaml",
-              "RelativeDocumentMoniker": "CinemaMobileClient\\Servicios\\Prueba.xaml",
-              "ToolTip": "C:\\Users\\kevin\\source\\repos\\CinemaMobileClient\\CinemaMobileClient\\Servicios\\Prueba.xaml",
-              "RelativeToolTip": "CinemaMobileClient\\Servicios\\Prueba.xaml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAjAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-07-24T05:12:34.153Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Prueba.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\kevin\\source\\repos\\CinemaMobileClient\\CinemaMobileClient\\Servicios\\Prueba.xaml.cs",
-              "RelativeDocumentMoniker": "CinemaMobileClient\\Servicios\\Prueba.xaml.cs",
-              "ToolTip": "C:\\Users\\kevin\\source\\repos\\CinemaMobileClient\\CinemaMobileClient\\Servicios\\Prueba.xaml.cs",
-              "RelativeToolTip": "CinemaMobileClient\\Servicios\\Prueba.xaml.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAAAFAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-24T05:12:26.206Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "sitios.cs",
-              "DocumentMoniker": "C:\\Users\\kevin\\source\\repos\\CinemaMobileClient\\CinemaMobileClient\\Models\\sitios.cs",
-              "RelativeDocumentMoniker": "CinemaMobileClient\\Models\\sitios.cs",
-              "ToolTip": "C:\\Users\\kevin\\source\\repos\\CinemaMobileClient\\CinemaMobileClient\\Models\\sitios.cs",
-              "RelativeToolTip": "CinemaMobileClient\\Models\\sitios.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-24T05:23:05.869Z",
+              "WhenOpened": "2024-07-24T06:11:47.229Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Endpoints.cs",
-              "DocumentMoniker": "C:\\Users\\kevin\\source\\repos\\CinemaMobileClient\\CinemaMobileClient\\Endpoints\\Endpoints.cs",
-              "RelativeDocumentMoniker": "CinemaMobileClient\\Endpoints\\Endpoints.cs",
-              "ToolTip": "C:\\Users\\kevin\\source\\repos\\CinemaMobileClient\\CinemaMobileClient\\Endpoints\\Endpoints.cs",
-              "RelativeToolTip": "CinemaMobileClient\\Endpoints\\Endpoints.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-24T05:28:01.336Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "AppShell.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\kevin\\source\\repos\\CinemaMobileClient\\CinemaMobileClient\\AppShell.xaml.cs",
-              "RelativeDocumentMoniker": "CinemaMobileClient\\AppShell.xaml.cs",
-              "ToolTip": "C:\\Users\\kevin\\source\\repos\\CinemaMobileClient\\CinemaMobileClient\\AppShell.xaml.cs",
-              "RelativeToolTip": "CinemaMobileClient\\AppShell.xaml.cs",
+              "Title": "CinesPage.xaml",
+              "DocumentMoniker": "C:\\Proyecto Movil 2\\CinemaMobileClient\\CinemaMobileClient\\Views\\CinesPage.xaml",
+              "RelativeDocumentMoniker": "CinemaMobileClient\\Views\\CinesPage.xaml",
+              "ToolTip": "C:\\Proyecto Movil 2\\CinemaMobileClient\\CinemaMobileClient\\Views\\CinesPage.xaml",
+              "RelativeToolTip": "CinemaMobileClient\\Views\\CinesPage.xaml",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-24T05:22:15.885Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "AppShell.xaml",
-              "DocumentMoniker": "C:\\Users\\kevin\\source\\repos\\CinemaMobileClient\\CinemaMobileClient\\AppShell.xaml",
-              "RelativeDocumentMoniker": "CinemaMobileClient\\AppShell.xaml",
-              "ToolTip": "C:\\Users\\kevin\\source\\repos\\CinemaMobileClient\\CinemaMobileClient\\AppShell.xaml",
-              "RelativeToolTip": "CinemaMobileClient\\AppShell.xaml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-07-24T05:22:17.397Z"
+              "WhenOpened": "2024-07-24T06:11:46.52Z",
+              "EditorCaption": ""
             }
           ]
         }

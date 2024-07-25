@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CinemaMobileClient.Views.AsientosPages"
+             Title="AsientosPages"
+             BackgroundColor="#1C0038">
+    <ContentPage.Content>
+        <Grid BackgroundColor="#1C0038" RowDefinitions="0.05*, auto, 0.10*">
+            <!--Header-->
+            <Grid Grid.Row="0" BackgroundColor="#7B09A3">
+                <Grid.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                        <GradientStopCollection>
+                            <GradientStop Offset="0" Color="#2E043D"/>
+                            <GradientStop Offset="1" Color="#7B09A3"/>
+                        </GradientStopCollection>
+                    </LinearGradientBrush>
+                </Grid.Background>
+                <Label Text="ASIENTOS"
+                    FontSize="18"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"
+                    TextColor="White"/>
+                <Image Source="palomitas.png"
+                    VerticalOptions="Center"
+                    HorizontalOptions="End"
+                    Margin="0,0,20,0"/>
+            </Grid>
+            <!--Body-->
+            <ScrollView Grid.Row="1">
+                <StackLayout Padding="10">
+
+                    <!--Movie Info-->
+                    <StackLayout Orientation="Horizontal" Margin="20,0,0,10">
+                        <Image Source="movie_poster.png" WidthRequest="80" HeightRequest="120"/>
+                        <StackLayout VerticalOptions="Center" Margin="10,0">
+                            <Label Text="El planeta de los simios" FontSize="18" TextColor="White"/>
+                            <Label Text="Duración: 2 h 25 min" FontSize="16" TextColor="Gray"/>
+                            <Label Text="Formato: 2D Doblada" FontSize="16" TextColor="Gray"/>
+                            <Label Text="Fecha: 12 Jun 3 pm" FontSize="16" TextColor="Gray"/>
+                            <Label Text="Clasificación: A" FontSize="16" TextColor="Gray"/>
+                        </StackLayout>
+                    </StackLayout>
+                    <Border 
+                        Grid.Row="3"
+                        BackgroundColor="#D9D9D9"
+                        StrokeShape="RoundRectangle 20,20,20,20"
+                        Margin="10,15,10,0">
+                        <StackLayout>
+                            <Image Source="pantalla.png" HorizontalOptions="Center" WidthRequest="350" HeightRequest="200"/>
+                            <Grid x:Name="SeatsGrid" ColumnSpacing="15" RowSpacing="10" Margin="10" BackgroundColor="LightGray" />
+                            <!--<Grid ColumnSpacing="10" RowSpacing="10" Margin="10" BackgroundColor="LightGray">
+                                -->
+                            <!-- Define las filas y columnas de la grilla -->
+                            <!--
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+
+                                -->
+                            <!-- Fila A -->
+                            <!--
+                                <ImageButton Grid.Row="0" Grid.Column="0" Source="asiento.png" WidthRequest="40" HeightRequest="40" Margin="0" AutomationId="A1"/>
+                                <ImageButton Grid.Row="0" Grid.Column="1" Source="asiento.png" WidthRequest="40" HeightRequest="40" Margin="0" AutomationId="A2"/>
+                                <ImageButton Grid.Row="0" Grid.Column="2" Source="asiento.png" WidthRequest="40" HeightRequest="40" Margin="0" AutomationId="A3"/>
+                                <ImageButton Grid.Row="0" Grid.Column="3" Source="asiento.png" WidthRequest="40" HeightRequest="40" Margin="0" AutomationId="A4"/>
+                                <ImageButton Grid.Row="0" Grid.Column="4" Source="asiento.png" WidthRequest="40" HeightRequest="40" Margin="0" AutomationId="A5"/>
+                                <ImageButton Grid.Row="0" Grid.Column="5" Source="asiento.png" WidthRequest="40" HeightRequest="40" Margin="0" AutomationId="A6"/>
+
+                                -->
+                            <!-- Fila B -->
+                            <!--
+                                <ImageButton Grid.Row="1" Grid.Column="0" Source="asiento.png" WidthRequest="40" HeightRequest="40" Margin="0" AutomationId="B1"/>
+                                <ImageButton Grid.Row="1" Grid.Column="1" Source="asiento.png" WidthRequest="40" HeightRequest="40" Margin="0" AutomationId="B2"/>
+                                <ImageButton Grid.Row="1" Grid.Column="2" Source="asiento.png" WidthRequest="40" HeightRequest="40" Margin="0" AutomationId="B3"/>
+                                <ImageButton Grid.Row="1" Grid.Column="3" Source="asiento.png" WidthRequest="40" HeightRequest="40" Margin="0" AutomationId="B4"/>
+                                <ImageButton Grid.Row="1" Grid.Column="4" Source="asiento.png" WidthRequest="40" HeightRequest="40" Margin="0" AutomationId="B5"/>
+                                <ImageButton Grid.Row="1" Grid.Column="5" Source="asiento.png" WidthRequest="40" HeightRequest="40" Margin="0" AutomationId="B6"/>
+
+                                -->
+                            <!-- Fila C -->
+                            <!--
+                                <ImageButton Grid.Row="2" Grid.Column="0" Source="asiento.png" WidthRequest="40" HeightRequest="40" Margin="0" AutomationId="C1"/>
+                                <ImageButton Grid.Row="2" Grid.Column="1" Source="asiento.png" WidthRequest="40" HeightRequest="40" Margin="0" AutomationId="C2"/>
+                                <ImageButton Grid.Row="2" Grid.Column="2" Source="asiento.png" WidthRequest="40" HeightRequest="40" Margin="0" AutomationId="C3"/>
+                                <ImageButton Grid.Row="2" Grid.Column="3" Source="asiento.png" WidthRequest="40" HeightRequest="40" Margin="0" AutomationId="C4"/>
+                                <ImageButton Grid.Row="2" Grid.Column="4" Source="asiento.png" WidthRequest="40" HeightRequest="40" Margin="0" AutomationId="C5"/>
+                                <ImageButton Grid.Row="2" Grid.Column="5" Source="asiento.png" WidthRequest="40" HeightRequest="40" Margin="0" AutomationId="C6"/>
+
+
+                                -->
+                            <!-- Fila D -->
+                            <!--
+                                <ImageButton Grid.Row="3" Grid.Column="0" Source="asiento.png" WidthRequest="40" HeightRequest="40" Margin="0" AutomationId="D1"/>
+                                <ImageButton Grid.Row="3" Grid.Column="1" Source="asiento.png" WidthRequest="40" HeightRequest="40" Margin="0" AutomationId="D2"/>
+                                <ImageButton Grid.Row="3" Grid.Column="2" Source="asiento.png" WidthRequest="40" HeightRequest="40" Margin="0" AutomationId="D3"/>
+                                <ImageButton Grid.Row="3" Grid.Column="3" Source="asiento.png" WidthRequest="40" HeightRequest="40" Margin="0" AutomationId="D4"/>
+                                <ImageButton Grid.Row="3" Grid.Column="4" Source="asiento.png" WidthRequest="40" HeightRequest="40" Margin="0" AutomationId="D5"/>
+                                <ImageButton Grid.Row="3" Grid.Column="5" Source="asiento.png" WidthRequest="40" HeightRequest="40" Margin="0" AutomationId="D6"/>
+                            </Grid>-->
+
+
+                        </StackLayout>
+
+                    </Border>
+
+
+
+
+
+                    <!--Legend-->
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="End" Margin="10,0">
+                        <Image Source="seat_selected.png" WidthRequest="20" HeightRequest="20"/>
+                        <Label Text="Selección" FontSize="14" TextColor="White" Margin="5,0"/>
+                        <Image Source="seat_unavailable.png" WidthRequest="20" HeightRequest="20"/>
+                        <Label Text="Ocupado" FontSize="14" TextColor="White" Margin="5,0"/>
+                        <Image Source="seat_available.png" WidthRequest="20" HeightRequest="20"/>
+                        <Label Text="Disponible" FontSize="14" TextColor="White" Margin="5,0"/>
+                    </StackLayout>
+                </StackLayout>
+            </ScrollView>
+
+            <Grid Grid.Row="4" BackgroundColor="#7B09A3" Margin="0,20,0,0" ColumnDefinitions="0.25*,0.25*,0.20*,0.30*">
+                <Image Source="carrito.png"
+                 Margin="20,0,0,0"
+                 HorizontalOptions="Center" 
+                 VerticalOptions="Center"/>
+                <Label 
+              Grid.Column="1"
+              Text="100.00 LPS" 
+              TextColor="White"
+              HorizontalOptions="Center" 
+              VerticalOptions="Center"
+              Margin="0,0,0,0"
+              FontAttributes="Bold"/>
+                <Button
+              Grid.Column="3"
+              Text="Continuar"
+              FontAttributes="Bold"
+              TextColor="Black"
+              CornerRadius="30"
+              BackgroundColor="#B8B8B8"
+              Margin="0,5,20,5"
+              HorizontalOptions="Center" 
+              VerticalOptions="Center"/>
+
+            </Grid>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

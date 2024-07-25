@@ -47,4 +47,9 @@ public partial class DetallePage : ContentPage
             lblAdulto.Text = (--num).ToString();
         }
     }
+
+    private async void IrAsientos(object sender, EventArgs e)
+    {
+        await Navigation.PushModalAsync(new AsientosPages());
+    }
 }
