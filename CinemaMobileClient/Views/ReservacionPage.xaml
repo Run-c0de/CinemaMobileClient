@@ -109,7 +109,7 @@
             TextColor="White"
             />-->
         <VerticalStackLayout Grid.Row="3">
-            <Picker x:Name="cinemaPicker" Margin="25,10,25,0" Title="Seleccione un cine:" TextColor="Black" BackgroundColor="White">
+            <!--<Picker x:Name="cinemaPicker" Margin="25,10,25,0" Title="Seleccione un cine:" TextColor="Black" BackgroundColor="White">
                 <Picker.ItemsSource>
                     <x:Array Type="{x:Type x:String}">
                         <x:String>Tegucigalpa</x:String>
@@ -117,6 +117,12 @@
                         <x:String>Progreso</x:String>
                     </x:Array>
                 </Picker.ItemsSource>
+            </Picker>-->
+            <Picker x:Name="cinemaPicker" 
+                    Margin="25,10,25,0" 
+                    Title="Seleccione un cine:" 
+                    TextColor="Black" 
+                    BackgroundColor="White">
             </Picker>
             <Picker x:Name="cinemaPicker2" Margin="25,10,25,0" Title="Seleccione un formato:" TextColor="Black" BackgroundColor="White">
                 <Picker.ItemsSource>

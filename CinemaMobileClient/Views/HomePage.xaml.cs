@@ -1,6 +1,8 @@
 using System.Collections.ObjectModel;
 using System.Windows.Input;
 using CinemaMobileClient.Models;
+using CinemaMobileClient.Servicios;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace CinemaMobileClient.Views;
 
@@ -10,33 +12,59 @@ public partial class HomePage : ContentPage
     public ObservableCollection<Estrenos> Estrenos { get; set; }
     public ObservableCollection<CarteleraImage> CarteleraImage { get; set; }
     public ICommand ItemSelectedCommand { get; private set; }
-    public HomePage()
+    private readonly IPeliculasService _peliculasService;
+    public HomePage(IPeliculasService peliculasService)
     {
         InitializeComponent();
-        InicializarImagenes();
+        //InicializarImagenes();
         //Quita la barra de navegación
         NavigationPage.SetHasNavigationBar(this, false);
-        //ItemSelectedCommand = new Command<CarteleraImage>(OnItemSelected);
-        BindingContext = this;
-    }
 
-    private void InicializarImagenes()
+        _peliculasService = peliculasService;
+        //BindingContext = this;
+    }
+    protected async override void OnAppearing()
     {
-        Estrenos = new ObservableCollection<Estrenos>
-        {
-            new Estrenos{ Image="planetasimios.png"},
-            new Estrenos{ Image="garfield.png"},
-            new Estrenos{ Image="intensamente.png"},
-            new Estrenos{ Image="badboys.jpg"}
-        };
+        base.OnAppearing();
+        var peliculas = await _peliculasService.ObtenerPeliculas();
+        //var cartelera =peliculas.Where(p=>p.tipoPelicula.TipoPeliculaId==2).ToList();
+        BindingContext = peliculas;
+        //var ejemplo = peliculas as Peliculas.Example;
 
-        CarteleraImage = new ObservableCollection<CarteleraImage>
+        if (peliculas != null)
         {
-            new CarteleraImage{ Image="cartelerauno.png"},
-            new CarteleraImage{ Image="cartelerados.png"},
-            new CarteleraImage{ Image="carteleratres.png"}
-        };
+            var estrenos = peliculas.data
+                .Where(p => p.tipoPelicula.tipoPeliculaId == 1)
+                .ToList();
+            var cartelera = peliculas.data
+                .Where(p => p.tipoPelicula.tipoPeliculaId == 2)
+                .ToList();
+            var preventa = peliculas.data
+                .Where(p => p.tipoPelicula.tipoPeliculaId == 3)
+                .ToList();
+
+            collectionEstrenos.ItemsSource = estrenos;
+            collectionCartelera.ItemsSource = cartelera;
+            collectionPreventa.ItemsSource = preventa;
+        }
     }
+    //private void InicializarImagenes()
+    //{
+    //    Estrenos = new ObservableCollection<Estrenos>
+    //    {
+    //        new Estrenos{ Image="planetasimios.png"},
+    //        new Estrenos{ Image="garfield.png"},
+    //        new Estrenos{ Image="intensamente.png"},
+    //        new Estrenos{ Image="badboys.jpg"}
+    //    };
+
+    //    CarteleraImage = new ObservableCollection<CarteleraImage>
+    //    {
+    //        new CarteleraImage{ Image="cartelerauno.png"},
+    //        new CarteleraImage{ Image="cartelerados.png"},
+    //        new CarteleraImage{ Image="carteleratres.png"}
+    //    };
+    //}
 
     private async void OnCollectionViewSelectionChangedCartelera(object sender, SelectionChangedEventArgs e)
     {
@@ -48,7 +76,8 @@ public partial class HomePage : ContentPage
             try
             {
                 // Navegación a la nueva página
-                await Navigation.PushModalAsync(new ReservacionPage(e.CurrentSelection, "Cartelera"));
+                var cinesService = Servicios.ServiceProvider.GetService<ICinesService>();
+                await Navigation.PushModalAsync(new ReservacionPage(e.CurrentSelection, "Cartelera", cinesService));
 
                 // Deseleccionar el elemento cambiando el SelectionMode
                 collectionView.SelectedItem = null;
@@ -79,7 +108,8 @@ public partial class HomePage : ContentPage
             try
             {
                 // Navegación a la nueva página
-                await Navigation.PushModalAsync(new ReservacionPage(e.CurrentSelection, "Estrenos"));
+                var cinesService = Servicios.ServiceProvider.GetService<ICinesService>();
+                await Navigation.PushModalAsync(new ReservacionPage(e.CurrentSelection, "Estrenos",cinesService));
 
                 // Deseleccionar el elemento cambiando el SelectionMode
                 collectionView.SelectedItem = null;

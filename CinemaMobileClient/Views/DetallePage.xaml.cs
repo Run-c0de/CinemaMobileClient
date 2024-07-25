@@ -3,7 +3,7 @@ using CinemaMobileClient.Models;
 
 public partial class DetallePage : ContentPage
 {
-	public DetallePage(IReadOnlyList<object> datos,String TipoDePelicula)
+    public DetallePage(IReadOnlyList<object> datos,String TipoDePelicula)
 	{
 		InitializeComponent();
         // Realiza una conversión explícita a IList<object>

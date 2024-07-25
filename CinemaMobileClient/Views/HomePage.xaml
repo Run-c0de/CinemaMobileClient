@@ -51,7 +51,7 @@
 
         </Grid>
 
-
+<!--***************************************Estrenos*************************************************************-->
         <ScrollView Grid.Row="1">
             <StackLayout>
                 <Grid Grid.Row="0" BackgroundColor="#912D93" RowDefinitions="0.08*, 0.93*" Margin="0,20,0,0">
@@ -65,17 +65,17 @@
                     </Grid.Background>
                     <Grid Grid.Row="0">
                         <Label Text="Estrenos"
-                        HorizontalOptions="Start"
-                        FontSize="14"
-                        VerticalOptions="Center"
-                        FontAttributes="Bold"
-                        TextColor="White"
-                        Margin="10,10,0,0"/>
+                                 HorizontalOptions="Start"
+                                 FontSize="14"
+                                 VerticalOptions="Center"
+                                 FontAttributes="Bold"
+                                 TextColor="White"
+                                 Margin="10,10,0,0"/>
                     </Grid>
 
-                    <CollectionView Grid.Row="1" ItemsSource="{Binding Estrenos}"
-                                    SelectionMode="Single"
-                                    SelectionChanged="OnCollectionViewSelectionChangedEstrenos">
+                    <CollectionView x:Name="collectionEstrenos" Grid.Row="1" 
+                    SelectionMode="Single"
+                    SelectionChanged="OnCollectionViewSelectionChangedCartelera">
                         <!--Espacioado entre imagenes-->
                         <CollectionView.ItemsLayout>
                             <LinearItemsLayout ItemSpacing="0" Orientation="Horizontal" />
@@ -86,13 +86,16 @@
                         <CollectionView.ItemTemplate>
                             <DataTemplate>
                                 <Grid HeightRequest="170" WidthRequest="110" Margin="10,20,10,10">
-                                    <Image Aspect="AspectFill" Source="{Binding Image}"/>
+                                    <Image Aspect="AspectFill" Source="{Binding foto}"/>
                                 </Grid>
                             </DataTemplate>
                         </CollectionView.ItemTemplate>
                     </CollectionView>
                 </Grid>
 
+
+
+<!--***************************************Cartelera*************************************************************-->
                 <Grid Grid.Row="1" BackgroundColor="#912D93" RowDefinitions="0.08*, 0.93*" Margin="0,20,0,0">
                     <Grid.Background>
                         <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
@@ -112,7 +115,7 @@
                      Margin="10,10,0,0"/>
                     </Grid>
 
-                    <CollectionView Grid.Row="1" ItemsSource="{Binding CarteleraImage}"
+                    <CollectionView x:Name="collectionCartelera" Grid.Row="1" 
                                     SelectionMode="Single"
                                     SelectionChanged="OnCollectionViewSelectionChangedCartelera">
                         <!--Espacioado entre imagenes-->
@@ -125,13 +128,15 @@
                         <CollectionView.ItemTemplate>
                             <DataTemplate>
                                 <Grid HeightRequest="170" WidthRequest="110" Margin="10,20,10,10">
-                                    <Image Aspect="AspectFill" Source="{Binding Image}"/>
+                                    <Image Aspect="AspectFill" Source="{Binding foto}"/>
                                 </Grid>
                             </DataTemplate>
                         </CollectionView.ItemTemplate>
                     </CollectionView>
                 </Grid>
 
+
+<!--***************************************Preventa*************************************************************-->
                 <Grid Grid.Row="2" BackgroundColor="#912D93" RowDefinitions="0.08*, 0.93*" Margin="0,20,0,0">
                     <Grid.Background>
                         <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
@@ -150,8 +155,9 @@
                          TextColor="White"
                          Margin="10,10,0,0"/>
                     </Grid>
+                    
 
-                    <CollectionView Grid.Row="1" ItemsSource="{Binding Estrenos}">
+                    <CollectionView x:Name="collectionPreventa" Grid.Row="1">
                         <!--Espacioado entre imagenes-->
                         <CollectionView.ItemsLayout>
                             <LinearItemsLayout ItemSpacing="0" Orientation="Horizontal" />
@@ -162,14 +168,14 @@
                         <CollectionView.ItemTemplate>
                             <DataTemplate>
                                 <Grid HeightRequest="170" WidthRequest="110" Margin="10,20,10,10">
-                                    <Image Aspect="AspectFill" Source="{Binding Image}"/>
+                                    <Image Aspect="AspectFill" Source="{Binding foto}"/>
                                 </Grid>
                             </DataTemplate>
                         </CollectionView.ItemTemplate>
                     </CollectionView>
                 </Grid>
 
-                <Grid Grid.Row="3" BackgroundColor="#912D93" RowDefinitions="0.08*, 0.93*" Margin="0,20,0,0">
+                <!--<Grid Grid.Row="3" BackgroundColor="#912D93" RowDefinitions="0.08*, 0.93*" Margin="0,20,0,0">
                     <Grid.Background>
                         <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
                             <GradientStopCollection>
@@ -189,13 +195,13 @@
                     </Grid>
 
                     <CollectionView Grid.Row="1" ItemsSource="{Binding Estrenos}">
-                        <!--Espacioado entre imagenes-->
+                        --><!--Espacioado entre imagenes--><!--
                         <CollectionView.ItemsLayout>
                             <LinearItemsLayout ItemSpacing="0" Orientation="Horizontal" />
                         </CollectionView.ItemsLayout>
 
 
-                        <!--Contenedor-->
+                        --><!--Contenedor--><!--
                         <CollectionView.ItemTemplate>
                             <DataTemplate>
                                 <Grid HeightRequest="170" WidthRequest="110" Margin="10,20,10,10">
@@ -204,7 +210,7 @@
                             </DataTemplate>
                         </CollectionView.ItemTemplate>
                     </CollectionView>
-                </Grid>
+                </Grid>-->
             </StackLayout>
         </ScrollView>
 
