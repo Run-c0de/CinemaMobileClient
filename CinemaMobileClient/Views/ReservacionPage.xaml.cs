@@ -1,17 +1,21 @@
 namespace CinemaMobileClient.Views;
 using CinemaMobileClient.Models;
 using System.Collections.ObjectModel;
+using CinemaMobileClient.Servicios;
+
 
 public partial class ReservacionPage : ContentPage
 {
     IReadOnlyList<object> datos;
     String TipoDePelicula;
     public ObservableCollection<string> Horario { get; set; }
-    public ReservacionPage(IReadOnlyList<object> currentSelection, String TipoDePelicula)
+    private readonly ICinesService _cinesService;
+    public ReservacionPage(IReadOnlyList<object> currentSelection, String TipoDePelicula, ICinesService service)
 	{
 		InitializeComponent();
         datos=currentSelection;
         this.TipoDePelicula = TipoDePelicula;
+        _cinesService=service;
         // Inicializamos la colección con los nombres de las imágenes
         Horario = new ObservableCollection<string>
             {
@@ -20,7 +24,7 @@ public partial class ReservacionPage : ContentPage
                 "Mar",
                 "Mié"
             };
-        BindingContext = this;
+        //BindingContext = this;
 
         // Realiza una conversión explícita a IList<object>
         IList<object> itemList = currentSelection.ToList();
@@ -40,6 +44,16 @@ public partial class ReservacionPage : ContentPage
                 imagen.Source = item.Image; // Asigna la imagen al control Image
             }
         }
+
+    }
+
+    protected async override void OnAppearing()
+    {
+        base.OnAppearing();
+        var cines = await _cinesService.ObtenerCines();
+        // Configurar el ItemsSource del Picker
+        cinemaPicker.ItemsSource = cines;
+        cinemaPicker.ItemDisplayBinding = new Binding("descripcion");
 
     }
 

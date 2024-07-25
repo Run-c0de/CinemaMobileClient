@@ -14,4 +14,10 @@ namespace CinemaMobileClient.Models
         public bool activo { get; set; }
         public string imgBase64 { get; set; }
     }
+
+    // Clase para representar el JSON completo
+    public class CinesResponse
+    {
+        public List<Cines> Data { get; set; }
+    }
 }

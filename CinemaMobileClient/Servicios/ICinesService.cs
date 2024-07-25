@@ -4,6 +4,6 @@ namespace CinemaMobileClient.Servicios
 {
     public interface ICinesService
     {
-        public Task<List<sitios>> ObtenerCines();
+        public Task<List<Cines>> ObtenerCines();
     }
 }

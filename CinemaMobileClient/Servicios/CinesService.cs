@@ -13,7 +13,7 @@ namespace CinemaMobileClient.Servicios
         private readonly HttpClient _client;
         private readonly JsonSerializerOptions _serializerOptions;
 
-        public List<sitios> Items { get; private set; }
+        public List<Cines> Items { get; private set; }
 
         public CinesService()
         {
@@ -24,10 +24,10 @@ namespace CinemaMobileClient.Servicios
                 WriteIndented = true
             };
 
-            Items = new List<sitios>();
+            Items = new List<Cines>();
         }
 
-        public async Task<List<sitios>> ObtenerCines()
+        public async Task<List<Cines>> ObtenerCines()
         {
             try
             {
@@ -35,7 +35,12 @@ namespace CinemaMobileClient.Servicios
                 if (response.IsSuccessStatusCode)
                 {
                     string content = await response.Content.ReadAsStringAsync();
-                    Items = JsonSerializer.Deserialize<List<sitios>>(content, _serializerOptions);
+
+                    // Deserialize the JSON into a CinesResponse object
+                    var cinesResponse = JsonSerializer.Deserialize<CinesResponse>(content, _serializerOptions);
+
+                    // Extract the list of Cines from the response
+                    Items = cinesResponse?.Data ?? new List<Cines>();
                 }
                 else
                 {

@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.Logging;
-using CinemaMobileClient.Servicios;//Para poder usar los servicios en las páginas
-	
+using CinemaMobileClient.Servicios;
+using CinemaMobileClient.Views;//Para poder usar los servicios en las páginas
+
 namespace CinemaMobileClient;
 
 public static class MauiProgram
@@ -18,11 +19,21 @@ public static class MauiProgram
 
 		builder.Services.AddSingleton<ICinesService, CinesService>();//Para registrar el servicio (Creando un instancia de nuestro servicio, agregamos la interfaz y la clase del servicio).
 		builder.Services.AddTransient<Servicios.Prueba>(); //Para registrar la página que usa el servicio.
+        builder.Services.AddTransient<ReservacionPage>();
+        builder.Services.AddSingleton<IPeliculasService, PeliculasService>();
+		builder.Services.AddTransient<HomePage>();
+
 
 #if DEBUG
-		builder.Logging.AddDebug();
+        builder.Logging.AddDebug();
 #endif
 
-		return builder.Build();
-	}
+        var app = builder.Build();
+
+        // Inicializar el ServiceProvider estático
+        Servicios.ServiceProvider.Initialize(app.Services);
+
+        return app;
+        //return builder.Build();
+    }
 }
