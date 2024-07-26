@@ -75,7 +75,7 @@
 
                     <CollectionView x:Name="collectionEstrenos" Grid.Row="1" 
                     SelectionMode="Single"
-                    SelectionChanged="OnCollectionViewSelectionChangedCartelera">
+                    SelectionChanged="OnCollectionView">
                         <!--Espacioado entre imagenes-->
                         <CollectionView.ItemsLayout>
                             <LinearItemsLayout ItemSpacing="0" Orientation="Horizontal" />
@@ -117,7 +117,7 @@
 
                     <CollectionView x:Name="collectionCartelera" Grid.Row="1" 
                                     SelectionMode="Single"
-                                    SelectionChanged="OnCollectionViewSelectionChangedCartelera">
+                                    SelectionChanged="OnCollectionView">
                         <!--Espacioado entre imagenes-->
                         <CollectionView.ItemsLayout>
                             <LinearItemsLayout ItemSpacing="0" Orientation="Horizontal" />
@@ -155,9 +155,11 @@
                          TextColor="White"
                          Margin="10,10,0,0"/>
                     </Grid>
-                    
 
-                    <CollectionView x:Name="collectionPreventa" Grid.Row="1">
+
+                    <CollectionView x:Name="collectionPreventa" Grid.Row="1"  
+                                    SelectionMode="Single"
+                                    SelectionChanged="OnCollectionView">
                         <!--Espacioado entre imagenes-->
                         <CollectionView.ItemsLayout>
                             <LinearItemsLayout ItemSpacing="0" Orientation="Horizontal" />

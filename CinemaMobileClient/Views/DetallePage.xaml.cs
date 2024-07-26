@@ -14,14 +14,14 @@ public partial class DetallePage : ContentPage
         {
             if (itemList[0] is CarteleraImage item)
             {
-                imagen.Source = item.Image; // Asigna la imagen al control Image
+                imagen.Source = item.foto; // Asigna la imagen al control Image
             }
         }
         else
         {
             if (itemList[0] is Estrenos item)
             {
-                imagen.Source = item.Image; // Asigna la imagen al control Image
+                imagen.Source = item.foto; // Asigna la imagen al control Image
             }
         }
     }
