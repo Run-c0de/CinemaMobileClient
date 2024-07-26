@@ -90,7 +90,7 @@ public partial class loginPage : ContentPage
 
                 // Guarda la sesión y redirige
                 SaveSession(responseData.data.userId, responseData.data.username);
-                await Navigation.PushModalAsync(new HomePage());
+                //await Navigation.PushModalAsync(new HomePage());
             }
             else
             {
