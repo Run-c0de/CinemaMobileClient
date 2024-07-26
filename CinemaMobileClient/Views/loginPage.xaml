@@ -13,18 +13,6 @@
                     </GradientStopCollection>
                 </LinearGradientBrush>
             </Grid.Background>
-
-            <ImageButton Source="flecha.png"
-                VerticalOptions="Center"
-                HorizontalOptions="Start"
-                Margin="15,0,20,0"
-                Clicked="OnCloseButtonClicked"
-                MaximumWidthRequest="28"
-                MinimumHeightRequest="28">
-                <!--<Image.GestureRecognizers>
-                <TapGestureRecognizer Tapped="OnCloseButtonClicked" />
-            </Image.GestureRecognizers>-->
-            </ImageButton>
             <Label Text="INICIAR SESIÓN"
             FontSize="18"
             HorizontalOptions="Center"

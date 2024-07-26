@@ -25,7 +25,7 @@
                 <TapGestureRecognizer Tapped="OnCloseButtonClicked" />
             </Image.GestureRecognizers>-->
         </ImageButton>
-        <Label Text="VERIFICAR USUARIO"
+        <Label Text="REESTABLECER CONTRASEÑA"
             FontSize="18"
             HorizontalOptions="Center"
             VerticalOptions="Center"
@@ -43,6 +43,7 @@
                         </Grid.ColumnDefinitions>
                         <Image Source="usuario.png" WidthRequest="24" HeightRequest="24" VerticalOptions="Center" />
                         <Entry Grid.Column="1"
+                           x:Name="txtUsuario"
                            Placeholder="Ingrese su usuario"
                            TextColor="White"
                            PlaceholderColor="White"
