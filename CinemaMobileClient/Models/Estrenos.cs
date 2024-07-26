@@ -8,6 +8,6 @@ namespace CinemaMobileClient.Models
 {
     public class Estrenos
     {
-        public string Image { get; set; }
+        public string foto { get; set; }
     }
 }
