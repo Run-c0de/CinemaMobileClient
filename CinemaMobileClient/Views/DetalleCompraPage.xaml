@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="CinemaMobileClient.Views.ConfiteriaPage">
+             x:Class="CinemaMobileClient.Views.DetalleCompraPage"
+             Title="DetalleCompraPage">
+
 
     <ContentPage.Content>
         <Grid BackgroundColor="#1C0038" RowDefinitions="0.08*, 0.92*">
@@ -17,22 +19,28 @@
                     </LinearGradientBrush>
                 </Grid.Background>
                 <Label Text="CONFITERÍA"
-                       FontSize="18"
-                       HorizontalOptions="Center"
-                       VerticalOptions="Center"
-                       TextColor="White"/>
+                   FontSize="18"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center"
+                   TextColor="White"/>
                 <Image Source="palomitas.png"
-                       VerticalOptions="Center"
-                       HorizontalOptions="End"
-                       Margin="0,0,20,0"/>
+                   VerticalOptions="Center"
+                   HorizontalOptions="End"
+                   Margin="0,0,20,0"/>
             </Grid>
 
             <!-- Body -->
             <ScrollView Grid.Row="1">
                 <StackLayout x:Name="MainStackLayout" Padding="10">
-                    <!-- Productos se añadirán aquí -->
+                    <!-- Aquí se agregarán dinámicamente los productos seleccionados y el total -->
+
                 </StackLayout>
             </ScrollView>
         </Grid>
     </ContentPage.Content>
+
+
+    
+    
+    
 </ContentPage>

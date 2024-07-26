@@ -25,7 +25,7 @@
                 <TapGestureRecognizer Tapped="OnCloseButtonClicked" />
             </Image.GestureRecognizers>-->
         </ImageButton>
-        <Label Text="RESTABLECER CONTRASEÑA"
+        <Label Text="VERIFICAR USUARIO"
             FontSize="18"
             HorizontalOptions="Center"
             VerticalOptions="Center"

@@ -6,7 +6,6 @@ public partial class AsientosPages : ContentPage
     {
         InitializeComponent();
         CreateSeatsGrid();
-
     }
 
     private void CreateSeatsGrid()
@@ -14,7 +13,6 @@ public partial class AsientosPages : ContentPage
         int rows = 5;
         int columns = 6;
 
-        // Define las filas y columnas del Grid
         for (int i = 0; i < rows; i++)
         {
             SeatsGrid.RowDefinitions.Add(new RowDefinition { Height = GridLength.Auto });
@@ -39,7 +37,6 @@ public partial class AsientosPages : ContentPage
 
                 seatButton.Clicked += OnSeatClicked;
 
-                // Añadir el botón al Grid y establecer su fila y columna
                 SeatsGrid.Children.Add(seatButton);
                 Grid.SetRow(seatButton, row);
                 Grid.SetColumn(seatButton, column);
@@ -52,17 +49,19 @@ public partial class AsientosPages : ContentPage
         var button = sender as ImageButton;
         if (button != null)
         {
-            // Cambia el estado del asiento
             if (button.Source.ToString().Contains("asiento.png"))
             {
-                button.Source = "asiento_seleccionado.png"; // Seleccionado
+                button.Source = "asiento_seleccionado.png";
             }
             else if (button.Source.ToString().Contains("asiento_seleccionado.png"))
             {
-                button.Source = "asiento.png"; // Disponible
+                button.Source = "asiento.png";
             }
-            // Puedes agregar más lógica aquí para manejar asientos ocupados
         }
     }
 
+    private async void redirectConfiteria(object sender, EventArgs e)
+    {
+        await Navigation.PushModalAsync(new ConfiteriaPage());
+    }
 }
