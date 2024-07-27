@@ -13,6 +13,8 @@ namespace CinemaMobileClient.Endpoints
         public static string GetPeliculas = "https://cinepolisapipm2.azurewebsites.net/api/pelicula";
         public static string GetTipoProyeccion = "https://cinepolisapipm2.azurewebsites.net/api/TipoProyeccion";
         public static string GetHorario = "https://cinepolisapipm2.azurewebsites.net/api/Horario";
+        public static string GetSalas = "https://cinepolisapipm2.azurewebsites.net/api/Salas";
+        public static string GetAsientosOcupados = "https://cinepolisapipm2.azurewebsites.net/api/Horario/asientosOcupados";
         public static string Login = "https://cinepolisapipm2.azurewebsites.net/api/Autenticacion/Login";
         public static string VerificarUsuario = "https://cinepolisapipm2.azurewebsites.net/api/Autenticacion/VerificarUsuario";
         public static string claveTemporal = "https://cinepolisapipm2.azurewebsites.net/api/Autenticacion/EnviarClaveTemporal";

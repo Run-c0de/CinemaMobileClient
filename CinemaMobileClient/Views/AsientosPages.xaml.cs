@@ -1,17 +1,23 @@
 namespace CinemaMobileClient.Views;
+
+using CinemaMobileClient.Interfaces;
 using Microsoft.Maui.Controls;
 public partial class AsientosPages : ContentPage
 {
-    public AsientosPages()
+    private readonly ISalasServices _salasServices;
+    public AsientosPages(ISalasServices salasServices)
     {
+        _salasServices = salasServices;
         InitializeComponent();
         CreateSeatsGrid();
     }
 
-    private void CreateSeatsGrid()
+    private async void CreateSeatsGrid()
     {
         int rows = 5;
         int columns = 6;
+
+        var ocupados = await _salasServices.AsientosOcupados(1);
 
         for (int i = 0; i < rows; i++)
         {
@@ -26,14 +32,32 @@ public partial class AsientosPages : ContentPage
         {
             for (int column = 0; column < columns; column++)
             {
-                var seatButton = new ImageButton
+                var seatButton = new ImageButton();
+                var existe = ocupados.FirstOrDefault(x => x.Asiento == $"{(char)('A' + row)}{column + 1}");
+                if (existe != null)
                 {
-                    Source = "asiento.png",
-                    WidthRequest = 40,
-                    HeightRequest = 40,
-                    Margin = 0,
-                    AutomationId = $"{(char)('A' + row)}{column + 1}"
-                };
+                    seatButton = new ImageButton
+                    {
+                        Source = "asiento_ocupado.png",
+                        WidthRequest = 40,
+                        HeightRequest = 40,
+                        Margin = 0,
+                        AutomationId = $"{(char)('A' + row)}{column + 1}"
+                    };
+                }
+                else
+                {
+                    seatButton = new ImageButton
+                    {
+                        Source = "asiento.png",
+                        WidthRequest = 40,
+                        HeightRequest = 40,
+                        Margin = 0,
+                        AutomationId = $"{(char)('A' + row)}{column + 1}"
+                    };
+                }
+
+
 
                 seatButton.Clicked += OnSeatClicked;
 

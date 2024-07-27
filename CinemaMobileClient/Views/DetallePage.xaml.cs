@@ -1,4 +1,6 @@
 namespace CinemaMobileClient.Views;
+
+using CinemaMobileClient.Interfaces;
 using CinemaMobileClient.Models;
 
 public partial class DetallePage : ContentPage
@@ -50,6 +52,7 @@ public partial class DetallePage : ContentPage
 
     private async void IrAsientos(object sender, EventArgs e)
     {
-        await Navigation.PushModalAsync(new AsientosPages());
+        var salasService = Servicios.ServiceProvider.GetService<ISalasServices>();
+        await Navigation.PushModalAsync(new AsientosPages(salasService));
     }
 }
