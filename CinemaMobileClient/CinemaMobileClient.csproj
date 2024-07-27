@@ -84,6 +84,7 @@
       <None Remove="Resources\Images\planetasimios.png" />
       <None Remove="Resources\Images\rusuario.png" />
       <None Remove="Resources\Images\telefono.png" />
+      <None Remove="Resources\Images\transparente.png" />
       <None Remove="Resources\Images\user.png" />
       <None Remove="Resources\Images\usuario.png" />
       <None Remove="Resources\Splash\inicioo.png" />

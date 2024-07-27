@@ -1,22 +1,16 @@
 ﻿using CinemaMobileClient.Models;
-using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
 using System.Text.Json;
-using System.Threading.Tasks;
 
 namespace CinemaMobileClient.Servicios
 {
-    public class PeliculasService : IPeliculasService
+    public class HorarioService : IHorarioService
     {
         private readonly HttpClient _client;
         private readonly JsonSerializerOptions _serializerOptions;
+        public List<Horario> ListHorario { get; private set; }
 
-        public List<Peliculas.Example> Items { get; private set; }
-
-        public PeliculasService()
+        public HorarioService()
         {
             _client = new HttpClient();
             _serializerOptions = new JsonSerializerOptions
@@ -25,19 +19,23 @@ namespace CinemaMobileClient.Servicios
                 WriteIndented = true
             };
 
-            Items = new List<Peliculas.Example>();
+            ListHorario = new List<Horario>();
         }
 
-        public async Task<Peliculas.Example> ObtenerPeliculas()
+        public async Task<List<Horario>> ObtenerHorario()
         {
             try
             {
-                HttpResponseMessage response = await _client.GetAsync(Endpoints.Endpoints.GetPeliculas);
+                HttpResponseMessage response = await _client.GetAsync(Endpoints.Endpoints.GetHorario);
                 if (response.IsSuccessStatusCode)
                 {
                     string content = await response.Content.ReadAsStringAsync();
-                    var example = JsonSerializer.Deserialize<Peliculas.Example>(content, _serializerOptions);
-                    return example;
+
+                    // Deserializar el JSON en un objeto de tipo ListTipoProyeccion
+                    var horarioResponce = JsonSerializer.Deserialize<ListHorario>(content, _serializerOptions);
+
+                    // Asignar la lista deserializada a la propiedad ListTipoProyeccion
+                    ListHorario = horarioResponce?.Data?.ToList() ?? new List<Horario>();
                 }
                 else
                 {
@@ -49,7 +47,7 @@ namespace CinemaMobileClient.Servicios
                 Debug.WriteLine($"\tERROR {ex.Message}");
             }
 
-            return null;
+            return ListHorario;
         }
     }
 }

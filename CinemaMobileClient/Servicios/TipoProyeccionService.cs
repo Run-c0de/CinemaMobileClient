@@ -1,22 +1,16 @@
 ﻿using CinemaMobileClient.Models;
-using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
 using System.Text.Json;
-using System.Threading.Tasks;
 
 namespace CinemaMobileClient.Servicios
 {
-    public class PeliculasService : IPeliculasService
+    public class TipoProyeccionService : ITipoProyeccionService
     {
         private readonly HttpClient _client;
         private readonly JsonSerializerOptions _serializerOptions;
+        public List<TipoProyeccion> ListTipoProyeccion { get; private set; }
 
-        public List<Peliculas.Example> Items { get; private set; }
-
-        public PeliculasService()
+        public TipoProyeccionService()
         {
             _client = new HttpClient();
             _serializerOptions = new JsonSerializerOptions
@@ -25,19 +19,23 @@ namespace CinemaMobileClient.Servicios
                 WriteIndented = true
             };
 
-            Items = new List<Peliculas.Example>();
+            ListTipoProyeccion = new List<TipoProyeccion>();
         }
 
-        public async Task<Peliculas.Example> ObtenerPeliculas()
+        public async Task<List<TipoProyeccion>> ObtenerTipoProyeccion()
         {
             try
             {
-                HttpResponseMessage response = await _client.GetAsync(Endpoints.Endpoints.GetPeliculas);
+                HttpResponseMessage response = await _client.GetAsync(Endpoints.Endpoints.GetTipoProyeccion);
                 if (response.IsSuccessStatusCode)
                 {
                     string content = await response.Content.ReadAsStringAsync();
-                    var example = JsonSerializer.Deserialize<Peliculas.Example>(content, _serializerOptions);
-                    return example;
+
+                    // Deserializar el JSON en un objeto de tipo ListTipoProyeccion
+                    var tipoProyeccionResponse = JsonSerializer.Deserialize<ListTipoProyeccion>(content, _serializerOptions);
+
+                    // Asignar la lista deserializada a la propiedad ListTipoProyeccion
+                    ListTipoProyeccion = tipoProyeccionResponse?.Data?.ToList() ?? new List<TipoProyeccion>();
                 }
                 else
                 {
@@ -49,7 +47,7 @@ namespace CinemaMobileClient.Servicios
                 Debug.WriteLine($"\tERROR {ex.Message}");
             }
 
-            return null;
+            return ListTipoProyeccion;
         }
     }
 }

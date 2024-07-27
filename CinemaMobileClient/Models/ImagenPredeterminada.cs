@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CinemaMobileClient.Models
 {
-    public class Estrenos
+    public class ImagenPredeterminada
     {
         public string foto { get; set; }
     }

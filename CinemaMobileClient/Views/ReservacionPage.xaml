@@ -80,19 +80,18 @@
         </Grid>
 
         <!--*************************************************Dias**********************************************************-->
-        <CollectionView x:Name="collectionViewDia" 
+        <!--<CollectionView x:Name="collectionViewDia" 
                         Grid.Row="2" Margin="0,10,0,0" SelectionMode="Single" BackgroundColor="#D9D9D9">
                 <CollectionView.ItemsLayout>
-                     <!--Distribuir en 4 columnas-->
+                     --><!--Distribuir en 4 columnas--><!--
                 <GridItemsLayout Orientation="Vertical" Span="4" />
                 </CollectionView.ItemsLayout>
                 <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <!--<Grid HeightRequest="70">-->
+                    --><!--<Grid HeightRequest="70">--><!--
                     <Grid WidthRequest="{Binding Path=Width, Source={x:Reference Name=collectionView}}" 
                   HeightRequest="{Binding Path=Height, Source={x:Reference Name=collectionView}}">
                         <Label
-                            x:Name=""
                                 Text="{Binding .}"
                                 TextColor="Black"
                                 VerticalOptions="Center"
@@ -101,49 +100,73 @@
                     </Grid>
                 </DataTemplate>
                 </CollectionView.ItemTemplate>
-        </CollectionView>
-        <!--</Grid>-->
+        </CollectionView>-->
 
-        <!--<Label
-            Grid.Row="3"
-            Margin="25,20,0,0"
-            Text="Cines"
-            FontSize="18"
-            FontAttributes="Bold"
-            TextColor="White"
-            />-->
+
+        <Grid Grid.Row="2" Margin="0,10,0,0" BackgroundColor="#D9D9D9" ColumnDefinitions="*,*,*,*">
+            <Button
+                Grid.Column="0"
+                    x:Name="btnDia1"
+                 TextColor="Black"
+                 VerticalOptions="FillAndExpand"
+                 HorizontalOptions="FillAndExpand"
+                 FontAttributes="Bold"
+                 BorderWidth="0"
+                 Clicked="btndia"
+                BackgroundColor="#D9D9D9"/>
+            <Button
+                Grid.Column="1"
+                    x:Name="btnDia2"
+                 TextColor="Black"
+                 VerticalOptions="FillAndExpand"
+                 HorizontalOptions="FillAndExpand"
+                 FontAttributes="Bold"
+                Clicked="btndia"
+                 BackgroundColor="#D9D9D9"/>
+            <Button
+                Grid.Column="2"
+                    x:Name="btnDia3"
+                 TextColor="Black"
+                 VerticalOptions="FillAndExpand"
+                 HorizontalOptions="FillAndExpand"
+                 FontAttributes="Bold"
+                Clicked="btndia"
+                 BackgroundColor="#D9D9D9"/>
+            <Button
+                Grid.Column="3"
+                    x:Name="btnDia4"
+                 TextColor="Black"
+                 VerticalOptions="FillAndExpand"
+                 HorizontalOptions="FillAndExpand"
+                 FontAttributes="Bold"
+                Clicked="btndia"
+                 BackgroundColor="#D9D9D9"/>
+        </Grid >
+        
+       
         <VerticalStackLayout Grid.Row="3">
-            <!--<Picker x:Name="cinemaPicker" Margin="25,10,25,0" Title="Seleccione un cine:" TextColor="Black" BackgroundColor="White">
-                <Picker.ItemsSource>
-                    <x:Array Type="{x:Type x:String}">
-                        <x:String>Tegucigalpa</x:String>
-                        <x:String>San Pedro Sula</x:String>
-                        <x:String>Progreso</x:String>
-                    </x:Array>
-                </Picker.ItemsSource>
-            </Picker>-->
-            <Picker x:Name="cinemaPicker" 
+        
+            <Picker x:Name="cinemaPickerCines" 
                     Margin="25,10,25,0" 
                     Title="Seleccione un cine:" 
                     TextColor="Black" 
                     BackgroundColor="White">
             </Picker>
-            <Picker x:Name="cinemaPicker2" Margin="25,10,25,0" Title="Seleccione un formato:" TextColor="Black" BackgroundColor="White">
-                <Picker.ItemsSource>
-                    <x:Array Type="{x:Type x:String}">
-                        <x:String>2D Doblada</x:String>
-                        <x:String>3D Doblada</x:String>
-                    </x:Array>
-                </Picker.ItemsSource>
+
+            <Picker x:Name="cinemaPickerTipoProyeccion" 
+                    Margin="25,10,25,0" 
+                    Title="Seleccione un formato:" 
+                    TextColor="Black" 
+                    BackgroundColor="White">
             </Picker>
-            <Picker x:Name="cinemaPicker3" Margin="25,10,25,0" Title="Seleccione una hora:" TextColor="Black" BackgroundColor="White">
-                 <Picker.ItemsSource>
-                     <x:Array Type="{x:Type x:String}">
-                            <x:String>3 pm</x:String>
-                            <x:String>6 pm</x:String>
-                     </x:Array>
-                 </Picker.ItemsSource>
+
+            <Picker x:Name="cinemaPickerHorario" 
+                    Margin="25,10,25,0" 
+                    Title="Seleccione la hora:" 
+                    TextColor="Black" 
+                    BackgroundColor="White">
             </Picker>
+
                 <Button
                 Text="Continuar"
                 TextColor="White"
