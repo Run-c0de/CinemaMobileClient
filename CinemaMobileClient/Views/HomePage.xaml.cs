@@ -10,7 +10,7 @@ namespace CinemaMobileClient.Views;
 public partial class HomePage : ContentPage
 {
     //*************************Linea 13,14,15 Sin uso*********************************************
-    public ObservableCollection<Estrenos> Estrenos { get; set; }
+    public ObservableCollection<ImagenPredeterminada> ImagenPredeterminada { get; set; }
     public ObservableCollection<CarteleraImage> CarteleraImage { get; set; }
     public ICommand ItemSelectedCommand { get; private set; }
 
@@ -20,12 +20,20 @@ public partial class HomePage : ContentPage
     public HomePage(IPeliculasService peliculasService)
     {
         InitializeComponent();
-        
+        loading.IsVisible = true;
 
         //Quita la barra de navegación
         NavigationPage.SetHasNavigationBar(this, false);
 
         _peliculasService = peliculasService;
+        ImagenPredeterminada = new ObservableCollection<ImagenPredeterminada>
+        {
+            new ImagenPredeterminada{ foto="transparente.png"},
+        };
+       
+        collectionEstrenos.ItemsSource= ImagenPredeterminada;
+        collectionCartelera.ItemsSource= ImagenPredeterminada;
+        collectionPreventa.ItemsSource = ImagenPredeterminada;
         InicializarPeliculas();
         //InicializarImagenes();
     }
@@ -37,7 +45,7 @@ public partial class HomePage : ContentPage
     private async void InicializarPeliculas()
     {
         var peliculas = await _peliculasService.ObtenerPeliculas();
-        BindingContext = peliculas;
+        //BindingContext = peliculas;
 
         if (peliculas != null)
         {
@@ -55,6 +63,8 @@ public partial class HomePage : ContentPage
             collectionCartelera.ItemsSource = cartelera;
             collectionPreventa.ItemsSource = preventa;
         }
+        loading.IsVisible = false;
+
     }
 
     private async void OnCollectionView(object sender, SelectionChangedEventArgs e)
@@ -62,7 +72,9 @@ public partial class HomePage : ContentPage
         if (sender is CollectionView collectionView)
         {
             var cinesService = Servicios.ServiceProvider.GetService<ICinesService>();
-            await Navigation.PushModalAsync(new ReservacionPage(e.CurrentSelection, cinesService));
+            var tipoProyeccionService = Servicios.ServiceProvider.GetService<ITipoProyeccionService>();
+            var horarioService = Servicios.ServiceProvider.GetService<IHorarioService>();
+            await Navigation.PushModalAsync(new ReservacionPage(e.CurrentSelection, cinesService, tipoProyeccionService, horarioService));
             collectionView.SelectionChanged -= OnCollectionView;
             collectionView.SelectedItem = null;
             collectionView.SelectionChanged += OnCollectionView;
@@ -72,6 +84,7 @@ public partial class HomePage : ContentPage
 
 
 
+   
 
 
 
@@ -79,17 +92,16 @@ public partial class HomePage : ContentPage
 
 
 
+//**********************************Código sin uso, solo para primeras pruebas******************************
 
-    //**********************************Código sin uso, solo para primeras pruebas******************************
-
-    private void InicializarImagenes()
+private void InicializarImagenes()
     {
-        Estrenos = new ObservableCollection<Estrenos>
+        ImagenPredeterminada = new ObservableCollection<ImagenPredeterminada>
         {
-            new Estrenos{ foto="planetasimios.png"},
-            new Estrenos{ foto="garfield.png"},
-            new Estrenos{ foto="intensamente.png"},
-            new Estrenos{ foto="badboys.jpg"}
+            new ImagenPredeterminada{ foto="planetasimios.png"},
+            new ImagenPredeterminada{ foto="garfield.png"},
+            new ImagenPredeterminada{ foto="intensamente.png"},
+            new ImagenPredeterminada{ foto="badboys.jpg"}
         };
 
         CarteleraImage = new ObservableCollection<CarteleraImage>
@@ -99,9 +111,9 @@ public partial class HomePage : ContentPage
             new CarteleraImage{ foto="carteleratres.png"}
         };
 
-        collectionEstrenos.ItemsSource = Estrenos;
+        collectionEstrenos.ItemsSource = ImagenPredeterminada;
         collectionCartelera.ItemsSource = CarteleraImage;
-        collectionPreventa.ItemsSource = Estrenos;
+        collectionPreventa.ItemsSource = ImagenPredeterminada;
     }
 
     //private async void OnCollectionViewSelectionChangedCartelera(object sender, SelectionChangedEventArgs e)

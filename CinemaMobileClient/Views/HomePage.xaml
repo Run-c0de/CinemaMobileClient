@@ -96,6 +96,16 @@
 
 
 <!--***************************************Cartelera*************************************************************-->
+                <StackLayout
+    VerticalOptions="CenterAndExpand"
+    HorizontalOptions="CenterAndExpand">
+                    <ActivityIndicator
+        x:Name="loading"
+        HeightRequest="30"
+        Color="White"
+        IsRunning="True"
+        IsVisible="False" />
+                </StackLayout>
                 <Grid Grid.Row="1" BackgroundColor="#912D93" RowDefinitions="0.08*, 0.93*" Margin="0,20,0,0">
                     <Grid.Background>
                         <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">

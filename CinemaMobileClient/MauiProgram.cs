@@ -19,9 +19,11 @@ public static class MauiProgram
 
 		builder.Services.AddSingleton<ICinesService, CinesService>();//Para registrar el servicio (Creando un instancia de nuestro servicio, agregamos la interfaz y la clase del servicio).
 		builder.Services.AddTransient<Servicios.Prueba>(); //Para registrar la página que usa el servicio.
-        builder.Services.AddTransient<ReservacionPage>();
         builder.Services.AddSingleton<IPeliculasService, PeliculasService>();
-		builder.Services.AddTransient<HomePage>();
+        builder.Services.AddSingleton<ITipoProyeccionService, TipoProyeccionService>();
+        builder.Services.AddSingleton<IHorarioService, HorarioService>();
+        builder.Services.AddTransient<HomePage>();
+        builder.Services.AddTransient<ReservacionPage>();
 
 
 #if DEBUG
