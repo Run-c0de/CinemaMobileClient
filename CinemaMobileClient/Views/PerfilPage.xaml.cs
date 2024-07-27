@@ -15,6 +15,6 @@ public partial class PerfilPage : ContentPage
 
     private async void btnIniciarSesion_Clicked(object sender, EventArgs e)
     {
-        await Navigation.PushModalAsync(new loginPage());
+        //await Navigation.PushModalAsync(new loginPage());
     }
 }

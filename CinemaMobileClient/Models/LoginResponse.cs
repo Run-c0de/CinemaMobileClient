@@ -4,16 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CinemaMobileClient.ViewsModels
+namespace CinemaMobileClient.Models
 {
     public class LoginResponse
     {
         public LoginResponse()
         {
-            this.data = new LoginData();
+            data = new LoginData();
         }
         public LoginData data { get; set; }
-
     }
 
     public class LoginData
@@ -24,6 +23,24 @@ namespace CinemaMobileClient.ViewsModels
         public string codVerificacion { get; set; } = string.Empty;
         public string username { get; set; } = string.Empty;
         public string rol { get; set; } = string.Empty;
+    }
+
+    public class ClaveTemporalResponse
+    {
+        public ClaveTemporalResponse()
+        {
+            data = new ClaveTemporal();
+        }
+        public ClaveTemporal data { get; set; }
+    }
+
+    public class ClaveTemporal
+    {
+
+        public int userId { get; set; }
+        public string message { get; set; } = string.Empty;
+        public string claveTemporal { get; set; } = string.Empty;
+        public string userName { get; set; } = string.Empty;
     }
 
 }

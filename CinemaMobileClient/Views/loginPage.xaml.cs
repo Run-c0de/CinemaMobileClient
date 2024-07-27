@@ -1,5 +1,6 @@
-﻿using CinemaMobileClient.Models;
-using CinemaMobileClient.ViewsModels;
+﻿using CinemaMobileClient.Interfaces;
+using CinemaMobileClient.Models;
+using CinemaMobileClient.Servicios;
 using System.Net.Http.Json;
 using System.Text.Json;
 
@@ -7,10 +8,16 @@ namespace CinemaMobileClient.Views;
 
 public partial class loginPage : ContentPage
 {
+    private readonly ILoginServices _loginService;
     private bool isPasswordVisible = false;
-    public loginPage()
+    public loginPage(ILoginServices loginService)
     {
+        _loginService = loginService;
         InitializeComponent();
+
+        //Quita la barra de navegación
+        NavigationPage.SetHasNavigationBar(this, false);
+
     }
 
     private async void OnCloseButtonClicked(object sender, EventArgs e)
@@ -20,17 +27,13 @@ public partial class loginPage : ContentPage
 
     private async void OnForgotPasswordTapped(object sender, EventArgs e)
     {
-        await Navigation.PushModalAsync(new restablecer_contrasenaPage()); // Replace ForgotPasswordPage with your actual page name
+        var loginService = Servicios.ServiceProvider.GetService<ILoginServices>();
+        await Navigation.PushModalAsync(new restablecer_contrasenaPage(loginService)); // Replace ForgotPasswordPage with your actual page name
     }
 
     private async void btnCrearU_Clicked(object sender, EventArgs e)
     {
         //await Navigation.PushAsync(new pantalla_registro());
-    }
-
-    private async void btnRestablecer_Clicked(object sender, EventArgs e)
-    {
-        await Navigation.PushModalAsync(new restablecer_contrasenaPage());
     }
 
     private void TogglePasswordVisibility(object sender, EventArgs e)
@@ -73,42 +76,26 @@ public partial class loginPage : ContentPage
 
     private async Task LoginUsuario(string username, string password)
     {
-        using var client = new HttpClient();
-        var requestBody = new
-        {
-            userName = username,
-            password = password
-        };
-        var response = await client.PostAsJsonAsync("https://cinepolisapipm2.azurewebsites.net/api/Autenticacion/Login", requestBody);
+        var response = await _loginService.Login(username, password);
 
-        if (response.IsSuccessStatusCode)
+        if (response.status == 200)
         {
-            var responseData = await response.Content.ReadFromJsonAsync<LoginResponse>();
-            if (responseData?.data?.status == 200)
+            var loginService = Servicios.ServiceProvider.GetService<ILoginServices>();
+            await DisplayAlert("Inicio de sesión exitoso", $"¡Bienvenido, {response.username}!", "OK");
+            SaveSession(response.userId, response.username);
+            if (!String.IsNullOrEmpty(response.codVerificacion))
             {
-                await DisplayAlert("Inicio de sesión exitoso", $"¡Bienvenido, {responseData.data.username}!", "OK");
-
-                // Guarda la sesión y redirige
-                SaveSession(responseData.data.userId, responseData.data.username);
-                //await Navigation.PushModalAsync(new HomePage());
+                await Navigation.PushAsync(new verificar_contrasenaPage(response, loginService));
             }
             else
             {
-                await DisplayAlert("Error de inicio de sesión", responseData?.data.message, "OK");
+                await Navigation.PushAsync(new MenuPage());
             }
+
         }
         else
         {
-            var responseData = await response.Content.ReadFromJsonAsync<LoginData>();
-            if (responseData != null)
-            {
-                await DisplayAlert("Error de inicio de sesión", responseData?.message, "OK");
-            }
-            else
-            {
-                await DisplayAlert("Error", "Error en la conexión. Intenta nuevamente.", "OK");
-            }
-
+            await DisplayAlert("Error de inicio de sesión", response.message, "OK");
         }
     }
 

@@ -25,7 +25,7 @@
             <TapGestureRecognizer Tapped="OnCloseButtonClicked" />
         </Image.GestureRecognizers>-->
             </ImageButton>
-            <Label Text="VERIFICAR CONTRASEÑA"
+            <Label Text="VERIFICAR USUARIO"
             FontSize="18"
             HorizontalOptions="Center"
             VerticalOptions="Center"
@@ -46,7 +46,7 @@
                     </Label.FormattedText>
                 </Label>
                 <Frame BackgroundColor="#9F75F9" CornerRadius="0" HasShadow="False" Padding="0">
-                    <Entry Placeholder="Ingrese su Código de Verificación" TextColor="White" PlaceholderColor="White" Margin="0,5" />
+                    <Entry x:Name="txtCodVerificacion" Placeholder="Ingrese su Código de Verificación" TextColor="White" PlaceholderColor="White" Margin="0,5" />
                 </Frame>
                 <Button x:Name="btnVerificar" Text="Verificar Código" WidthRequest="300" HeightRequest="50" BackgroundColor="#7B09A3" TextColor="White" FontSize="16" Margin="0,20,0,5" Clicked="btnVerificar_Clicked"/>
 

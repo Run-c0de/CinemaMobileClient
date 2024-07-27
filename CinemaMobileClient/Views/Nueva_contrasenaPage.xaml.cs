@@ -1,14 +1,21 @@
-﻿namespace CinemaMobileClient.Views;
+﻿using CinemaMobileClient.Interfaces;
+using CinemaMobileClient.Models;
+
+namespace CinemaMobileClient.Views;
 
 public partial class Nueva_contrasenaPage : ContentPage
 {
     private bool isPasswordVisibleT = false;
     private bool isPasswordVisibleNC = false;
     private bool isPasswordVisibleVC = false;
-    public Nueva_contrasenaPage()
-	{
-		InitializeComponent();
-	}
+    private readonly ILoginServices _loginService;
+    private ClaveTemporal _data;
+    public Nueva_contrasenaPage(ClaveTemporal data, ILoginServices loginService)
+    {
+        _data = data;
+        _loginService = loginService;
+        InitializeComponent();
+    }
     private async void OnCloseButtonClicked(object sender, EventArgs e)
     {
         await Navigation.PopModalAsync();
@@ -69,6 +76,28 @@ public partial class Nueva_contrasenaPage : ContentPage
 
     private async void btnRestablecer_Clicked(object sender, EventArgs e)
     {
-        //await Navigation.PushAsync(new pantalla_inicio());
+        var pwdTemporal = PasswordEntryT.Text?.Trim();
+        var pwdNueva = PasswordEntryNC.Text?.Trim();
+        var pwdNuevaVF = PasswordEntryVC.Text?.Trim();
+
+        if (pwdTemporal != _data.claveTemporal)
+        {
+            await DisplayAlert("Error", "La contraseña temporal no coincide con la que se le envio a su correo electronico.", "OK");
+            return;
+        }
+
+        if (pwdNueva != pwdNuevaVF)
+        {
+            await DisplayAlert("Error", "Las contraseñas ingresadas no coinciden.", "OK");
+            return;
+        }
+
+        var result = await _loginService.reestablecerPwd(_data.userId, pwdNueva);
+        if (result)
+        {
+            //await DisplayAlert("Exito", "¡Contraseña cambiada exitosamente!", "OK");
+            var loginService = Servicios.ServiceProvider.GetService<ILoginServices>();
+            await Navigation.PushAsync(new loginPage(loginService));
+        }
     }
 }
