@@ -16,4 +16,10 @@ namespace CinemaMobileClient.Models
         public int tipoProyeccioId { get; set; }
         public bool activo { get; set; }
     }
+
+    public class PeliculaHorario : Horario
+    {
+        public Peliculas.Datum pelicula { get; set; }
+        public int boletosComprados { get; set; }
+    }
 }

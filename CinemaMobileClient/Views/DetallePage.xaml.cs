@@ -5,11 +5,15 @@ using CinemaMobileClient.Models;
 
 public partial class DetallePage : ContentPage
 {
-    public DetallePage(IReadOnlyList<object> datos)
-	{
-		InitializeComponent();
+    PeliculaHorario pelicula = new PeliculaHorario();
+    public DetallePage(IReadOnlyList<Peliculas.Datum> datos)
+    {
+        InitializeComponent();
         // Realiza una conversión explícita a IList<object>
-        IList<object> itemList = datos.ToList();
+        IList<Peliculas.Datum> itemList = datos.ToList();
+        pelicula.pelicula = datos.First();
+        pelicula.horarioId = 1; //Cambiar valor por horario seleccionado
+
         // Suponiendo que los elementos son de un tipo que tiene una propiedad Image
 
         //if (TipoDePelicula == "Cartelera")
@@ -52,7 +56,8 @@ public partial class DetallePage : ContentPage
 
     private async void IrAsientos(object sender, EventArgs e)
     {
+        var horarioid = 1;
         var salasService = Servicios.ServiceProvider.GetService<ISalasServices>();
-        await Navigation.PushModalAsync(new AsientosPages(salasService));
+        await Navigation.PushModalAsync(new AsientosPages(salasService, pelicula));
     }
 }

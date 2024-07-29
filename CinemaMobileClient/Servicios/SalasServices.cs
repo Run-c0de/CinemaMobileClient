@@ -1,11 +1,5 @@
 ﻿using CinemaMobileClient.Interfaces;
 using CinemaMobileClient.Models;
-using CinemaMobileClient.Views;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http.Json;
-using System.Text;
 using System.Text.Json;
 
 namespace CinemaMobileClient.Servicios
@@ -25,21 +19,21 @@ namespace CinemaMobileClient.Servicios
             };
 
         }
-
         public async Task<List<AsientosOcupados>> AsientosOcupados(int horarioId)
         {
             try
             {
-                //HttpResponseMessage response = await _client.PostAsJsonAsync(Endpoints.Endpoints.GetAsientosOcupados, requestBody);
-
-                //if (response.IsSuccessStatusCode)
-                //{
-                    string content = "[\r\n    {\r\n      \"asiento\": \"A1\"\r\n    },\r\n    {\r\n      \"asiento\": \"A3\"\r\n    },\r\n    {\r\n      \"asiento\": \"B1\"\r\n    },\r\n    {\r\n      \"asiento\": \"A5\"\r\n    },\r\n    {\r\n      \"asiento\": \"C1\"\r\n    },\r\n    {\r\n      \"asiento\": \"C5\"\r\n    }\r\n  ]";
-
-                    var result = JsonSerializer.Deserialize<List<AsientosOcupados>>(content, _serializerOptions);
-
-                   
-                //}
+                HttpResponseMessage response = await _client.GetAsync(Endpoints.Endpoints.GetAsientosOcupados + "?horarioId=" + horarioId);
+                List<AsientosOcupados> result = new List<AsientosOcupados>();
+                if (response.IsSuccessStatusCode)
+                {
+                    string content = await response.Content.ReadAsStringAsync();
+                    var loginResponse = JsonSerializer.Deserialize<AsientosOcupadosResponse>(content, _serializerOptions);
+                    if (loginResponse != null)
+                    {
+                        result = loginResponse.Data;
+                    }
+                }
                 return result;
             }
             catch (Exception ex)

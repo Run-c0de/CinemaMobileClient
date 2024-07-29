@@ -19,4 +19,9 @@ namespace CinemaMobileClient.Models
     {
         public string Asiento { get; set; } = string.Empty;
     }
+
+    public class AsientosOcupadosResponse
+    {
+        public List<AsientosOcupados> Data { get; set; }
+    }
 }

@@ -1,15 +1,20 @@
 namespace CinemaMobileClient.Views;
 
 using CinemaMobileClient.Interfaces;
+using CinemaMobileClient.Models;
 using Microsoft.Maui.Controls;
 public partial class AsientosPages : ContentPage
 {
     private readonly ISalasServices _salasServices;
-    public AsientosPages(ISalasServices salasServices)
+    PeliculaHorario _peliculaSelect = new PeliculaHorario();
+    public AsientosPages(ISalasServices salasServices, PeliculaHorario peliculaSelect)
     {
         _salasServices = salasServices;
+        _peliculaSelect = peliculaSelect;
         InitializeComponent();
+        loadData();
         CreateSeatsGrid();
+
     }
 
     private async void CreateSeatsGrid()
@@ -17,7 +22,7 @@ public partial class AsientosPages : ContentPage
         int rows = 5;
         int columns = 6;
 
-        var ocupados = await _salasServices.AsientosOcupados(1);
+        var ocupados = await _salasServices.AsientosOcupados(_peliculaSelect.horarioId);
 
         for (int i = 0; i < rows; i++)
         {
@@ -33,7 +38,8 @@ public partial class AsientosPages : ContentPage
             for (int column = 0; column < columns; column++)
             {
                 var seatButton = new ImageButton();
-                var existe = ocupados.FirstOrDefault(x => x.Asiento == $"{(char)('A' + row)}{column + 1}");
+                var asiento = $"{(char)('A' + row)}{column + 1}";
+                var existe = ocupados.FirstOrDefault(x => x.Asiento == asiento);
                 if (existe != null)
                 {
                     seatButton = new ImageButton
@@ -42,7 +48,7 @@ public partial class AsientosPages : ContentPage
                         WidthRequest = 40,
                         HeightRequest = 40,
                         Margin = 0,
-                        AutomationId = $"{(char)('A' + row)}{column + 1}"
+                        AutomationId = asiento
                     };
                 }
                 else
@@ -53,7 +59,7 @@ public partial class AsientosPages : ContentPage
                         WidthRequest = 40,
                         HeightRequest = 40,
                         Margin = 0,
-                        AutomationId = $"{(char)('A' + row)}{column + 1}"
+                        AutomationId = asiento
                     };
                 }
 
@@ -84,7 +90,16 @@ public partial class AsientosPages : ContentPage
         }
     }
 
-    private async void redirectConfiteria(object sender, EventArgs e)
+    public async void loadData()
+    {
+        var pelicula = _peliculaSelect.pelicula;
+        lbTitulo.Text = pelicula.titulo;
+        lbDuracion.Text ="Duracion: " + pelicula.hora + "h " + pelicula.minutos + "min";
+        lbFecha.Text ="Lanzamiento: " + pelicula.fechaLanzamiento.ToShortDateString();
+        lbGenero.Text = "Genero: " + pelicula.genero.descripcion;
+        imgPortada.Source = pelicula.foto;
+    }
+        private async void redirectConfiteria(object sender, EventArgs e)
     {
         await Navigation.PushModalAsync(new ConfiteriaPage());
     }
