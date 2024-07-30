@@ -24,12 +24,13 @@ public static class MauiProgram
         builder.Services.AddSingleton<ITipoProyeccionService, TipoProyeccionService>();
         builder.Services.AddSingleton<IHorarioService, HorarioService>();
         builder.Services.AddSingleton<ILoginServices, LoginServices>();
+        builder.Services.AddSingleton<ISalasServices, SalasServices>();
         builder.Services.AddTransient<HomePage>();
         builder.Services.AddTransient<ReservacionPage>();
         builder.Services.AddTransient<loginPage>();
         builder.Services.AddSingleton<IPreciosService, PreciosService>();
         builder.Services.AddTransient<DetallePage>();
-
+        builder.Services.AddTransient<SalasServices>();
 
 
 #if DEBUG

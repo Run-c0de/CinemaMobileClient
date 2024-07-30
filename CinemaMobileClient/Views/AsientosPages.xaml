@@ -32,13 +32,13 @@
 
                     <!--Movie Info-->
                     <StackLayout Orientation="Horizontal" Margin="20,0,0,10">
-                        <Image Source="movie_poster.png" WidthRequest="80" HeightRequest="120"/>
+                        <Image x:Name="imgPortada" Source="garfield.png" WidthRequest="80" HeightRequest="120"/>
                         <StackLayout VerticalOptions="Center" Margin="10,0">
-                            <Label Text="El planeta de los simios" FontSize="18" TextColor="White"/>
-                            <Label Text="Duración: 2 h 25 min" FontSize="16" TextColor="Gray"/>
-                            <Label Text="Formato: 2D Doblada" FontSize="16" TextColor="Gray"/>
-                            <Label Text="Fecha: 12 Jun 3 pm" FontSize="16" TextColor="Gray"/>
-                            <Label Text="Clasificación: A" FontSize="16" TextColor="Gray"/>
+                            <Label x:Name="lbTitulo" Text="El planeta de los simios" FontSize="18" TextColor="White"/>
+                            <Label x:Name="lbDuracion" Text="Duración: 2 h 25 min" FontSize="16" TextColor="Gray"/>
+                            <!--<Label x:Name="lbFormato" Text="Formato: 2D Doblada" FontSize="16" TextColor="Gray"/>-->
+                            <Label x:Name="lbFecha" Text="Fecha: 12 Jun 3 pm" FontSize="16" TextColor="Gray"/>
+                            <Label x:Name="lbGenero" Text="Genero: Comedia" FontSize="16" TextColor="Gray"/>
                         </StackLayout>
                     </StackLayout>
                     <Border 

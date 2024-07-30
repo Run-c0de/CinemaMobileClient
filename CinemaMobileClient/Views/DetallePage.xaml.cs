@@ -1,4 +1,6 @@
 namespace CinemaMobileClient.Views;
+
+using CinemaMobileClient.Interfaces;
 using CinemaMobileClient.Models;
 using CinemaMobileClient.Servicios;
 using System.Globalization;
@@ -22,6 +24,7 @@ public partial class DetallePage : ContentPage
         this.dia = dia;
         this.fecha= fecha;
         llenarDetalle();
+
     }
 
     public async void llenarDetalle()
@@ -184,7 +187,10 @@ public partial class DetallePage : ContentPage
         }
         else
         {
-            await Navigation.PushModalAsync(new AsientosPages());
+            //var horarioid = 1;
+            //var salasService = Servicios.ServiceProvider.GetService<ISalasServices>();
+            //await Navigation.PushModalAsync(new AsientosPages(salasService, datosPelicula));
+            //await Navigation.PushModalAsync(new AsientosPages());
         }
     }
 }

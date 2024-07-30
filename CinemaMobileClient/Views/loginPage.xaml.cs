@@ -76,27 +76,28 @@ public partial class loginPage : ContentPage
 
     private async Task LoginUsuario(string username, string password)
     {
-        var response = await _loginService.Login(username, password);
+        //var response = await _loginService.Login(username, password);
 
-        if (response.status == 200)
-        {
-            var loginService = Servicios.ServiceProvider.GetService<ILoginServices>();
-            await DisplayAlert("Inicio de sesión exitoso", $"¡Bienvenido, {response.username}!", "OK");
-            SaveSession(response.userId, response.username);
-            if (!String.IsNullOrEmpty(response.codVerificacion))
-            {
-                await Navigation.PushAsync(new verificar_contrasenaPage(response, loginService));
-            }
-            else
-            {
-                await Navigation.PushAsync(new MenuPage());
-            }
+        //if (response.status == 200)
+        //{
+        //    var loginService = Servicios.ServiceProvider.GetService<ILoginServices>();
+        //    await DisplayAlert("Inicio de sesión exitoso", $"¡Bienvenido, {response.username}!", "OK");
+        //    SaveSession(response.userId, response.username);
+        //    if (!String.IsNullOrEmpty(response.codVerificacion))
+        //    {
+        //        await Navigation.PushAsync(new verificar_contrasenaPage(response, loginService));
+        //    }
+        //    else
+        //    {
+        //        await Navigation.PushAsync(new MenuPage());
+        //    }
 
-        }
-        else
-        {
-            await DisplayAlert("Error de inicio de sesión", response.message, "OK");
-        }
+        //}
+        //else
+        //{
+        //    await DisplayAlert("Error de inicio de sesión", response.message, "OK");
+        //}
+        await Navigation.PushAsync(new MenuPage());
     }
 
     private void SaveSession(int userId, string username)
