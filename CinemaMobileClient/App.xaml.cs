@@ -11,6 +11,8 @@ public partial class App : Application
 
         InitializeComponent();
         var loginService = Servicios.ServiceProvider.GetService<ILoginServices>();
-        MainPage = new NavigationPage(new loginPage(loginService));
+        //MainPage = new NavigationPage(new loginPage(loginService));
+
+        MainPage = new NavigationPage(new MenuPage());
     }
 }

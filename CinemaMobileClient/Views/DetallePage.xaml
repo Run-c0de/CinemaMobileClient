@@ -43,6 +43,7 @@
                  x:Name="imagen"
                  Aspect="AspectFill"/>
             <Label
+                x:Name="lblTitulo"
                   Grid.Column="1"
                   Grid.Row="0"
                   Margin="10,0,0,0"
@@ -51,6 +52,7 @@
                   TextColor="White"
                   FontAttributes="Bold"/>
             <Label
+                x:Name="lblDuracion"
                    Grid.Column="1"
                    Grid.Row="1"
                    Margin="10,0,0,0"
@@ -58,6 +60,7 @@
                    FontSize="18"
                    TextColor="White"/>
             <Label
+                x:Name="lblFormato"
                    Grid.Column="1"
                    Grid.Row="2"
                    Margin="10,0,0,0"
@@ -65,6 +68,7 @@
                    FontSize="18"
                    TextColor="White"/>
             <Label
+                x:Name="lblFecha"
                    Grid.Column="1"
                    Grid.Row="3"
                    Margin="10,0,0,0"
@@ -72,6 +76,7 @@
                    FontSize="18"
                    TextColor="White"/>
             <Label
+                x:Name="lblClasificacion"
                    Grid.Column="1"
                    Grid.Row="4"
                    Margin="10,0,0,0"
@@ -105,10 +110,11 @@
                        HorizontalOptions="Center" 
                        VerticalOptions="Center" />
                 <Label 
+                    x:Name="lblPrecioAdulto"
                        Grid.Row="0"
                        Grid.Column="1"
                        Text="55 LPS" 
-                       FontSize="16"
+                       FontSize="14"
                        TextColor="Black"
                        FontAttributes="Bold"
                        HorizontalOptions="Center" 
@@ -159,10 +165,11 @@
                     HorizontalOptions="Center" 
                     VerticalOptions="Center" />
                 <Label 
+                    x:Name="lblPrecioNino"
                     Grid.Row="1"
                     Grid.Column="1"
                     Text="40 LPS" 
-                    FontSize="16"
+                    FontSize="14"
                     TextColor="Black"
                     FontAttributes="Bold"
                     HorizontalOptions="Center" 
@@ -176,11 +183,13 @@
                      FontAttributes="Bold"
                      BackgroundColor="#7B09A3"
                      HorizontalOptions="Center" 
-                     VerticalOptions="Center"/>
+                     VerticalOptions="Center"
+                    Clicked="MenosNino"/>
                 <Label 
+                    x:Name="lblNino"
                      Grid.Row="1"
                      Grid.Column="3"
-                     Text="2" 
+                     Text="0" 
                      TextColor="Black"
                      FontAttributes="Bold"
                      HorizontalOptions="Center" 
@@ -195,7 +204,8 @@
                      FontAttributes="Bold"
                      BackgroundColor="#7B09A3"
                      HorizontalOptions="Center" 
-                     VerticalOptions="Center"/>
+                     VerticalOptions="Center"
+                    Clicked="MasNino"/>
                 <!-- TERCERA EDAD -->
                 <Label 
                      Grid.Row="2"
@@ -208,10 +218,11 @@
                      HorizontalOptions="Center" 
                      VerticalOptions="Center" />
                 <Label 
+                    x:Name="lblPrecioTerceraEdad"
                      Grid.Row="2"
                      Grid.Column="1"
                      Text="50 LPS" 
-                     FontSize="16"
+                     FontSize="14"
                      TextColor="Black"
                      FontAttributes="Bold"
                      HorizontalOptions="Center" 
@@ -225,11 +236,13 @@
                       FontAttributes="Bold"
                       BackgroundColor="#7B09A3"
                       HorizontalOptions="Center" 
-                      VerticalOptions="Center"/>
+                      VerticalOptions="Center"
+                    Clicked="MenosTerceraEdad"/>
                 <Label 
+                    x:Name="lblTerceraEdad"
                       Grid.Row="2"
                       Grid.Column="3"
-                      Text="2" 
+                      Text="0" 
                       TextColor="Black"
                       FontAttributes="Bold"
                       HorizontalOptions="Center" 
@@ -244,7 +257,8 @@
                       FontAttributes="Bold"
                       BackgroundColor="#7B09A3"
                       HorizontalOptions="Center" 
-                      VerticalOptions="Center"/>
+                      VerticalOptions="Center"
+                    Clicked="MasTerceraEdad"/>
                 <!-- DISCAPACIDAD -->
                 <Label 
                      Grid.Row="3"
@@ -257,10 +271,11 @@
                      HorizontalOptions="Center" 
                      VerticalOptions="Center" />
                 <Label 
+                    x:Name="lblPrecioDiscapacidad"
                      Grid.Row="3"
                      Grid.Column="1"
                      Text="45 LPS" 
-                     FontSize="16"
+                     FontSize="14"
                      TextColor="Black"
                      FontAttributes="Bold"
                      HorizontalOptions="Center" 
@@ -274,11 +289,13 @@
                       FontAttributes="Bold"
                       BackgroundColor="#7B09A3"
                       HorizontalOptions="Center" 
-                      VerticalOptions="Center"/>
+                      VerticalOptions="Center"
+                    Clicked="MenosDiscapacidad"/>
                 <Label 
+                    x:Name="lblDiscapacidad"
                       Grid.Row="3"
                       Grid.Column="3"
-                      Text="2" 
+                      Text="0" 
                       TextColor="Black"
                       FontAttributes="Bold"
                       HorizontalOptions="Center" 
@@ -293,7 +310,8 @@
                       FontAttributes="Bold"
                       BackgroundColor="#7B09A3"
                       HorizontalOptions="Center" 
-                      VerticalOptions="Center"/>
+                      VerticalOptions="Center"
+                    Clicked="MasDiscapacidad"/>
             </Grid>
         </Border>
 
@@ -302,9 +320,10 @@
                        Margin="20,0,0,0"
                        HorizontalOptions="Center" 
                        VerticalOptions="Center"/>
-                <Label 
+                <Label
+                    x:Name="lblTotal"
                     Grid.Column="1"
-                    Text="100.00 LPS" 
+                    Text="00.00 LPS" 
                     TextColor="White"
                     HorizontalOptions="Center" 
                     VerticalOptions="Center"

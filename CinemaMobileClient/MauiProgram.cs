@@ -27,6 +27,8 @@ public static class MauiProgram
         builder.Services.AddTransient<HomePage>();
         builder.Services.AddTransient<ReservacionPage>();
         builder.Services.AddTransient<loginPage>();
+        builder.Services.AddSingleton<IPreciosService, PreciosService>();
+        builder.Services.AddTransient<DetallePage>();
 
 
 

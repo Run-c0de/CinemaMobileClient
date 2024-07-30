@@ -22,6 +22,8 @@ public partial class ReservacionPage : ContentPage
     String SeleccionCine = "";
     String SeleccionFormato = "";
     String SeleccionHora = "";
+
+    DateTime horaPelicula;
     public ReservacionPage(IReadOnlyList<object> currentSelection, ICinesService service, ITipoProyeccionService serviceTipoProyeccion, IHorarioService serviceHorario)
     {
         InitializeComponent();
@@ -110,6 +112,7 @@ public partial class ReservacionPage : ContentPage
             {
                 string descripcionSeleccionada = seleccionado3.horaInicio.ToString();
                 SeleccionHora = descripcionSeleccionada;
+                horaPelicula = seleccionado3.horaInicio;
             }
             
             if (string.IsNullOrEmpty(SeleccionDia) || string.IsNullOrEmpty(SeleccionCine) || string.IsNullOrEmpty(SeleccionFormato) || string.IsNullOrEmpty(SeleccionHora))
@@ -118,7 +121,8 @@ public partial class ReservacionPage : ContentPage
             }
             else
             {
-                await Navigation.PushModalAsync(new DetallePage(datoss));
+                var preciosService = Servicios.ServiceProvider.GetService<IPreciosService>();
+                await Navigation.PushModalAsync(new DetallePage(datoss,SeleccionFormato,SeleccionDia, horaPelicula, preciosService));
             }
         }
         catch (Exception ex) {
