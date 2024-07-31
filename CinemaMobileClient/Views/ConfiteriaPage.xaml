@@ -4,7 +4,7 @@
              x:Class="CinemaMobileClient.Views.ConfiteriaPage">
 
     <ContentPage.Content>
-        <Grid BackgroundColor="#1C0038" RowDefinitions="0.08*, 0.92*">
+        <Grid BackgroundColor="#1C0038" RowDefinitions="0.08*, 0.82*, 0.10*">
 
             <!-- Header -->
             <Grid Grid.Row="0" BackgroundColor="#7B09A3">
@@ -33,6 +33,32 @@
                     <!-- Productos se añadirán aquí -->
                 </StackLayout>
             </ScrollView>
+
+            <!-- Footer -->
+            <Grid Grid.Row="2" BackgroundColor="#4B0B61" Padding="10" Margin="20,10,20,20" HeightRequest="60">
+                <StackLayout Orientation="Horizontal" VerticalOptions="Center" Padding="10">
+                    <Image Source="carrito.png"
+                           VerticalOptions="Center"
+                           HeightRequest="30"
+                           WidthRequest="30"/>
+                    <Label x:Name="TotalCompraLabel"
+                           FontSize="18"
+                           Text="0.00 LPS"
+                           TextColor="White"
+                           Margin="10,8,0,0"
+                           HeightRequest="30"
+                           VerticalOptions="Center"/>
+                </StackLayout>
+                <Button Text="Continuar"
+                        BackgroundColor="#E0E0E0"
+                        TextColor="Black"
+                        VerticalOptions="Center"
+                        HorizontalOptions="End"
+                        CornerRadius="20"
+                        HeightRequest="40"
+                        Clicked="OnContinueButtonClicked"/>
+            </Grid>
+
         </Grid>
     </ContentPage.Content>
 </ContentPage>

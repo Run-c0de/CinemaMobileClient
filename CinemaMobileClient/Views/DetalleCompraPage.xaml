@@ -1,46 +1,133 @@
-<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CinemaMobileClient.Views.DetalleCompraPage"
-             Title="DetalleCompraPage">
+             BackgroundColor="#1C0038"
+             Padding="0">
 
+    <ScrollView>
+        <StackLayout x:Name="MainStackLayout" Padding="0" Spacing="0">
 
-    <ContentPage.Content>
-        <Grid BackgroundColor="#1C0038" RowDefinitions="0.08*, 0.92*">
-
-            <!-- Header -->
-            <Grid Grid.Row="0" BackgroundColor="#7B09A3">
-                <Grid.Background>
-                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
-                        <GradientStopCollection>
-                            <GradientStop Offset="0" Color="#2E043D"/>
-                            <GradientStop Offset="1" Color="#7B09A3"/>
-                        </GradientStopCollection>
-                    </LinearGradientBrush>
-                </Grid.Background>
-                <Label Text="CONFITERÍA"
-                   FontSize="18"
-                   HorizontalOptions="Center"
-                   VerticalOptions="Center"
-                   TextColor="White"/>
-                <Image Source="palomitas.png"
-                   VerticalOptions="Center"
-                   HorizontalOptions="End"
-                   Margin="0,0,20,0"/>
+            <!-- Header de la Película -->
+            <Grid  Padding="20" ColumnDefinitions="Auto,*" RowDefinitions="Auto,Auto">
+                <Image Source="planetasimios.png" Aspect="AspectFit" HeightRequest="150" Grid.RowSpan="2" Grid.Column="0"/>
+                <StackLayout Grid.Column="1" Padding="10" Spacing="5">
+                    <Label Text="El planeta de los simios"
+                           FontSize="24"
+                           TextColor="White"/>
+                    <Label Text="Duración: 2 h 25 min"
+                           FontSize="16"
+                           TextColor="White"/>
+                    <Label Text="Formato: 2D Doblada"
+                           FontSize="16"
+                           TextColor="White"/>
+                    <Label Text="Fecha: 12 Jun 3 pm."
+                           FontSize="16"
+                           TextColor="White"/>
+                    <Label Text="Clasificación A"
+                           FontSize="16"
+                           TextColor="White"/>
+                </StackLayout>
             </Grid>
 
-            <!-- Body -->
-            <ScrollView Grid.Row="1">
-                <StackLayout x:Name="MainStackLayout" Padding="10">
-                    <!-- Aquí se agregarán dinámicamente los productos seleccionados y el total -->
+            <!-- Entradas -->
+            <StackLayout Padding="10" BackgroundColor="#1C0038">
+                <Label Text="ENTRADAS" 
+                       FontSize="20"
+                       TextColor="White"
+                       Padding="10"
+                       HorizontalOptions="Start"/>
+                <StackLayout x:Name="EntradasStackLayout" BackgroundColor="White" Padding="10" Margin="10,0,10,0">
+                    <Label Text="REGULAR 2D ADULTO"
+                           FontSize="18"
+                           TextColor="Black"/>
+                    <Label Text="110.00 LPS"
+                           FontSize="18"
+                           TextColor="Black"
+                           HorizontalOptions="End"/>
+                </StackLayout>
+            </StackLayout>
+
+            <!-- Confitería -->
+            <StackLayout Padding="10" BackgroundColor="#1C0038">
+                <Label Text="CONFITERÍA"
+                       FontSize="20"
+                       TextColor="White"
+                       Padding="10"
+                       HorizontalOptions="Start"/>
+                <StackLayout x:Name="ConfiteriaStackLayout" BackgroundColor="White" Padding="10" Margin="10,0,10,0">
 
                 </StackLayout>
-            </ScrollView>
-        </Grid>
-    </ContentPage.Content>
+            </StackLayout>
 
+            <!-- Subtotal, ISV y Total a Pagar -->
+            <StackLayout Padding="10" BackgroundColor="#1C0038" Margin="10,0,10,0">
+                <StackLayout BackgroundColor="White" Padding="10">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <Label Text="SUB-TOTAL"
+                               FontSize="18"
+                               TextColor="Black"
+                               Grid.Column="0"/>
+                        <Label x:Name="SubtotalLabel"
+                               FontSize="18"
+                               TextColor="Black"
+                               Grid.Column="1"/>
+                    </Grid>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <Label Text="ISV"
+                               FontSize="18"
+                               TextColor="Black"
+                               Grid.Column="0"/>
+                        <Label x:Name="IsvLabel"
+                               FontSize="18"
+                               TextColor="Black"
+                               Grid.Column="1"/>
+                    </Grid>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <Label Text="TOTAL A PAGAR"
+                               FontSize="18"
+                               TextColor="Black"
+                               Grid.Column="0"/>
+                        <Label x:Name="TotalLabel"
+                               FontSize="18"
+                               TextColor="Black"
+                               Grid.Column="1"/>
+                    </Grid>
+                </StackLayout>
+            </StackLayout>
 
-    
-    
-    
+            <!-- Botón de Continuar y Precio Total -->
+            <Grid BackgroundColor="#4B0B61" Padding="10" Margin="20,10,20,20">
+                <StackLayout Orientation="Horizontal" VerticalOptions="Center" Padding="10">
+                    <Image Source="carrito.png"
+                           VerticalOptions="Center"
+                           HeightRequest="30"
+                           WidthRequest="30"/>
+                    <Label x:Name="TotalCompraLabel"
+                           FontSize="18"
+                           Text="0.00 LPS"
+                           TextColor="White"
+                           Margin="10,0,0,0"
+                           VerticalOptions="Center"/>
+                </StackLayout>
+                <Button Text="Continuar"
+                        BackgroundColor="#E0E0E0"
+                        TextColor="Black"
+                        VerticalOptions="Center"
+                        HorizontalOptions="End"
+                        CornerRadius = "20"/>
+            </Grid>
+        </StackLayout>
+    </ScrollView>
 </ContentPage>

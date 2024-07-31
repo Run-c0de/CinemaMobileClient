@@ -122,6 +122,9 @@
       <MauiXaml Update="Views\Nueva_contrasenaPage.xaml">
         <Generator>MSBuild:Compile</Generator>
       </MauiXaml>
+      <MauiXaml Update="Views\PagoPage.xaml">
+        <Generator>MSBuild:Compile</Generator>
+      </MauiXaml>
       <MauiXaml Update="Views\pantalla_perfil.xaml">
         <Generator>MSBuild:Compile</Generator>
       </MauiXaml>

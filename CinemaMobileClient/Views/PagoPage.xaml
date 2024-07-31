@@ -1,0 +1,26 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CinemaMobileClient.Views.PagoPage">
+
+    <StackLayout>
+        <!-- Etiqueta para mostrar el total -->
+        <Label x:Name="TotalLabel" FontSize="24" />
+
+        <!-- ListView para mostrar los productos -->
+        <ListView x:Name="ProductosListView">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="{Binding Descripcion}" FontSize="18" VerticalOptions="Center" />
+                            <Label Text="{Binding Cantidad}" FontSize="18" VerticalOptions="Center" />
+                            <Label Text="{Binding Precio}" FontSize="18" VerticalOptions="Center" />
+                            <Label Text="{Binding Total}" FontSize="18" VerticalOptions="Center" />
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+
+</ContentPage>
