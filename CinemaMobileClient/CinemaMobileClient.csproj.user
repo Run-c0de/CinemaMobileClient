@@ -35,6 +35,9 @@
     <MauiXaml Update="Views\Nueva_contrasenaPage.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
+    <MauiXaml Update="Views\PagoPage.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
     <MauiXaml Update="Views\pantalla_perfil.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>

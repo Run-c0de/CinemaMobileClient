@@ -21,8 +21,7 @@ namespace CinemaMobileClient.Views
         {
             InitializeComponent();
             LoadProductos();
-            InitializeTotalLabel();
-            InitializeContinueButton();
+            //InitializeTotalLabel();
         }
 
         private async void LoadProductos()
@@ -55,6 +54,12 @@ namespace CinemaMobileClient.Views
 
                 var stackLayout = new StackLayout
                 {
+                    Orientation = StackOrientation.Vertical,
+                    Margin = new Thickness(10, 0)
+                };
+
+                var innerStackLayout = new StackLayout
+                {
                     Orientation = StackOrientation.Horizontal,
                     Margin = new Thickness(10, 0)
                 };
@@ -64,12 +69,13 @@ namespace CinemaMobileClient.Views
                     Source = ImageSource.FromUri(new Uri(producto.Foto)),
                     WidthRequest = 80,
                     HeightRequest = 80,
-                    BackgroundColor = Colors.Gray
+                    BackgroundColor = Colors.White
                 };
 
                 var detailsStackLayout = new StackLayout
                 {
                     VerticalOptions = LayoutOptions.Center,
+                    HorizontalOptions = LayoutOptions.FillAndExpand,
                     Margin = new Thickness(10, 0)
                 };
 
@@ -90,7 +96,9 @@ namespace CinemaMobileClient.Views
                 var quantityStackLayout = new StackLayout
                 {
                     Orientation = StackOrientation.Horizontal,
-                    HorizontalOptions = LayoutOptions.End
+                    HorizontalOptions = LayoutOptions.End,
+                    VerticalOptions = LayoutOptions.Center,
+                    Margin = new Thickness(0, 0, 10, 0)
                 };
 
                 var minusButton = new Button
@@ -126,10 +134,22 @@ namespace CinemaMobileClient.Views
 
                 detailsStackLayout.Children.Add(nameLabel);
                 detailsStackLayout.Children.Add(priceLabel);
-                detailsStackLayout.Children.Add(quantityStackLayout);
 
-                stackLayout.Children.Add(image);
-                stackLayout.Children.Add(detailsStackLayout);
+                innerStackLayout.Children.Add(image);
+                innerStackLayout.Children.Add(detailsStackLayout);
+                innerStackLayout.Children.Add(quantityStackLayout);
+
+                stackLayout.Children.Add(innerStackLayout);
+
+                var separator = new BoxView
+                {
+                    HeightRequest = 1,
+                    BackgroundColor = Colors.Gray,
+                    HorizontalOptions = LayoutOptions.FillAndExpand,
+                    Margin = new Thickness(0, 10)
+                };
+
+                stackLayout.Children.Add(separator);
 
                 frame.Content = stackLayout;
 
@@ -157,7 +177,7 @@ namespace CinemaMobileClient.Views
                 quantityLabel.Text = _productQuantities[productoId].ToString();
             }
         }
-
+        /*
         private void InitializeTotalLabel()
         {
             _totalLabel = new Label
@@ -170,7 +190,7 @@ namespace CinemaMobileClient.Views
             };
 
             MainStackLayout.Children.Add(_totalLabel);
-        }
+        }*/
 
         private void UpdateTotal()
         {
@@ -188,30 +208,14 @@ namespace CinemaMobileClient.Views
                 }
             }
 
-            _totalLabel.Text = $" {total:F2} LPS";
-        }
-
-        private void InitializeContinueButton()
-        {
-            var continueButton = new Button
-            {
-                Text = "Continuar",
-                FontSize = 18,
-                BackgroundColor = Colors.Purple,
-                TextColor = Colors.White,
-                CornerRadius = 30,
-                HorizontalOptions = LayoutOptions.Center,
-                VerticalOptions = LayoutOptions.End
-            };
-
-            continueButton.Clicked += OnContinueButtonClicked;
-
-            MainStackLayout.Children.Add(continueButton);
+            // _totalLabel.Text = $" {total:F2} LPS";
+            TotalCompraLabel.Text = $" {total:F2} LPS";
         }
 
         private void OnContinueButtonClicked(object sender, EventArgs e)
         {
             var selectedProducts = new List<SelectedProduct>();
+            var selectedEntradas = new List<selectedEntrada>();
 
             foreach (var kvp in _productQuantities)
             {
@@ -225,7 +229,17 @@ namespace CinemaMobileClient.Views
                         ProductoId = producto.ProductoId,
                         Descripcion = producto.Descripcion,
                         Precio = producto.Precio,
-                        Cantidad = cantidad
+                        Cantidad = cantidad,
+                        Categoria = "Confiteria"
+                    });
+                    selectedEntradas.Add(new selectedEntrada
+                    {//informacion de la pelicula
+                        pelicula = "El planeta de los simios",
+                        duracion = "2 h 25 min",
+                        formato = "2D Doblada",
+                        fecha = "12 Jun 3 Jun",
+                        clasificacion = "A",
+                        Categoria = "Entradas"
                     });
                 }
             }
@@ -241,5 +255,16 @@ namespace CinemaMobileClient.Views
         public string Descripcion { get; set; }
         public decimal Precio { get; set; }
         public int Cantidad { get; set; }
+        public string Categoria { get; set; }
+    }
+    public class selectedEntrada
+    {
+        public string pelicula { get; set; }
+        public string duracion { get; set; }
+        public string formato { get; set; }
+        public string fecha { get; set; }
+        public string clasificacion { get; set; }
+        public string Categoria { get; set; }
+
     }
 }
