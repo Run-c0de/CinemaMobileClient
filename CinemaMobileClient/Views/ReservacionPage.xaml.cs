@@ -22,6 +22,7 @@ public partial class ReservacionPage : ContentPage
     String SeleccionCine = "";
     String SeleccionFormato = "";
     String SeleccionHora = "";
+    int horarioId = 0;
 
     DateTime horaPelicula;
     public ReservacionPage(IReadOnlyList<object> currentSelection, ICinesService service, ITipoProyeccionService serviceTipoProyeccion, IHorarioService serviceHorario)
@@ -78,7 +79,7 @@ public partial class ReservacionPage : ContentPage
         cinemaPickerTipoProyeccion.ItemsSource = tipoProyeccion;
         cinemaPickerTipoProyeccion.ItemDisplayBinding = new Binding("descripcion");
 
-        var horario = await _horarioService.ObtenerHorario();
+        var horario = await _horarioService.ObtenerHorario(datoss.First().peliculaId);
         cinemaPickerHorario.ItemsSource = horario;
         cinemaPickerHorario.ItemDisplayBinding = new Binding("horaInicio", stringFormat: "{0:hh:mm tt}");
     }
@@ -113,8 +114,9 @@ public partial class ReservacionPage : ContentPage
                 string descripcionSeleccionada = seleccionado3.horaInicio.ToString();
                 SeleccionHora = descripcionSeleccionada;
                 horaPelicula = seleccionado3.horaInicio;
+                horarioId = seleccionado3.horarioId;
             }
-            
+
             if (string.IsNullOrEmpty(SeleccionDia) || string.IsNullOrEmpty(SeleccionCine) || string.IsNullOrEmpty(SeleccionFormato) || string.IsNullOrEmpty(SeleccionHora))
             {
                 await DisplayAlert("Atención", "Por favor, completa todas las selecciones necesarias para continuar.", "Aceptar");
@@ -122,10 +124,12 @@ public partial class ReservacionPage : ContentPage
             else
             {
                 var preciosService = Servicios.ServiceProvider.GetService<IPreciosService>();
-                await Navigation.PushModalAsync(new DetallePage(datoss,SeleccionFormato,SeleccionDia, horaPelicula, preciosService));
+                var datosHorario = new datosHorario() { dia = SeleccionDia, formato = SeleccionFormato, hora = horaPelicula, horarioId = horarioId };
+                await Navigation.PushModalAsync(new DetallePage(datoss, datosHorario, preciosService));
             }
         }
-        catch (Exception ex) {
+        catch (Exception ex)
+        {
             await DisplayAlert("Mensaje", ex.Message, "Aceptar");
         }
 

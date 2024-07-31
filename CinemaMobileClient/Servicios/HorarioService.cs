@@ -22,11 +22,11 @@ namespace CinemaMobileClient.Servicios
             ListHorario = new List<Horario>();
         }
 
-        public async Task<List<Horario>> ObtenerHorario()
+        public async Task<List<Horario>> ObtenerHorario(int horarioId)
         {
             try
             {
-                HttpResponseMessage response = await _client.GetAsync(Endpoints.Endpoints.GetHorario);
+                HttpResponseMessage response = await _client.GetAsync(Endpoints.Endpoints.GetHorario + "?peliculaId=" + horarioId);
                 if (response.IsSuccessStatusCode)
                 {
                     string content = await response.Content.ReadAsStringAsync();

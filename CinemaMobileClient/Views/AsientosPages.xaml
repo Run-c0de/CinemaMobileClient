@@ -49,67 +49,6 @@
                         <StackLayout>
                             <Image Source="pantalla.png" HorizontalOptions="Center" WidthRequest="350" HeightRequest="200"/>
                             <Grid x:Name="SeatsGrid" ColumnSpacing="15" RowSpacing="10" Margin="10" BackgroundColor="LightGray" />
-                            <!--<Grid ColumnSpacing="10" RowSpacing="10" Margin="10" BackgroundColor="LightGray">
-                                -->
-                            <!-- Define las filas y columnas de la grilla -->
-                            <!--
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="Auto" />
-                                    <RowDefinition Height="Auto" />
-                                    <RowDefinition Height="Auto" />
-                                    <RowDefinition Height="Auto" />
-                                </Grid.RowDefinitions>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto" />
-                                    <ColumnDefinition Width="Auto" />
-                                    <ColumnDefinition Width="Auto" />
-                                    <ColumnDefinition Width="Auto" />
-                                    <ColumnDefinition Width="Auto" />
-                                </Grid.ColumnDefinitions>
-
-                                -->
-                            <!-- Fila A -->
-                            <!--
-                                <ImageButton Grid.Row="0" Grid.Column="0" Source="asiento.png" WidthRequest="40" HeightRequest="40" Margin="0" AutomationId="A1"/>
-                                <ImageButton Grid.Row="0" Grid.Column="1" Source="asiento.png" WidthRequest="40" HeightRequest="40" Margin="0" AutomationId="A2"/>
-                                <ImageButton Grid.Row="0" Grid.Column="2" Source="asiento.png" WidthRequest="40" HeightRequest="40" Margin="0" AutomationId="A3"/>
-                                <ImageButton Grid.Row="0" Grid.Column="3" Source="asiento.png" WidthRequest="40" HeightRequest="40" Margin="0" AutomationId="A4"/>
-                                <ImageButton Grid.Row="0" Grid.Column="4" Source="asiento.png" WidthRequest="40" HeightRequest="40" Margin="0" AutomationId="A5"/>
-                                <ImageButton Grid.Row="0" Grid.Column="5" Source="asiento.png" WidthRequest="40" HeightRequest="40" Margin="0" AutomationId="A6"/>
-
-                                -->
-                            <!-- Fila B -->
-                            <!--
-                                <ImageButton Grid.Row="1" Grid.Column="0" Source="asiento.png" WidthRequest="40" HeightRequest="40" Margin="0" AutomationId="B1"/>
-                                <ImageButton Grid.Row="1" Grid.Column="1" Source="asiento.png" WidthRequest="40" HeightRequest="40" Margin="0" AutomationId="B2"/>
-                                <ImageButton Grid.Row="1" Grid.Column="2" Source="asiento.png" WidthRequest="40" HeightRequest="40" Margin="0" AutomationId="B3"/>
-                                <ImageButton Grid.Row="1" Grid.Column="3" Source="asiento.png" WidthRequest="40" HeightRequest="40" Margin="0" AutomationId="B4"/>
-                                <ImageButton Grid.Row="1" Grid.Column="4" Source="asiento.png" WidthRequest="40" HeightRequest="40" Margin="0" AutomationId="B5"/>
-                                <ImageButton Grid.Row="1" Grid.Column="5" Source="asiento.png" WidthRequest="40" HeightRequest="40" Margin="0" AutomationId="B6"/>
-
-                                -->
-                            <!-- Fila C -->
-                            <!--
-                                <ImageButton Grid.Row="2" Grid.Column="0" Source="asiento.png" WidthRequest="40" HeightRequest="40" Margin="0" AutomationId="C1"/>
-                                <ImageButton Grid.Row="2" Grid.Column="1" Source="asiento.png" WidthRequest="40" HeightRequest="40" Margin="0" AutomationId="C2"/>
-                                <ImageButton Grid.Row="2" Grid.Column="2" Source="asiento.png" WidthRequest="40" HeightRequest="40" Margin="0" AutomationId="C3"/>
-                                <ImageButton Grid.Row="2" Grid.Column="3" Source="asiento.png" WidthRequest="40" HeightRequest="40" Margin="0" AutomationId="C4"/>
-                                <ImageButton Grid.Row="2" Grid.Column="4" Source="asiento.png" WidthRequest="40" HeightRequest="40" Margin="0" AutomationId="C5"/>
-                                <ImageButton Grid.Row="2" Grid.Column="5" Source="asiento.png" WidthRequest="40" HeightRequest="40" Margin="0" AutomationId="C6"/>
-
-
-                                -->
-                            <!-- Fila D -->
-                            <!--
-                                <ImageButton Grid.Row="3" Grid.Column="0" Source="asiento.png" WidthRequest="40" HeightRequest="40" Margin="0" AutomationId="D1"/>
-                                <ImageButton Grid.Row="3" Grid.Column="1" Source="asiento.png" WidthRequest="40" HeightRequest="40" Margin="0" AutomationId="D2"/>
-                                <ImageButton Grid.Row="3" Grid.Column="2" Source="asiento.png" WidthRequest="40" HeightRequest="40" Margin="0" AutomationId="D3"/>
-                                <ImageButton Grid.Row="3" Grid.Column="3" Source="asiento.png" WidthRequest="40" HeightRequest="40" Margin="0" AutomationId="D4"/>
-                                <ImageButton Grid.Row="3" Grid.Column="4" Source="asiento.png" WidthRequest="40" HeightRequest="40" Margin="0" AutomationId="D5"/>
-                                <ImageButton Grid.Row="3" Grid.Column="5" Source="asiento.png" WidthRequest="40" HeightRequest="40" Margin="0" AutomationId="D6"/>
-                            </Grid>-->
-
-
                         </StackLayout>
 
                     </Border>
@@ -136,8 +75,8 @@
                  HorizontalOptions="Center" 
                  VerticalOptions="Center"/>
                 <Label 
+                    x:Name="lbTotal"
               Grid.Column="1"
-              Text="100.00 LPS" 
               TextColor="White"
               HorizontalOptions="Center" 
               VerticalOptions="Center"

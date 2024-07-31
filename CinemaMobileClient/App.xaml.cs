@@ -11,8 +11,14 @@ public partial class App : Application
 
         InitializeComponent();
         var loginService = Servicios.ServiceProvider.GetService<ILoginServices>();
-        //MainPage = new NavigationPage(new loginPage(loginService));
-
-        MainPage = new NavigationPage(new MenuPage());
+        var userId = Preferences.Get("userId", "");
+        if (userId != "")
+        {
+            MainPage = new NavigationPage(new MenuPage());
+        }
+        else
+        {
+            MainPage = new NavigationPage(new loginPage(loginService));
+        }
     }
 }

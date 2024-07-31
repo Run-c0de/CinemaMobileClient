@@ -9,20 +9,23 @@ public partial class DetallePage : ContentPage
 {
     private IReadOnlyList<Peliculas.Datum> datosPelicula;
     private IReadOnlyList<Precios> datosPrecios;
-    String foto = "", titulo="", hora="", minutos="", formato = "", fecha = "", dia="";
+    private InfoPelicula infoPelicula = new InfoPelicula();
+    private List<VentaDetalleEntradas> detalleEntrada = new List<VentaDetalleEntradas>();
+    String foto = "", titulo = "", hora = "", minutos = "", formato = "", fecha = "", dia = "";
     DateTime horaPelicula;
-    Double totalAsientos=0, totalPago=0, precioAdulto, precioNino, precioDiscapacidad, precioTerceraEdad;
-
+    Double totalAsientos = 0, totalPago = 0, precioAdulto, precioNino, precioDiscapacidad, precioTerceraEdad;
+    int horarioId = 0;
     private readonly IPreciosService _precioService;
-    public DetallePage(IReadOnlyList<Peliculas.Datum> datos, String formato, String dia, DateTime hora, IPreciosService servicioPrecios)
-	{
-		InitializeComponent();
+    public DetallePage(IReadOnlyList<Peliculas.Datum> datos, datosHorario datosHorario, IPreciosService servicioPrecios)
+    {
+        InitializeComponent();
         _precioService = servicioPrecios;
         datosPelicula = datos;
-        this.formato = formato;
-        this.horaPelicula = hora;
-        this.dia = dia;
-        this.fecha= fecha;
+        this.formato = datosHorario.formato;
+        this.horaPelicula = datosHorario.hora;
+        this.dia = datosHorario.dia;
+        horarioId = datosHorario.horarioId;
+        this.fecha = fecha;
         llenarDetalle();
 
     }
@@ -32,7 +35,7 @@ public partial class DetallePage : ContentPage
         foreach (var pelicula in datosPelicula)
         {
             foto = pelicula.foto;
-            titulo= pelicula.titulo;
+            titulo = pelicula.titulo;
             hora = pelicula.hora.ToString();
             minutos = pelicula.minutos.ToString();
         }
@@ -40,7 +43,7 @@ public partial class DetallePage : ContentPage
         lblTitulo.Text = titulo;
         lblDuracion.Text = "Duración: " + hora + " h " + minutos + " min";
         lblFormato.Text = "Formato: " + formato;
-        lblFecha.Text = "Fecha: " + dia ;
+        lblFecha.Text = "Fecha: " + dia;
         lblClasificacion.Text = "Hora: " + horaPelicula.ToString("hh:mm tt");
 
         var precios = await _precioService.ObtenerPrecios();
@@ -50,19 +53,19 @@ public partial class DetallePage : ContentPage
             if (datosPrecios.precioId == 1)
             {
                 lblPrecioAdulto.Text = datosPrecios.monto.ToString("F2") + " LPS";
-                precioAdulto =datosPrecios.monto;
+                precioAdulto = datosPrecios.monto;
             }
             else if (datosPrecios.precioId == 2)
             {
                 lblPrecioNino.Text = datosPrecios.monto.ToString("F2") + " LPS";
                 precioNino = datosPrecios.monto;
             }
-            else if(datosPrecios.precioId == 3)
+            else if (datosPrecios.precioId == 3)
             {
                 lblPrecioTerceraEdad.Text = datosPrecios.monto.ToString("F2") + " LPS";
                 precioTerceraEdad = datosPrecios.monto;
             }
-            else if(datosPrecios.precioId == 4)
+            else if (datosPrecios.precioId == 4)
             {
                 lblPrecioDiscapacidad.Text = datosPrecios.monto.ToString("F2") + " LPS";
                 precioDiscapacidad = datosPrecios.monto;
@@ -148,13 +151,14 @@ public partial class DetallePage : ContentPage
         if (num != 0)
         {
             lblDiscapacidad.Text = (--num).ToString();
-            CalcularTotalAsientos(1,"Menos");
+            CalcularTotalAsientos(1, "Menos");
             CalcularTotalPago(precioDiscapacidad, "Menos");
         }
     }
 
     public void CalcularTotalAsientos(Double valor, String signo)
     {
+
         if (signo == "Menos")
         {
             totalAsientos = totalAsientos - valor;
@@ -168,29 +172,41 @@ public partial class DetallePage : ContentPage
 
     public void CalcularTotalPago(Double valor, String signo)
     {
+
         if (signo == "Menos")
         {
             totalPago = totalPago - valor;
+            var entradaSelect = detalleEntrada.FirstOrDefault(x => x.precio == valor);
+            if (entradaSelect != null)
+            {
+                detalleEntrada.Remove(entradaSelect);
+            }
         }
         else
         {
             totalPago = totalPago + valor;
+            var datos = new VentaDetalleEntradas() { precio = valor, cantidad = 1, numeroBoleto = "" };
+            detalleEntrada.Add(datos);
         }
         lblTotal.Text = totalPago.ToString("F2") + " LPS";
     }
 
     private async void IrAsientos(object sender, EventArgs e)
     {
-        if(totalAsientos==0 || totalPago == 0)
+        if (totalAsientos == 0 || totalPago == 0)
         {
             await DisplayAlert("Atención", "Por favor, completa todas las selecciones necesarias para continuar.", "Aceptar");
         }
         else
         {
-            //var horarioid = 1;
-            //var salasService = Servicios.ServiceProvider.GetService<ISalasServices>();
-            //await Navigation.PushModalAsync(new AsientosPages(salasService, datosPelicula));
-            //await Navigation.PushModalAsync(new AsientosPages());
+            InfoPelicula datos = new InfoPelicula();
+            datos.pelicula = datosPelicula.First();
+            datos.horarioId = horarioId;
+            datos.totalPago = totalPago;
+            datos.totalAsientos = totalAsientos;
+            datos.detalleEntradas = detalleEntrada;
+            var salasService = Servicios.ServiceProvider.GetService<ISalasServices>();
+            await Navigation.PushModalAsync(new AsientosPages(salasService, datos));
         }
     }
 }

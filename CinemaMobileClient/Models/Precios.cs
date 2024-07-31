@@ -20,4 +20,10 @@ namespace CinemaMobileClient.Models
     {
         public List<Precios> data { get; set; }
     }
+
+    public class infoCompra
+    {
+        public double totalAsientos { get; set; }
+        public double totalPago { get; set; }
+    }
 }

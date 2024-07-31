@@ -6,8 +6,8 @@ using Microsoft.Maui.Controls;
 public partial class AsientosPages : ContentPage
 {
     private readonly ISalasServices _salasServices;
-    PeliculaHorario _peliculaSelect = new PeliculaHorario();
-    public AsientosPages(ISalasServices salasServices, PeliculaHorario peliculaSelect)
+    InfoPelicula _peliculaSelect = new InfoPelicula();
+    public AsientosPages(ISalasServices salasServices, InfoPelicula peliculaSelect)
     {
         _salasServices = salasServices;
         _peliculaSelect = peliculaSelect;
@@ -81,10 +81,25 @@ public partial class AsientosPages : ContentPage
         {
             if (button.Source.ToString().Contains("asiento.png"))
             {
-                button.Source = "asiento_seleccionado.png";
+                var disponible = _peliculaSelect.detalleEntradas.FirstOrDefault(x => x.numeroBoleto == "");
+                if (disponible != null)
+                {
+                    button.Source = "asiento_seleccionado.png";
+                    disponible.numeroBoleto = button.AutomationId;
+                }
+                else
+                {
+
+                    DisplayAlert("Alerta", "Ha comprado un total de " + _peliculaSelect.totalAsientos.ToString() + " boletos, ya ha seleccionado los asientos disponibles.", "OK");
+                }
             }
             else if (button.Source.ToString().Contains("asiento_seleccionado.png"))
             {
+                var ocupado = _peliculaSelect.detalleEntradas.FirstOrDefault(x => x.numeroBoleto == button.AutomationId);
+                if (ocupado != null)
+                {
+                    ocupado.numeroBoleto = "";
+                }
                 button.Source = "asiento.png";
             }
         }
@@ -94,13 +109,21 @@ public partial class AsientosPages : ContentPage
     {
         var pelicula = _peliculaSelect.pelicula;
         lbTitulo.Text = pelicula.titulo;
-        lbDuracion.Text ="Duracion: " + pelicula.hora + "h " + pelicula.minutos + "min";
-        lbFecha.Text ="Lanzamiento: " + pelicula.fechaLanzamiento.ToShortDateString();
+        lbDuracion.Text = "Duracion: " + pelicula.hora + "h " + pelicula.minutos + "min";
+        lbFecha.Text = "Lanzamiento: " + pelicula.fechaLanzamiento.ToShortDateString();
         lbGenero.Text = "Genero: " + pelicula.genero.descripcion;
+        lbTotal.Text = _peliculaSelect.totalPago + " LPS";
         imgPortada.Source = pelicula.foto;
     }
-        private async void redirectConfiteria(object sender, EventArgs e)
+    private async void redirectConfiteria(object sender, EventArgs e)
     {
+        var disponible = _peliculaSelect.detalleEntradas.FirstOrDefault(x => x.numeroBoleto == "");
+        if (disponible != null)
+        {
+            await DisplayAlert("Alerta", "Ha comprado un total de " + _peliculaSelect.totalAsientos.ToString() + " boletos, debe seleccionar todos los asientos para poder continuar.", "OK");
+            return;
+        }
+
         await Navigation.PushModalAsync(new ConfiteriaPage());
     }
 }

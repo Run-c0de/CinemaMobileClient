@@ -24,4 +24,20 @@ namespace CinemaMobileClient.Models
     {
         public IList<Horario> Data { get; set; }
     }
+
+    public class datosHorario
+    {
+        public string formato { get; set; }
+        public string dia { get; set; }
+        public DateTime hora { get; set; }
+        public int horarioId { get; set; }
+    }
+
+    public class InfoPelicula : Horario
+    {
+        public Peliculas.Datum pelicula { get; set; }
+        public List<VentaDetalleEntradas> detalleEntradas { get; set; }
+        public double totalAsientos { get; set; }
+        public double totalPago { get; set; }
+    }
 }
