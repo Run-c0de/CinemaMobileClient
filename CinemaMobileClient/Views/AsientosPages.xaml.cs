@@ -124,6 +124,8 @@ public partial class AsientosPages : ContentPage
             return;
         }
 
-        await Navigation.PushModalAsync(new ConfiteriaPage());
+        var confiteriaPage = new ConfiteriaPage();
+        confiteriaPage.DatosPelicula = _peliculaSelect;
+        await Navigation.PushModalAsync(confiteriaPage);
     }
 }

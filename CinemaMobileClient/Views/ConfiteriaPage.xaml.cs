@@ -16,12 +16,13 @@ namespace CinemaMobileClient.Views
         private readonly Dictionary<int, Label> _quantityLabels = new Dictionary<int, Label>();
         private readonly Dictionary<int, Producto> _productos = new Dictionary<int, Producto>();
         private Label _totalLabel;
+        public InfoPelicula? DatosPelicula { get; set; }
 
         public ConfiteriaPage()
         {
             InitializeComponent();
             LoadProductos();
-            //InitializeTotalLabel();
+          
         }
 
         private async void LoadProductos()
@@ -36,7 +37,7 @@ namespace CinemaMobileClient.Views
         }
 
         private void PopulateProductos(List<Producto> productos)
-        {
+        {      
             foreach (var producto in productos)
             {
                 if (!producto.Activo) continue;
@@ -194,7 +195,7 @@ namespace CinemaMobileClient.Views
 
         private void UpdateTotal()
         {
-            decimal total = 0.0m;
+            decimal total = DatosPelicula != null ? Convert.ToDecimal(DatosPelicula.totalPago) : 0m;
 
             foreach (var kvp in _productQuantities)
             {
@@ -232,20 +233,24 @@ namespace CinemaMobileClient.Views
                         Cantidad = cantidad,
                         Categoria = "Confiteria"
                     });
-                    selectedEntradas.Add(new selectedEntrada
-                    {//informacion de la pelicula
-                        pelicula = "El planeta de los simios",
-                        duracion = "2 h 25 min",
-                        formato = "2D Doblada",
-                        fecha = "12 Jun 3 Jun",
-                        clasificacion = "A",
-                        Categoria = "Entradas"
-                    });
+                    if(DatosPelicula != null)
+                    {
+                        selectedEntradas.Add(new selectedEntrada
+                        {//informacion de la pelicula
+                            pelicula = DatosPelicula.pelicula.titulo,
+                            duracion = DatosPelicula.pelicula.hora + "h " + DatosPelicula.pelicula.minutos + "min",
+                            formato = DatosPelicula.pelicula.genero.descripcion,
+                            fecha = DatosPelicula.pelicula.fechaLanzamiento.ToShortDateString(),
+                            clasificacion = "A",
+                            Categoria = "Entradas"
+                        });
+                    }
+                   
                 }
             }
 
             var detalleCompraPage = new DetalleCompraPage(selectedProducts);
-            Navigation.PushAsync(detalleCompraPage);
+            Navigation.PushModalAsync(detalleCompraPage);
         }
     }
 
