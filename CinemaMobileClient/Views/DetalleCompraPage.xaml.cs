@@ -1,8 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using Microsoft.Maui.Controls;
-
 namespace CinemaMobileClient.Views
 {
     public partial class DetalleCompraPage : ContentPage
@@ -51,14 +46,14 @@ namespace CinemaMobileClient.Views
                 grid.Children.Add(productTotalLabel);
                 Grid.SetColumn(productTotalLabel, 1);
 
-                // Agregar a la sección adecuada
+                // Agregar a la secciï¿½n adecuada
                 if (product.Categoria == "Entradas")
                 {
-                    EntradasStackLayout.Children.Add(grid); // Sección de entradas
+                    EntradasStackLayout.Children.Add(grid); // Secciï¿½n de entradas
                 }
                 else if (product.Categoria == "Confiteria")
                 {
-                    ConfiteriaStackLayout.Children.Add(grid); // Sección de confitería
+                    ConfiteriaStackLayout.Children.Add(grid); // Secciï¿½n de confiterï¿½a
                 }
             }
         }
@@ -91,6 +86,12 @@ namespace CinemaMobileClient.Views
 
             // Navegar a PagoPage y pasar los datos
             await Navigation.PushAsync(new PagoPage(productosParaPago, total));
+        }
+
+        private void Button_OnClicked(object? sender, EventArgs e)
+        {
+            var detalleCompraPage = new PaymentView();
+            Navigation.PushModalAsync(detalleCompraPage);
         }
     }
 

@@ -1,7 +1,7 @@
 ﻿<?xml version = "1.0" encoding = "UTF-8" ?>
 <Application xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:local="clr-namespace:CinemaMobileClient"
+             xmlns:converters="clr-namespace:CinemaMobileClient.Converters"
              x:Class="CinemaMobileClient.App">
     <Application.Resources>
         <ResourceDictionary>
@@ -22,6 +22,43 @@
                  <ResourceDictionary Source="Resources/Styles/Colors.xaml" />
                 <ResourceDictionary Source="Resources/Styles/Styles.xaml" />
             </ResourceDictionary.MergedDictionaries>
+            
+            
+            
+            <converters:CardNumberToImageConverter x:Key="CardConverter"
+                                                   Amex="card_amex.png"
+                                                   Diners="card_dinersclub.png"
+                                                   Discover="card_discover.png"
+                                                   Jcb="card_jcb.png"
+                                                   MasterCard="card_mastercard.png"
+                                                   Visa="card_visa.png"
+                                                   Unknown="card_unknown.png" />
+
+            <converters:CardNumberToImageConverter x:Key="CardLightConverter"
+                                                   Amex="logo_amex.png"
+                                                   Diners="logo_dinersclub.png"
+                                                   Discover="logo_discover.png"
+                                                   Jcb="card_jcb.png"
+                                                   MasterCard="logo_mastercard.png"
+                                                   Visa="logo_visa.png"
+                                                   Unknown="icon_cvv.png" />
+
+            <converters:CardNumberToColorConverter x:Key="CardColorConverter"
+                                                   Amex="#3177CB"
+                                                   Diners="#1B4F8F"
+                                                   Discover="#E9752F"
+                                                   Jcb="#9E2921"
+                                                   MasterCard="#394854"
+                                                   Visa="#2867BA"
+                                                   Unknown="#75849D" />
+            
+            <Color x:Key="Primary">#E5E9EE</Color>
+            <Color x:Key="PrimaryDark">#75849D</Color>
+            <Color x:Key="Secondary">#B5BBC2</Color>
+            <Color x:Key="Accent">LightGray</Color>
+            <Color x:Key="LightColor">LightGray</Color>
         </ResourceDictionary>
     </Application.Resources>
+    
+    
 </Application>

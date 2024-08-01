@@ -1,25 +1,49 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using CinemaMobileClient.Contracts;
+using Microsoft.Extensions.Logging;
 using CinemaMobileClient.Servicios;
 using CinemaMobileClient.Views;
-using CinemaMobileClient.Interfaces;//Para poder usar los servicios en las páginas
+using CinemaMobileClient.Interfaces;
+using CinemaMobileClient.Services;
+using CinemaMobileClient.ViewModels;
+
 
 namespace CinemaMobileClient;
 
 public static class MauiProgram
 {
+  
+    
+    public static void Configure(PrismAppBuilder builder)
+    {
+
+        builder.RegisterTypes(OnRegisterTypes);
+
+        /*  builder
+             // .ConfigureModuleCatalog(OnConfigureModuleCatalog)
+              .RegisterTypes(OnRegisterTypes)
+              .OnAppStart($"{nameof(NavigationPage)}/{nameof(MainView)}", ex =>
+              {
+                  System.Diagnostics.Debug.WriteLine($"Error Loading MainView - {ex.Message}");
+                  System.Diagnostics.Debugger.Break();
+              });
+
+              */
+
+    }
     public static MauiApp CreateMauiApp()
     {
-        var builder = MauiApp.CreateBuilder();
-        builder
+        
+        var builder = MauiApp.CreateBuilder()
             .UseMauiApp<App>()
+            .UsePrism(Configure)
             .ConfigureFonts(fonts =>
             {
                 fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                 fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
             });
 
-		builder.Services.AddSingleton<ICinesService, CinesService>();//Para registrar el servicio (Creando un instancia de nuestro servicio, agregamos la interfaz y la clase del servicio).
-		builder.Services.AddTransient<Servicios.Prueba>(); //Para registrar la página que usa el servicio.
+        builder.Services.AddSingleton<ICinesService, CinesService>();
+		builder.Services.AddTransient<Prueba>(); //Para registrar la página que usa el servicio.
         builder.Services.AddSingleton<IPeliculasService, PeliculasService>();
         builder.Services.AddSingleton<ITipoProyeccionService, TipoProyeccionService>();
         builder.Services.AddSingleton<IHorarioService, HorarioService>();
@@ -31,6 +55,16 @@ public static class MauiProgram
         builder.Services.AddSingleton<IPreciosService, PreciosService>();
         builder.Services.AddTransient<DetallePage>();
         builder.Services.AddTransient<SalasServices>();
+        
+#if ANDROID
+        builder.Services.AddTransient<INotificationManagerService, CinemaMobileClient.Platforms.Android.NotificationManagerService>();
+#elif IOS
+            builder.Services.AddTransient<INotificationManagerService, LocalNotificationsDemo.Platforms.iOS.NotificationManagerService>();
+#elif MACCATALYST
+            builder.Services.AddTransient<INotificationManagerService, LocalNotificationsDemo.Platforms.MacCatalyst.NotificationManagerService>();
+#elif WINDOWS
+            builder.Services.AddTransient<INotificationManagerService, LocalNotificationsDemo.Platforms.Windows.NotificationManagerService>();          
+#endif
 
 
 #if DEBUG
@@ -38,11 +72,30 @@ public static class MauiProgram
 #endif
 
         var app = builder.Build();
-
-        // Inicializar el ServiceProvider estático
         Servicios.ServiceProvider.Initialize(app.Services);
 
         return app;
-        //return builder.Build();
     }
+    
+    
+    private static void OnRegisterTypes(IContainerRegistry containerRegistry)
+    {
+        // Services
+        containerRegistry.RegisterSingleton<IStoreService, StoreService>();
+
+        // Navigation
+        containerRegistry
+            .RegisterForNavigation<MenuPage>()
+            .RegisterForNavigation<PaymentView, PaymentViewModel>()
+            .RegisterForNavigation<ReceiptView, ReceiptViewModel>()
+            .RegisterInstance(SemanticScreenReader.Default);
+    }
+    
+    private static void OnConfigureModuleCatalog(IModuleCatalog moduleCatalog)
+    {
+        // Add custom Module to catalog
+        //  moduleCatalog.AddModule<MauiAppModule>();
+        //  moduleCatalog.AddModule<MauiTestRegionsModule>();
+    }
+
 }
