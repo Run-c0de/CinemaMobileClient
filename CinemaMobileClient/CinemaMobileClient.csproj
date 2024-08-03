@@ -95,7 +95,18 @@
         <PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" />
         <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
         <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+
+            
+        <PackageReference Include="Prism.DryIoc.Maui" Version="8.1.273-pre" />
+        <PackageReference Include="Prism.Maui" Version="8.1.273-pre" />        
     </ItemGroup>
+
+
+    <ItemGroup>
+	  <Compile Update="Views\MainView.xaml.cs">
+	    <DependentUpon>MainView.xaml</DependentUpon>
+	  </Compile>
+	</ItemGroup>
 
     <ItemGroup>
       <MauiXaml Update="Servicios\Prueba.xaml">
@@ -143,6 +154,16 @@
       <MauiXaml Update="Views\verificar_contrasenaPage.xaml">
         <Generator>MSBuild:Compile</Generator>
       </MauiXaml>
+
+        <MauiXaml Update="Views\CreditCardView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\PaymentView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\ReceiptView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
     </ItemGroup>
 
 </Project>

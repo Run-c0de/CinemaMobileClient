@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+   
+             xmlns:local="clr-namespace:CinemaMobileClient.Views"
+             xmlns:bahaviors="clr-namespace:CinemaMobileClient.Bahaviors"
+             Title="{Binding Title}"
+             x:Class="CinemaMobileClient.Views.PaymentView">
+    <ContentPage.Content>
+        <Grid BackgroundColor="#1C0038" RowDefinitions="0.08*, 0.92*">
+            <Grid Grid.Row="0"
+                  BackgroundColor="#7B09A3">
+                <Grid.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                        <GradientStopCollection>
+                            <GradientStop Offset="0" Color="#2E043D" />
+                            <GradientStop Offset="1" Color="#7B09A3" />
+                        </GradientStopCollection>
+                    </LinearGradientBrush>
+                </Grid.Background>
+
+
+                <Label Text="{Binding viewName}"
+                       FontSize="18"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center"
+                       TextColor="White" />
+                <Image Source="user.png"
+                       VerticalOptions="Center"
+                       HorizontalOptions="End"
+                       Margin="0,0,20,0" />
+            </Grid>
+
+            <Grid Grid.Row="1">
+                <ScrollView>
+                    <VerticalStackLayout Padding="20" Spacing="20">
+                        <!-- Mis datos section -->
+                        <Frame BackgroundColor="#3D0550" CornerRadius="10" Padding="15">
+                            <StackLayout Spacing="10">
+                                <Label Text="Mis datos" FontAttributes="Bold" FontSize="Large" TextColor="White" />
+                                <BoxView HeightRequest="2" BackgroundColor="White" Margin="0,5,0,10" />
+
+                                <StackLayout Orientation="Horizontal" VerticalOptions="Center" Margin="0,5,0,5">
+                                    <Image Source="user.png" WidthRequest="20" HeightRequest="20"
+                                           Margin="0,0,5,0">
+
+                                    </Image>
+
+                                    <Entry Placeholder="Nombres" TextColor="White"
+                                           HorizontalOptions="FillAndExpand"
+                                           FontAttributes="Bold"
+                                           VerticalOptions="Center" FontSize="15" />
+                                </StackLayout>
+
+                                <StackLayout Orientation="Horizontal" VerticalOptions="Center" Margin="0,5,0,5">
+                                    <Image Source="email_m.png" WidthRequest="20" HeightRequest="20" Margin="0,0,5,0" />
+
+                                    <Entry Placeholder="Correo" TextColor="White"
+                                           FontAttributes="Bold"
+                                           HorizontalOptions="FillAndExpand" VerticalOptions="Center" FontSize="15" />
+                                </StackLayout>
+
+
+                                <StackLayout Orientation="Horizontal" VerticalOptions="Center" Margin="0,5,0,5">
+                                    <Image Source="phone_n.png" WidthRequest="20" HeightRequest="20" Margin="0,0,5,0" />
+
+                                    <Entry Placeholder="Numero telefonico" TextColor="White"
+                                           FontAttributes="Bold"
+                                           HorizontalOptions="FillAndExpand" VerticalOptions="Center" FontSize="15" />
+                                </StackLayout>
+
+                                <StackLayout Orientation="Horizontal" VerticalOptions="Center" Margin="0,5,0,5">
+                                    <Image Source="idc.png" WidthRequest="20" HeightRequest="20" Margin="0,0,5,0" />
+
+                                    <Entry Placeholder="DNI" TextColor="White"
+                                           FontAttributes="Bold"
+                                           HorizontalOptions="FillAndExpand" VerticalOptions="Center" FontSize="15" />
+                                </StackLayout>
+
+                                <HorizontalStackLayout HorizontalOptions="Center" Spacing="10" Margin="0,20,0,0">
+                                    <Button x:Name="btnCerrar" Text="Cerrar" BackgroundColor="White"
+                                            FontAttributes="Bold" TextColor="#3D0550" WidthRequest="120" />
+                                </HorizontalStackLayout>
+                            </StackLayout>
+
+
+                        </Frame>
+
+                        <Grid VerticalOptions="FillAndExpand"
+                              ColumnSpacing="20"
+                              HorizontalOptions="FillAndExpand"
+                              RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto"
+                              ColumnDefinitions="Auto,5*,5*">
+
+                            <local:CreditCardView Grid.Row="0"
+                                                  Grid.Column="0"
+                                                  Grid.ColumnSpan="3" />
+
+                            <Frame HasShadow="false"
+                                   Padding="10"
+                                   BorderColor="{StaticResource Black}"
+                                   Margin="30,30,30,10"
+                                   Grid.Row="1"
+                                   Grid.Column="0"
+                                   Grid.ColumnSpan="3">
+                                <StackLayout Orientation="Horizontal"
+                                             Spacing="20">
+                                    <Image Source="{Binding CardNumber,Converter={StaticResource CardConverter}}"
+                                           HeightRequest="30" />
+
+                                    <Entry HorizontalOptions="FillAndExpand"
+                                           Keyboard="Numeric"
+                                           TextColor="Black"
+                                           FontAttributes="Bold"
+                                           Text="{Binding CardNumber, Mode=TwoWay}"
+                                           Visual="Custom">
+
+                                        <Entry.Behaviors>
+                                            <bahaviors:FastEntryBehavior Mask="####-####-####-####"
+                                                                         MaxLength="19" />
+                                        </Entry.Behaviors>
+                                    </Entry>
+                                </StackLayout>
+                            </Frame>
+
+                            <Frame HasShadow="false"
+                                   Padding="10"
+                                   BorderColor="{StaticResource MidnightBlue}"
+                                   Margin="30,0,0,0"
+                                   Grid.Row="2"
+                                   Grid.Column="0"
+                                   Grid.ColumnSpan="2">
+
+                                <StackLayout Orientation="Horizontal">
+                                    <Image Source="icon_date.png" HeightRequest="25" />
+                                    <Entry HorizontalOptions="FillAndExpand"
+                                           Keyboard="Numeric"
+                                           TextColor="Black"
+                                           FontAttributes="Bold"
+                                           Text="{Binding CardExpirationDate}"
+                                           Visual="Custom">
+                                        <Entry.Behaviors>
+                                            <bahaviors:FastEntryBehavior Mask="##/##"
+                                                                         MaxLength="5" />
+                                        </Entry.Behaviors>
+                                    </Entry>
+                                </StackLayout>
+                            </Frame>
+
+                            <Frame HasShadow="false"
+                                   Padding="10"
+                                   BorderColor="{StaticResource LightColor}"
+                                   Margin="0,0,30,0"
+                                   Grid.Row="2"
+                                   Grid.Column="2">
+
+                                <StackLayout Orientation="Horizontal">
+                                    <Image Source="icon_cvv.png" HeightRequest="25" />
+                                    <Entry HorizontalOptions="FillAndExpand"
+                                           Keyboard="Numeric"
+                                           TextColor="Black"
+                                           FontAttributes="Bold"
+                                           Text="{Binding CardCvv}"
+                                           Visual="Custom">
+                                        <Entry.Behaviors>
+                                            <bahaviors:FastEntryBehavior Mask="###"
+                                                                         MaxLength="3" />
+                                        </Entry.Behaviors>
+                                    </Entry>
+                                </StackLayout>
+                            </Frame>
+
+                            <CheckBox Color="LightGray"
+                                      WidthRequest="30"
+                                      HorizontalOptions="Start"
+                                      Margin="30,0,0,0"
+                                      Visual="Material"
+                                      Grid.Row="3"
+                                      Grid.Column="0" />
+
+                            <Label Text="Remember me"
+                                   TextColor="{StaticResource PrimaryDark}"
+                                   FontSize="16"
+                                   VerticalOptions="Center"
+                                   Grid.Row="3"
+                                   Grid.Column="1"
+                                   Grid.ColumnSpan="2" />
+
+                            <Button Text="or Pay with Paypal"
+                                    Grid.Row="4"
+                                    Grid.Column="0"
+                                    Grid.ColumnSpan="3"
+                                    BackgroundColor="White"
+                                    BorderColor="{StaticResource LightColor}"
+                                    TextColor="{StaticResource PrimaryDark}"
+                                    BorderWidth="1"
+                                    FontSize="18"
+                                    CornerRadius="25"
+                                    Padding="18"
+                                    Margin="30,0" />
+
+                            <BoxView HorizontalOptions="FillAndExpand"
+                                     Color="{StaticResource Secondary}"
+                                     Visual="Default"
+                                     HeightRequest="1"
+                                     Margin="0,30"
+                                     Grid.Row="5"
+                                     Grid.Column="0"
+                                     Grid.ColumnSpan="3" />
+
+                            <Button Text="{Binding PurchaseText}"
+                                    Command="{Binding CmdPurchase}"
+                                    BackgroundColor="{Binding CardNumber, Converter={StaticResource CardColorConverter}}"
+                                    CornerRadius="26"
+                                    FontSize="18"
+                                    Grid.Row="6"
+                                    Grid.Column="0"
+                                    Grid.ColumnSpan="3"
+                                    Padding="18"
+                                    TextColor="White"
+                                    Margin="30,0,30,30" />
+                        </Grid>
+
+                    </VerticalStackLayout>
+
+
+                </ScrollView>
+
+
+            </Grid>
+        </Grid>
+
+    </ContentPage.Content>
+</ContentPage>

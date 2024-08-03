@@ -126,6 +126,7 @@
                         TextColor="Black"
                         VerticalOptions="Center"
                         HorizontalOptions="End"
+                        Clicked="Button_OnClicked"
                         CornerRadius = "20"/>
             </Grid>
         </StackLayout>
