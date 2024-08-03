@@ -4,6 +4,7 @@
              x:Class="CinemaMobileClient.Views.loginPage">
 
     <Grid BackgroundColor="#1C0038" RowDefinitions="0.08*, 0.92*">
+        <!-- Header Grid -->
         <Grid Grid.Row="0">
             <Grid.Background>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
@@ -14,16 +15,18 @@
                 </LinearGradientBrush>
             </Grid.Background>
             <Label Text="INICIAR SESIÓN"
-            FontSize="18"
-            HorizontalOptions="Center"
-            VerticalOptions="Center"
-            TextColor="White"/>
+                   FontSize="18"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center"
+                   />
         </Grid>
 
+        <!-- Main Content Grid -->
         <Grid Grid.Row="1" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
             <VerticalStackLayout VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="300">
 
-                <Image Source="Images/logosesion.jpeg" WidthRequest="250" HeightRequest="250" Margin="0,0,0,20"/>
+                <!-- Content Elements -->
+                <Image Source="Images/logosesion.jpeg" WidthRequest="250" HeightRequest="200" Margin="0,0,0,0"/>
 
                 <Frame BackgroundColor="#9F75F9" CornerRadius="0" HasShadow="False" Padding="2">
                     <Grid>
@@ -34,14 +37,17 @@
 
                         <Image Source="usuario.png" WidthRequest="24" HeightRequest="24" VerticalOptions="Center" />
                         <Entry x:Name="txtUsuario"
-                            Grid.Column="1"
-                           Placeholder="Ingrese su usuario"
-                           TextColor="White"
-                           PlaceholderColor="White"
-                           Margin="10,0,0,0" />
+                               Grid.Column="1"
+                               Placeholder="Ingrese su usuario"
+                               TextColor="White"
+                               PlaceholderColor="White"
+                               Margin="10,0,0,0" />
                     </Grid>
                 </Frame>
-                <BoxView HeightRequest="20" BackgroundColor="Transparent" />
+                <Label x:Name="errorUserMessage" Text="Correo es obligatorio" TextColor="Red" IsVisible="False" Margin="0,0,0,1"/>
+                <Image x:Name="errorIconUser" Source="error.png" WidthRequest="16" HeightRequest="16" IsVisible="False"/>
+
+                <BoxView HeightRequest="15" BackgroundColor="Transparent" />
 
                 <Frame BackgroundColor="#9F75F9" CornerRadius="0" HasShadow="False" Padding="2">
                     <Grid>
@@ -52,47 +58,63 @@
                         </Grid.ColumnDefinitions>
 
                         <Image x:Name="PasswordIcon"
-                         Source="contrasena.png"
-                         WidthRequest="24" HeightRequest="24"
-                         VerticalOptions="Center"
-                         Margin="5"/>
+                               Source="contrasena.png"
+                               WidthRequest="24" HeightRequest="24"
+                               VerticalOptions="Center"
+                               Margin="5"/>
                         <Entry Grid.Column="1"
-                         x:Name="txtContra"
-                         Placeholder="Ingrese su contraseña"
-                         IsPassword="True"
-                         TextColor="White"
-                         PlaceholderColor="White"
-                         Margin="10,0,0,0" />
+                               x:Name="txtContra"
+                               Placeholder="Ingrese su contraseña"
+                               IsPassword="True"
+                               TextColor="White"
+                               PlaceholderColor="White"
+                               Margin="10,0,0,0" />
                         <ImageButton x:Name="TogglePasswordVisibilityIcon"
-                         Grid.Column="2"
-                         BackgroundColor="Transparent"
-                         Clicked="TogglePasswordVisibility"
-                         VerticalOptions="Center"
-                         WidthRequest="24" HeightRequest="24"
-                         Margin="0">
+                                     Grid.Column="2"
+                                     BackgroundColor="Transparent"
+                                     Clicked="TogglePasswordVisibility"
+                                     VerticalOptions="Center"
+                                     WidthRequest="24" HeightRequest="24"
+                                     Margin="0">
                             <ImageButton.Source>
                                 <FileImageSource File="noclave.png" />
                             </ImageButton.Source>
                         </ImageButton>
                     </Grid>
                 </Frame>
+                <Label x:Name="errorPasswordMessage" Text="Contraseña es obligatoria" TextColor="Red" IsVisible="False" Margin="0,0,0,1"/>
+                <Image x:Name="errorIconPassword" Source="error.png" WidthRequest="16" HeightRequest="16" IsVisible="False"/>
 
-                <Label Text="Olvidé mi contraseña" TextColor="#7B09A3" HorizontalTextAlignment="End" Margin="10,12,5,20" TextDecorations="Underline">
+                <Label Text="Olvidé mi contraseña" TextColor="#7B09A3" HorizontalTextAlignment="End" Margin="10,2,5,10" TextDecorations="Underline">
                     <Label.GestureRecognizers>
                         <TapGestureRecognizer
-                        Tapped="OnForgotPasswordTapped"
-                        NumberOfTapsRequired="1" />
+                            Tapped="OnForgotPasswordTapped"
+                            NumberOfTapsRequired="1" />
                     </Label.GestureRecognizers>
                 </Label>
 
-                <Button x:Name="btnInicio" Text="Iniciar sesión" WidthRequest="300" HeightRequest="50" BackgroundColor="#7B09A3" TextColor="White" FontSize="16"  Margin="0,10,5,20" Clicked="btnInicio_Clicked"/>
-
-                <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Spacing="10" Margin="0,20,0,0">
-
-                </StackLayout>
+                <!-- Button with ActivityIndicator -->
+                <Grid>
+                    <Button x:Name="btnInicio"
+                            Text="Iniciar sesión"
+                            WidthRequest="300"
+                            HeightRequest="50"
+                            BackgroundColor="#7B09A3"
+                            TextColor="White"
+                            FontSize="16"
+                            Margin="0,10,5,20"
+                            Clicked="btnInicio_Clicked" />
+                    <ActivityIndicator x:Name="activityIndicator"
+                                       IsRunning="False"
+                                       IsVisible="False"
+                                       VerticalOptions="Center"
+                                       HorizontalOptions="Center"
+                                       Color="White"
+                                       WidthRequest="24"
+                                       HeightRequest="24" />
+                </Grid>
 
             </VerticalStackLayout>
         </Grid>
     </Grid>
-
 </ContentPage>
