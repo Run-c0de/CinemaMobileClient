@@ -30,25 +30,24 @@
         <Grid Grid.Row="1">
             <StackLayout>
                 <ScrollView Grid.Row="0">
-                    <ListView x:Name="listacines" RowHeight="70">
+                    <ListView x:Name="listacines" RowHeight="150" SelectionMode="None">
                         <ListView.ItemTemplate>
                             <DataTemplate>
 
                                 
                                 <ViewCell>
 
-                                    <Grid Padding="10">
-                                        <Grid.RowDefinitions>
-                                            <RowDefinition Height="Auto" />
-                                            <RowDefinition Height="Auto" />
-                                        </Grid.RowDefinitions>
+                                    <Grid  BackgroundColor="#D9D9D9" Margin="10,20,10,10" ColumnDefinitions="0.50*,0.50*">
+                                        <!--<Grid.RowDefinitions>
+                                            <RowDefinition Height="400" />
+                                        </Grid.RowDefinitions>-->
 
-                                        <Grid.ColumnDefinitions>
+                                        <!--<Grid.ColumnDefinitions>
                                             <ColumnDefinition Width="Auto" />
                                             <ColumnDefinition Width="*" />
-                                        </Grid.ColumnDefinitions>
+                                        </Grid.ColumnDefinitions>-->
 
-                                        <Frame HeightRequest="60"
+                                        <!--<Frame HeightRequest="60"
                                            WidthRequest="60"
                                            CornerRadius="10"
                                            BorderColor="CadetBlue"
@@ -56,18 +55,24 @@
                                            Grid.RowSpan="2">
                                             <Image Source="{Binding foto}"
                                                Aspect="AspectFill" 
-                                               WidthRequest="60" 
-                                               HeightRequest="60" 
+                                               WidthRequest="80" 
+                                               HeightRequest="80" 
                                                Margin="0"/>
-                                        </Frame>
+                                        </Frame>-->
 
-
+                                        <Image 
+                                            Grid.Column="0"
+                                            Source="{Binding foto}"
+                                               Aspect="AspectFill" 
+                                               WidthRequest="150" 
+                                               HeightRequest="200" 
+                                               Margin="0"/>
 
                                         <Label Grid.Column="1" 
                                                Text="{Binding descripcion}" 
                                                FontAttributes="Bold" 
                                                Margin="15,0,0,0" 
-                                               TextColor="#fff"
+                                               TextColor="#000"
                                                VerticalOptions="Center" 
                                                 HorizontalOptions="StartAndExpand"/>
 
