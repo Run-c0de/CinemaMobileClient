@@ -7,10 +7,12 @@ public partial class AsientosPages : ContentPage
 {
     private readonly ISalasServices _salasServices;
     InfoPelicula _peliculaSelect = new InfoPelicula();
-    public AsientosPages(ISalasServices salasServices, InfoPelicula peliculaSelect)
+    List<AsientosOcupados> _asientosOcupados;
+    public AsientosPages(ISalasServices salasServices, InfoPelicula peliculaSelect, List<AsientosOcupados> asientosOcupados)
     {
         _salasServices = salasServices;
         _peliculaSelect = peliculaSelect;
+        _asientosOcupados = asientosOcupados;
         InitializeComponent();
         loadData();
         CreateSeatsGrid();
@@ -22,7 +24,7 @@ public partial class AsientosPages : ContentPage
         int rows = 5;
         int columns = 6;
 
-        var ocupados = await _salasServices.AsientosOcupados(_peliculaSelect.horarioId);
+        //var ocupados = await _salasServices.AsientosOcupados(_peliculaSelect.horarioId);
 
         for (int i = 0; i < rows; i++)
         {
@@ -39,7 +41,7 @@ public partial class AsientosPages : ContentPage
             {
                 var seatButton = new ImageButton();
                 var asiento = $"{(char)('A' + row)}{column + 1}";
-                var existe = ocupados.FirstOrDefault(x => x.Asiento == asiento);
+                var existe = _asientosOcupados.FirstOrDefault(x => x.Asiento == asiento);
                 if (existe != null)
                 {
                     seatButton = new ImageButton
@@ -127,5 +129,14 @@ public partial class AsientosPages : ContentPage
         var confiteriaPage = new ConfiteriaPage();
         confiteriaPage.DatosPelicula = _peliculaSelect;
         await Navigation.PushModalAsync(confiteriaPage);
+    }
+
+    private void ImageButton_Clicked(object sender, EventArgs e)
+    {
+
+    }
+    private async void OnCloseButtonClicked(object sender, EventArgs e)
+    {
+        await Navigation.PopModalAsync();
     }
 }
