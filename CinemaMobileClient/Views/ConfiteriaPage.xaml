@@ -16,6 +16,17 @@
                         </GradientStopCollection>
                     </LinearGradientBrush>
                 </Grid.Background>
+                <ImageButton    Source="flecha.png"
+                                VerticalOptions="Center"
+                                HorizontalOptions="Start"
+                                Margin="15,0,20,0"
+                                Clicked="OnCloseButtonClicked"
+                                MaximumWidthRequest="28"
+                                MinimumHeightRequest="28">
+                    <!--<Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnCloseButtonClicked" />
+                            </Image.GestureRecognizers>-->
+                </ImageButton>
                 <Label Text="CONFITERÍA"
                        FontSize="18"
                        HorizontalOptions="Center"
@@ -35,29 +46,36 @@
             </ScrollView>
 
             <!-- Footer -->
-            <Grid Grid.Row="2" BackgroundColor="#4B0B61" Padding="10" Margin="20,10,20,20" HeightRequest="60">
-                <StackLayout Orientation="Horizontal" VerticalOptions="Center" Padding="10">
-                    <Image Source="carrito.png"
-                           VerticalOptions="Center"
-                           HeightRequest="30"
-                           WidthRequest="30"/>
-                    <Label x:Name="TotalCompraLabel"
-                           FontSize="18"
-                           Text="0.00 LPS"
-                           TextColor="White"
-                           Margin="10,8,0,0"
-                           HeightRequest="30"
-                           VerticalOptions="Center"/>
-                </StackLayout>
-                <Button Text="Continuar"
-                        BackgroundColor="#E0E0E0"
-                        TextColor="Black"
-                        VerticalOptions="Center"
-                        HorizontalOptions="End"
-                        CornerRadius="20"
-                        HeightRequest="40"
-                        Clicked="OnContinueButtonClicked"/>
-            </Grid>
+            <Frame Grid.Row="2" 
+                BackgroundColor="#4B0B61" 
+                Padding="10" 
+                HeightRequest="70"
+                Margin="0,20,0,0">
+                <Grid>
+                    <StackLayout Orientation="Horizontal" VerticalOptions="Center" Padding="10" >
+                        <Image Source="carrito.png"
+                                VerticalOptions="Center"
+                                HeightRequest="30"
+                                WidthRequest="30"/>
+                        <Label x:Name="TotalCompraLabel"
+                                FontSize="18"
+                                Text="0.00 LPS"
+                                TextColor="White"
+                                Margin="10,8,0,0"
+                                HeightRequest="30"
+                                VerticalOptions="Center"/>
+                    </StackLayout>
+                    <Button Text="Continuar"
+                            BackgroundColor="#E0E0E0"
+                            TextColor="Black"
+                            VerticalOptions="Center"
+                            HorizontalOptions="End"
+                            CornerRadius="20"
+                            HeightRequest="40"
+                            Clicked="OnContinueButtonClicked"/>
+                </Grid>
+            </Frame>
+
 
         </Grid>
     </ContentPage.Content>

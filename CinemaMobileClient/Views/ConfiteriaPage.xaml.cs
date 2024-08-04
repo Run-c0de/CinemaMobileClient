@@ -22,7 +22,7 @@ namespace CinemaMobileClient.Views
         {
             InitializeComponent();
             LoadProductos();
-          
+
         }
 
         private async void LoadProductos()
@@ -33,11 +33,23 @@ namespace CinemaMobileClient.Views
                 var productoResponse = JsonConvert.DeserializeObject<ProductoResponse>(response);
                 var productos = productoResponse?.Data ?? new List<Producto>();
                 PopulateProductos(productos);
+                // Asignar el valor inicial de totalPago a TotalCompraLabel.Text
+                decimal totalInicial = DatosPelicula != null ? Convert.ToDecimal(DatosPelicula.totalPago) : 0m;
+                TotalCompraLabel.Text = $" {totalInicial:F2} LPS";
             }
         }
 
+        private async void OnCloseButtonClicked(object sender, EventArgs e)
+        {
+            await Navigation.PopModalAsync();
+        }
+
+
+
+
         private void PopulateProductos(List<Producto> productos)
-        {      
+        {
+            var test = DatosPelicula;
             foreach (var producto in productos)
             {
                 if (!producto.Activo) continue;
@@ -178,20 +190,7 @@ namespace CinemaMobileClient.Views
                 quantityLabel.Text = _productQuantities[productoId].ToString();
             }
         }
-        /*
-        private void InitializeTotalLabel()
-        {
-            _totalLabel = new Label
-            {
-                Text = "0.00 LPS",
-                FontSize = 24,
-                TextColor = Colors.White,
-                HorizontalOptions = LayoutOptions.Center,
-                VerticalOptions = LayoutOptions.End
-            };
 
-            MainStackLayout.Children.Add(_totalLabel);
-        }*/
 
         private void UpdateTotal()
         {
@@ -213,10 +212,14 @@ namespace CinemaMobileClient.Views
             TotalCompraLabel.Text = $" {total:F2} LPS";
         }
 
+
+
+
         private void OnContinueButtonClicked(object sender, EventArgs e)
         {
             var selectedProducts = new List<SelectedProduct>();
             var selectedEntradas = new List<selectedEntrada>();
+            var EntradasDetalle = new List<Entradas>();
 
             foreach (var kvp in _productQuantities)
             {
@@ -233,25 +236,48 @@ namespace CinemaMobileClient.Views
                         Cantidad = cantidad,
                         Categoria = "Confiteria"
                     });
-                    if(DatosPelicula != null)
-                    {
-                        selectedEntradas.Add(new selectedEntrada
-                        {//informacion de la pelicula
-                            pelicula = DatosPelicula.pelicula.titulo,
-                            duracion = DatosPelicula.pelicula.hora + "h " + DatosPelicula.pelicula.minutos + "min",
-                            formato = DatosPelicula.pelicula.genero.descripcion,
-                            fecha = DatosPelicula.pelicula.fechaLanzamiento.ToShortDateString(),
-                            clasificacion = "A",
-                            Categoria = "Entradas"
-                        });
-                    }
-                   
                 }
             }
 
-            var detalleCompraPage = new DetalleCompraPage(selectedProducts);
+            if (DatosPelicula != null && selectedProducts.Any())
+            {
+                selectedEntradas.Add(new selectedEntrada
+                {
+                    imagen = DatosPelicula.pelicula.foto,
+                    pelicula = DatosPelicula.pelicula.titulo,
+                    duracion = DatosPelicula.pelicula.hora + "h " + DatosPelicula.pelicula.minutos + "min",
+                    formato = DatosPelicula.pelicula.genero.descripcion,
+                    fecha = DatosPelicula.pelicula.fechaLanzamiento.ToShortDateString(),
+                    clasificacion = "A",
+                    Categoria = "Pelicula"
+                });
+
+                // Recopilar detalles de las entradas
+                foreach (var detalle in DatosPelicula.detalleEntradas)
+                {
+                    EntradasDetalle.Add(new Entradas
+                    {
+                        numeroboleto = detalle.numeroBoleto.ToString(),
+                        precioboleto = detalle.precio,
+                        Categoria = "Entradas"
+                    });
+                }
+            }
+
+            decimal total = DatosPelicula != null ? Convert.ToDecimal(DatosPelicula.totalPago) : 0m;
+
+            var detalleCompraPage = new DetalleCompraPage(selectedProducts, selectedEntradas, EntradasDetalle, total);
             Navigation.PushModalAsync(detalleCompraPage);
         }
+    }
+
+
+    public class Entradas
+    {
+        public string numeroboleto { get; set; }
+        public double precioboleto { get; set; }
+
+        public string Categoria { get; set; }
     }
 
     public class SelectedProduct
@@ -264,6 +290,7 @@ namespace CinemaMobileClient.Views
     }
     public class selectedEntrada
     {
+        public string imagen { get; set; }
         public string pelicula { get; set; }
         public string duracion { get; set; }
         public string formato { get; set; }
