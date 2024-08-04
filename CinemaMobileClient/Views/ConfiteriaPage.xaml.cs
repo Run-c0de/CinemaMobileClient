@@ -267,6 +267,7 @@ namespace CinemaMobileClient.Views
             decimal total = DatosPelicula != null ? Convert.ToDecimal(DatosPelicula.totalPago) : 0m;
 
             var detalleCompraPage = new DetalleCompraPage(selectedProducts, selectedEntradas, EntradasDetalle, total);
+            detalleCompraPage.DatosPelicula = DatosPelicula;
             Navigation.PushModalAsync(detalleCompraPage);
         }
     }

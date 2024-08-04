@@ -55,7 +55,9 @@ public static class MauiProgram
         builder.Services.AddSingleton<IPreciosService, PreciosService>();
         builder.Services.AddTransient<DetallePage>();
         builder.Services.AddTransient<SalasServices>();
-        
+        builder.Services.AddSingleton<IUsuarioServices, UsuarioService>();
+        builder.Services.AddSingleton<IVenta, VentaService>();
+
 #if ANDROID
         builder.Services.AddTransient<INotificationManagerService, CinemaMobileClient.Platforms.Android.NotificationManagerService>();
 #elif IOS

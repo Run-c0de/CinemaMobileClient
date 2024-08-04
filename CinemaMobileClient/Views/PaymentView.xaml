@@ -5,8 +5,10 @@
    
              xmlns:local="clr-namespace:CinemaMobileClient.Views"
              xmlns:bahaviors="clr-namespace:CinemaMobileClient.Bahaviors"
+             xmlns:viewModels="clr-namespace:CinemaMobileClient.ViewModels"
              Title="{Binding Title}"
              x:Class="CinemaMobileClient.Views.PaymentView">
+
     <ContentPage.Content>
         <Grid BackgroundColor="#1C0038" RowDefinitions="0.08*, 0.92*">
             <Grid Grid.Row="0"
@@ -47,7 +49,7 @@
 
                                     </Image>
 
-                                    <Entry Placeholder="Nombres" TextColor="White"
+                                    <Entry x:Name="Nombre" Placeholder="Nombre" TextColor="White"
                                            HorizontalOptions="FillAndExpand"
                                            FontAttributes="Bold"
                                            VerticalOptions="Center" FontSize="15" />
@@ -56,7 +58,7 @@
                                 <StackLayout Orientation="Horizontal" VerticalOptions="Center" Margin="0,5,0,5">
                                     <Image Source="email_m.png" WidthRequest="20" HeightRequest="20" Margin="0,0,5,0" />
 
-                                    <Entry Placeholder="Correo" TextColor="White"
+                                    <Entry x:Name="Correo" Placeholder="Correo" TextColor="White"
                                            FontAttributes="Bold"
                                            HorizontalOptions="FillAndExpand" VerticalOptions="Center" FontSize="15" />
                                 </StackLayout>
@@ -65,7 +67,7 @@
                                 <StackLayout Orientation="Horizontal" VerticalOptions="Center" Margin="0,5,0,5">
                                     <Image Source="phone_n.png" WidthRequest="20" HeightRequest="20" Margin="0,0,5,0" />
 
-                                    <Entry Placeholder="Numero telefonico" TextColor="White"
+                                    <Entry x:Name="Telefono" Placeholder="Numero telefonico" TextColor="White"
                                            FontAttributes="Bold"
                                            HorizontalOptions="FillAndExpand" VerticalOptions="Center" FontSize="15" />
                                 </StackLayout>
@@ -73,7 +75,7 @@
                                 <StackLayout Orientation="Horizontal" VerticalOptions="Center" Margin="0,5,0,5">
                                     <Image Source="idc.png" WidthRequest="20" HeightRequest="20" Margin="0,0,5,0" />
 
-                                    <Entry Placeholder="DNI" TextColor="White"
+                                    <Entry x:Name="Dni" Placeholder="DNI" TextColor="White"
                                            FontAttributes="Bold"
                                            HorizontalOptions="FillAndExpand" VerticalOptions="Center" FontSize="15" />
                                 </StackLayout>
@@ -112,6 +114,7 @@
                                     <Entry HorizontalOptions="FillAndExpand"
                                            Keyboard="Numeric"
                                            TextColor="Black"
+                                           x:Name="NumeroTarjeta"
                                            FontAttributes="Bold"
                                            Text="{Binding CardNumber, Mode=TwoWay}"
                                            Visual="Custom">
@@ -137,6 +140,7 @@
                                     <Entry HorizontalOptions="FillAndExpand"
                                            Keyboard="Numeric"
                                            TextColor="Black"
+                                           x:Name="Expiracion"
                                            FontAttributes="Bold"
                                            Text="{Binding CardExpirationDate}"
                                            Visual="Custom">
@@ -160,6 +164,7 @@
                                     <Entry HorizontalOptions="FillAndExpand"
                                            Keyboard="Numeric"
                                            TextColor="Black"
+                                           x:Name="Cvv"
                                            FontAttributes="Bold"
                                            Text="{Binding CardCvv}"
                                            Visual="Custom">
@@ -187,7 +192,7 @@
                                    Grid.Column="1"
                                    Grid.ColumnSpan="2" />
 
-                            <Button Text="or Pay with Paypal"
+                            <Button Text="Pagar con Paypal"
                                     Grid.Row="4"
                                     Grid.Column="0"
                                     Grid.ColumnSpan="3"
@@ -210,7 +215,7 @@
                                      Grid.ColumnSpan="3" />
 
                             <Button Text="{Binding PurchaseText}"
-                                    Command="{Binding CmdPurchase}"
+                                    Clicked="Button_Clicked"
                                     BackgroundColor="{Binding CardNumber, Converter={StaticResource CardColorConverter}}"
                                     CornerRadius="26"
                                     FontSize="18"
