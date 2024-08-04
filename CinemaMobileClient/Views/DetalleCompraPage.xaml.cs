@@ -1,7 +1,5 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using Microsoft.Maui.Controls;
+using CinemaMobileClient.Interfaces;
+using CinemaMobileClient.Models;
 
 namespace CinemaMobileClient.Views
 {
@@ -12,6 +10,8 @@ namespace CinemaMobileClient.Views
         private readonly List<Entradas> _entradasDetalle;
         private readonly decimal _totalPago;
         private bool _dataLoaded = false;
+        private readonly IUsuarioServices _usuarioServices;
+        public InfoPelicula? DatosPelicula { get; set; }
 
         public DetalleCompraPage(List<SelectedProduct> selectedProducts, List<selectedEntrada> selectedEntradas, List<Entradas> entradasDetalle, decimal totalPago)
         {
@@ -170,9 +170,34 @@ namespace CinemaMobileClient.Views
 
             decimal total = _selectedProducts.Sum(p => p.Cantidad * p.Precio);
 
-            await Navigation.PushAsync(new PagoPage(productosParaPago, total));
-        }
+            var userId = Convert.ToInt32(Preferences.Get("userId", ""));
+            var usuarioServices = Servicios.ServiceProvider.GetService<IUsuarioServices>();
+            var usuario = await usuarioServices.GetUsuarioById(userId);
 
+            var detalleCompraPage = new PaymentView(usuario, _selectedProducts, DatosPelicula);
+            Navigation.PushModalAsync(detalleCompraPage);
+
+            //await Navigation.PushAsync(new PagoPage(productosParaPago, total));
+        }
+        private async void Button_OnClicked(object? sender, EventArgs e)
+        {
+
+            //var userId = Convert.ToInt32(Preferences.Get("userId", ""));
+            //var usuarioServices = Servicios.ServiceProvider.GetService<IUsuarioServices>();
+            //var usuario = await usuarioServices.GetUsuarioById(userId);
+
+            //var detalleCompraPage = new PaymentView(usuario, _selectedProducts, DatosPelicula);
+            //Navigation.PushModalAsync(detalleCompraPage);
+        }
+    }
+
+    public class SelectedProducts
+    {
+        public int ProductoId { get; set; }
+        public string Descripcion { get; set; }
+        public int Cantidad { get; set; }
+        public decimal Precio { get; set; }
+        public string Categoria { get; set; }
     }
 
     public class ProductoParaPago
@@ -183,12 +208,12 @@ namespace CinemaMobileClient.Views
         public decimal Total { get; set; }
     }
     // Modelos de datos
-    public class SelectedProducts
-    {
-        public string Descripcion { get; set; }
-        public int Cantidad { get; set; }
-        public decimal Precio { get; set; }
-    }
+    //public class SelectedProducts
+    //{
+    //    public string Descripcion { get; set; }
+    //    public int Cantidad { get; set; }
+    //    public decimal Precio { get; set; }
+    //}
 
     public class selectedEntradas
     {

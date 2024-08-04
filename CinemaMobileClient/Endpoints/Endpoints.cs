@@ -20,6 +20,8 @@ namespace CinemaMobileClient.Endpoints
         public static string VerificarUsuario = "https://cinepolisapipm2.azurewebsites.net/api/Autenticacion/VerificarUsuario";
         public static string claveTemporal = "https://cinepolisapipm2.azurewebsites.net/api/Autenticacion/EnviarClaveTemporal";
         public static string reestablecerPwd = "https://cinepolisapipm2.azurewebsites.net/api/Autenticacion/ReestablecerPassword";
+        public static string GetUsuario = "https://cinepolisapipm2.azurewebsites.net/api/Usuarios/UsuarioById?usuarioId=";
+        public static string Ventas = "https://cinepolisapipm2.azurewebsites.net/api/Ventas";
     }
 
 }

@@ -16,6 +16,7 @@ public partial class DetallePage : ContentPage
     Double totalAsientos = 0, totalPago = 0, precioAdulto, precioNino, precioDiscapacidad, precioTerceraEdad;
     int horarioId = 0;
     private readonly IPreciosService _precioService;
+    private List<AsientosOcupados> AsientosOcupados;
     public DetallePage(IReadOnlyList<Peliculas.Datum> datos, datosHorario datosHorario, IPreciosService servicioPrecios)
     {
         InitializeComponent();
@@ -45,7 +46,7 @@ public partial class DetallePage : ContentPage
         lblFormato.Text = "Formato: " + formato;
         lblFecha.Text = "Fecha: " + dia;
         lblClasificacion.Text = "Hora: " + horaPelicula.ToString("hh:mm tt");
-
+        AsientosOcupados = await _precioService.AsientosOcupados(datosPelicula.First().peliculaId);
         var precios = await _precioService.ObtenerPrecios();
         foreach (var datosPrecios in precios)
         {
@@ -206,7 +207,7 @@ public partial class DetallePage : ContentPage
             datos.totalAsientos = totalAsientos;
             datos.detalleEntradas = detalleEntrada;
             var salasService = Servicios.ServiceProvider.GetService<ISalasServices>();
-            await Navigation.PushModalAsync(new AsientosPages(salasService, datos));
+            await Navigation.PushModalAsync(new AsientosPages(salasService, datos, AsientosOcupados));
         }
     }
 }

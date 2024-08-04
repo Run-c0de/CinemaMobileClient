@@ -56,5 +56,27 @@ namespace CinemaMobileClient.Servicios
 
             return ListPrecios;
         }
+        public async Task<List<AsientosOcupados>> AsientosOcupados(int horarioId)
+        {
+            try
+            {
+                HttpResponseMessage response = await _client.GetAsync(Endpoints.Endpoints.GetAsientosOcupados + "?horarioId=" + horarioId);
+                List<AsientosOcupados> result = new List<AsientosOcupados>();
+                if (response.IsSuccessStatusCode)
+                {
+                    string content = await response.Content.ReadAsStringAsync();
+                    var loginResponse = JsonSerializer.Deserialize<AsientosOcupadosResponse>(content, _serializerOptions);
+                    if (loginResponse != null)
+                    {
+                        result = loginResponse.Data;
+                    }
+                }
+                return result;
+            }
+            catch (Exception ex)
+            {
+                return new List<AsientosOcupados>();
+            }
+        }
     }
 }
