@@ -21,6 +21,7 @@ namespace CinemaMobileClient.Views
         public ConfiteriaPage()
         {
             InitializeComponent();
+            NavigationPage.SetHasNavigationBar(this, false);
             LoadProductos();
 
         }

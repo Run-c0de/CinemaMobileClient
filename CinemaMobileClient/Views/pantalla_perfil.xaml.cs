@@ -175,7 +175,7 @@ public partial class pantalla_perfil : ContentPage
             correo = entryCorreo.Text,
             esAdministrador = false,
             activo= true,
-            imgBase64 = "",
+            imgBase64 = base64Foto,
         };
 
         string json = JsonConvert.SerializeObject(usuario);
@@ -216,12 +216,12 @@ public partial class pantalla_perfil : ContentPage
 
         ShowLoadingDialog();
 
-       /* if (string.IsNullOrEmpty(base64Foto))
+        if (string.IsNullOrEmpty(base64Foto))
         {
             await DisplayAlert("Alerta", "Por favor agregar una foto.", "OK");
             HideLoadingDialog();
             return;
-        }*/
+        }
 
 
         if (string.IsNullOrEmpty(entryNombres.Text))

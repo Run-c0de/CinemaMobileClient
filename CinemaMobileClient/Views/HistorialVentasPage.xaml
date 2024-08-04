@@ -4,8 +4,7 @@
              x:Class="CinemaMobileClient.Views.HistorialVentasPage">
 
     <Grid BackgroundColor="#1C0038" RowDefinitions="0.08*, 0.92*">
-        <Grid Grid.Row="0"
-              BackgroundColor="#7B09A3">
+        <Grid Grid.Row="0" BackgroundColor="#7B09A3">
             <Grid.Background>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
                     <GradientStopCollection>
@@ -27,8 +26,8 @@
         </Grid>
 
         <Grid Grid.Row="1">
-            <StackLayout>
-                <ScrollView Grid.Row="0">
+            <ScrollView>
+                <StackLayout>
                     <ListView x:Name="VentasListView" RowHeight="140"  SelectionMode="None">
                         <ListView.ItemTemplate>
                             <DataTemplate>
@@ -91,7 +90,6 @@
                                                TextColor="#fff"
                                                VerticalOptions="Center"
                                                HorizontalOptions="StartAndExpand"/>
-                                        
 
                                         <StackLayout Grid.Column="2" VerticalOptions="Center" HorizontalOptions="End">
                                             <Label Text="{Binding Fecha, StringFormat='Fecha: {0:dd/MM/yyyy}'}"
@@ -115,8 +113,8 @@
                             </DataTemplate>
                         </ListView.ItemTemplate>
                     </ListView>
-                </ScrollView>
-            </StackLayout>
+                </StackLayout>
+            </ScrollView>
         </Grid>
     </Grid>
 </ContentPage>

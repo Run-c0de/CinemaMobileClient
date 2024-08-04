@@ -16,6 +16,7 @@ namespace CinemaMobileClient.Views
         public DetalleCompraPage(List<SelectedProduct> selectedProducts, List<selectedEntrada> selectedEntradas, List<Entradas> entradasDetalle, decimal totalPago)
         {
             InitializeComponent();
+            NavigationPage.SetHasNavigationBar(this, false);
             _selectedProducts = selectedProducts ?? new List<SelectedProduct>();
             _selectedEntradas = selectedEntradas ?? new List<selectedEntrada>();
             _entradasDetalle = entradasDetalle ?? new List<Entradas>();
