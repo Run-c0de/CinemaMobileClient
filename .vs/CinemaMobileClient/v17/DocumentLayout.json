@@ -1,14 +1,10 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "J:\\Segundo Periodo 2024\\Movil\\Proyecto Final\\",
+  "WorkspaceRootPath": "C:\\Users\\IT\\Desktop\\CineApp\\CinemaMobileClient\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{661A271E-267F-4B22-8BE5-0E0414D1A4CF}|CinemaMobileClient\\CinemaMobileClient.csproj|j:\\segundo periodo 2024\\movil\\proyecto final\\cinemamobileclient\\views\\loginpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{661A271E-267F-4B22-8BE5-0E0414D1A4CF}|CinemaMobileClient\\CinemaMobileClient.csproj|solutionrelative:cinemamobileclient\\views\\loginpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{661A271E-267F-4B22-8BE5-0E0414D1A4CF}|CinemaMobileClient\\CinemaMobileClient.csproj|j:\\segundo periodo 2024\\movil\\proyecto final\\cinemamobileclient\\views\\loginpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{661A271E-267F-4B22-8BE5-0E0414D1A4CF}|CinemaMobileClient\\CinemaMobileClient.csproj|solutionrelative:cinemamobileclient\\views\\loginpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{661A271E-267F-4B22-8BE5-0E0414D1A4CF}|CinemaMobileClient\\CinemaMobileClient.csproj|c:\\users\\it\\desktop\\cineapp\\cinemamobileclient\\cinemamobileclient\\platforms\\android\\androidmanifest.xml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{661A271E-267F-4B22-8BE5-0E0414D1A4CF}|CinemaMobileClient\\CinemaMobileClient.csproj|solutionrelative:cinemamobileclient\\platforms\\android\\androidmanifest.xml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
     }
   ],
   "DocumentGroupContainers": [
@@ -23,27 +19,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "loginPage.xaml.cs",
-              "DocumentMoniker": "J:\\Segundo Periodo 2024\\Movil\\Proyecto Final\\CinemaMobileClient\\Views\\loginPage.xaml.cs",
-              "RelativeDocumentMoniker": "CinemaMobileClient\\Views\\loginPage.xaml.cs",
-              "ToolTip": "J:\\Segundo Periodo 2024\\Movil\\Proyecto Final\\CinemaMobileClient\\Views\\loginPage.xaml.cs",
-              "RelativeToolTip": "CinemaMobileClient\\Views\\loginPage.xaml.cs",
-              "ViewState": "AQIAAFIAAAAAAAAAAAAiwHIAAAAFAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-03T03:39:48.35Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "loginPage.xaml",
-              "DocumentMoniker": "J:\\Segundo Periodo 2024\\Movil\\Proyecto Final\\CinemaMobileClient\\Views\\loginPage.xaml",
-              "RelativeDocumentMoniker": "CinemaMobileClient\\Views\\loginPage.xaml",
-              "ToolTip": "J:\\Segundo Periodo 2024\\Movil\\Proyecto Final\\CinemaMobileClient\\Views\\loginPage.xaml",
-              "RelativeToolTip": "CinemaMobileClient\\Views\\loginPage.xaml",
-              "ViewState": "AQIAAEgAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-08-03T03:37:29.308Z",
+              "Title": "AndroidManifest.xml",
+              "DocumentMoniker": "C:\\Users\\IT\\Desktop\\CineApp\\CinemaMobileClient\\CinemaMobileClient\\Platforms\\Android\\AndroidManifest.xml",
+              "RelativeDocumentMoniker": "CinemaMobileClient\\Platforms\\Android\\AndroidManifest.xml",
+              "ToolTip": "C:\\Users\\IT\\Desktop\\CineApp\\CinemaMobileClient\\CinemaMobileClient\\Platforms\\Android\\AndroidManifest.xml",
+              "RelativeToolTip": "CinemaMobileClient\\Platforms\\Android\\AndroidManifest.xml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003576|",
+              "WhenOpened": "2024-08-04T04:22:18.945Z",
               "EditorCaption": ""
             }
           ]
