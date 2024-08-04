@@ -31,11 +31,32 @@
             <ScrollView>
                 <VerticalStackLayout Padding="20" Spacing="20" >
 
-                    <Image x:Name="img"  Source="Images/camara.png" BackgroundColor="Azure" WidthRequest="100" HeightRequest="100" Margin="0,10,0,20" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" >
-                        <Image.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="btnfoto_Clicked" NumberOfTapsRequired="1"/>
-                        </Image.GestureRecognizers>
-                    </Image>
+                    <Frame
+                        WidthRequest="100"
+                        HeightRequest="100"
+                        CornerRadius="50"
+                        BackgroundColor="Azure"
+                        Margin="0,10,0,20"
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="CenterAndExpand"
+                        HasShadow="False">
+                        <Image
+                            x:Name="img"
+                            Aspect="AspectFill"
+                            WidthRequest="100"
+                            HeightRequest="100">
+                            <Image.Clip>
+                                <EllipseGeometry
+                                Center="50,50"
+                                RadiusX="50"
+                                RadiusY="50" />
+                            </Image.Clip>
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="btnfoto_Clicked" NumberOfTapsRequired="1"/>
+                            </Image.GestureRecognizers>
+                        </Image>
+                    </Frame>
+
 
                     <!-- Mis datos section -->
                     <Frame BackgroundColor="#3D0550" CornerRadius="10" Padding="15">
