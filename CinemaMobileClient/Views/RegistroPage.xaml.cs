@@ -121,7 +121,7 @@ public partial class RegistroPage : ContentPage
 
                 if (imageBytes.Length == 0)
                 {
-                    throw new Exception("La imagen est� vac�a.");
+                    throw new Exception("La imagen esta vacia.");
                 }
 
                 return Convert.ToBase64String(imageBytes);
@@ -189,7 +189,7 @@ public partial class RegistroPage : ContentPage
             telefono = entryTelefono.Text,
             correo = entryCorreo.Text,
             esAdministrador = false,
-            imgBase64 = "",
+            imgBase64 = base64Foto,
 
         };
 
@@ -209,7 +209,8 @@ public partial class RegistroPage : ContentPage
             entryCorreo.Text = string.Empty;
             img.Source = "anadir.png";
             imageToSave = null;
-            await Navigation.PopAsync();
+            //await Navigation.PopAsync();
+
         }
         else
         {
