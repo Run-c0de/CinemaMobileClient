@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CinemaMobileClient.Views.HistorialVentasPage">
+
+    <Grid BackgroundColor="#1C0038" RowDefinitions="0.08*, 0.92*">
+        <Grid Grid.Row="0"
+              BackgroundColor="#7B09A3">
+            <Grid.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                    <GradientStopCollection>
+                        <GradientStop Offset="0" Color="#2E043D"/>
+                        <GradientStop Offset="1" Color="#7B09A3"/>
+                    </GradientStopCollection>
+                </LinearGradientBrush>
+            </Grid.Background>
+
+            <Label Text="Historial de Compras"
+                   FontSize="18"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center"
+                   TextColor="White"/>
+            <Image Source="carrito.png"
+                   VerticalOptions="Center"
+                   HorizontalOptions="End"
+                   Margin="0,0,20,0"/>
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <StackLayout>
+                <ScrollView Grid.Row="0">
+                    <ListView x:Name="VentasListView" RowHeight="140"  SelectionMode="None">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <Grid Padding="10">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto" />
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="Auto" />
+                                        </Grid.ColumnDefinitions>
+
+                                        <Frame HeightRequest="110"
+                                               WidthRequest="70"
+                                               CornerRadius="10"
+                                               BorderColor="CadetBlue"
+                                               Margin="15,0,0,0"
+                                               Grid.RowSpan="5">
+                                            <Image Source="{Binding Portada}"
+                                                   Aspect="AspectFill"
+                                                   WidthRequest="70"
+                                                   HeightRequest="110"
+                                                   Margin="0"/>
+                                        </Frame>
+
+                                        <Label Grid.Column="1"
+                                               Text="{Binding Pelicula}"
+                                               FontAttributes="Bold"
+                                               Margin="15,-40,0,0"
+                                               TextColor="#fff"
+                                               VerticalOptions="Center"
+                                               HorizontalOptions="StartAndExpand"/>
+                                        <Label Grid.Row="1"
+                                               Grid.Column="1"
+                                               Text="{Binding Genero}"
+                                               FontAttributes="Bold"
+                                               Margin="15,-60,0,0"
+                                               TextColor="#fff"
+                                               VerticalOptions="Center"
+                                               HorizontalOptions="StartAndExpand"/>
+                                        <Label Grid.Row="2"
+                                               Grid.Column="1"
+                                               Text="{Binding BoletosComprados, StringFormat='Boletos: {0}'}"
+                                               FontAttributes="Bold"
+                                               Margin="15,-10,0,0"
+                                               TextColor="#fff"
+                                               VerticalOptions="Center"
+                                               HorizontalOptions="StartAndExpand"/>
+                                        <Label Grid.Row="3"
+                                               Grid.Column="1"
+                                               Text="{Binding Sala, StringFormat='Sala: {0}'}"
+                                               FontAttributes="Bold"
+                                               Margin="15,0,0,0"
+                                               TextColor="#fff"
+                                               VerticalOptions="Center"
+                                               HorizontalOptions="StartAndExpand"/>
+                                        
+
+                                        <StackLayout Grid.Column="2" VerticalOptions="Center" HorizontalOptions="End">
+                                            <Label Text="{Binding Fecha, StringFormat='Fecha: {0:dd/MM/yyyy}'}"
+                                                   FontAttributes="Bold"
+                                                   Margin="15,0,0,0"
+                                                   TextColor="#fff"
+                                                   HorizontalOptions="End"/>
+                                            <Label Text="{Binding HoraInicio, StringFormat='Hora: {0}'}"
+                                                   FontAttributes="Bold"
+                                                   Margin="15,0,0,0"
+                                                   TextColor="#fff"
+                                                   HorizontalOptions="End"/>
+                                            <Label Text="{Binding Total, StringFormat='Total: {0:C}'}"
+                                                   FontAttributes="Bold"
+                                                   Margin="15,0,0,0"
+                                                   TextColor="#fff"
+                                                   HorizontalOptions="End"/>
+                                        </StackLayout>
+                                    </Grid>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </ScrollView>
+            </StackLayout>
+        </Grid>
+    </Grid>
+</ContentPage>

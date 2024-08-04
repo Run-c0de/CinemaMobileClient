@@ -18,7 +18,8 @@ public partial class App : Application
         }
         else
         {
-            MainPage = new NavigationPage(new loginPage(loginService));
+            //MainPage = new NavigationPage(new loginPage(loginService));
+            MainPage = new NavigationPage(new PerfilPage());
         }
     }
 }

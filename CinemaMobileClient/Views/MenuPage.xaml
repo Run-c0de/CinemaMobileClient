@@ -16,5 +16,8 @@
         <Tab Title="Perfil" Icon="perfil.png">
             <ShellContent ContentTemplate="{DataTemplate local:pantalla_perfil}" />
         </Tab>
+        <Tab Title="Compras" Icon="carrito.png">
+            <ShellContent ContentTemplate="{DataTemplate local:HistorialVentasPage}" />
+        </Tab>
     </TabBar>
 </Shell>

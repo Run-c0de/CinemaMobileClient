@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CinemaMobileClient.Views.RegistroPage">
-    
+
     <Grid BackgroundColor="#1C0038" RowDefinitions="0.08*, 0.92*">
         <Grid Grid.Row="0">
             <Grid.Background>
@@ -15,26 +15,31 @@
             </Grid.Background>
 
             <ImageButton Source="flecha.png"
-                        VerticalOptions="Center"
-                        HorizontalOptions="Start"
-                        Margin="15,0,20,0"
-                        Clicked="OnCloseButtonClicked"
-                        MaximumWidthRequest="28"
-                        MinimumHeightRequest="28">
+            VerticalOptions="Center"
+            HorizontalOptions="Start"
+            Margin="15,0,20,0"
+            Clicked="OnCloseButtonClicked"
+            MaximumWidthRequest="28"
+            MinimumHeightRequest="28">
                 <!--<Image.GestureRecognizers>
-        <TapGestureRecognizer Tapped="OnCloseButtonClicked" />
-    </Image.GestureRecognizers>-->
+            <TapGestureRecognizer Tapped="OnCloseButtonClicked" />
+        </Image.GestureRecognizers>-->
             </ImageButton>
-            <Label Text="VERIFICAR CONTRASEÑA"
-                    FontSize="18"
-                    HorizontalOptions="Center"
-                    VerticalOptions="Center"
-                    TextColor="White"/>
+            <Label Text="REGISTRO"
+        FontSize="18"
+        HorizontalOptions="Center"
+        VerticalOptions="Center"
+        TextColor="White"/>
         </Grid>
         <ScrollView Grid.Row="1">
             <VerticalStackLayout Padding="20" Spacing="10">
 
-                <Image Source="Images/camara.png" WidthRequest="200" HeightRequest="100" Margin="0,10,0,20"/>
+                <Image x:Name="img"  Source="Images/camara.png" BackgroundColor="Azure" WidthRequest="100" HeightRequest="100" Margin="0,10,0,20" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" >
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="btnfoto_Clicked" NumberOfTapsRequired="1"/>
+                    </Image.GestureRecognizers>
+                </Image>
+
 
                 <!-- Frame con icono y entrada para Nombre -->
                 <Frame BackgroundColor="#9F75F9" CornerRadius="0" HasShadow="False" Padding="5">
@@ -44,7 +49,7 @@
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
                         <Image Source="nombre.png" WidthRequest="24" HeightRequest="24" VerticalOptions="Center" />
-                        <Entry Grid.Column="1" Placeholder="Ingrese su nombre" TextColor="White" PlaceholderColor="White" />
+                        <Entry Grid.Column="1" x:Name="entryNombres" Placeholder="Ingrese su nombre" TextColor="White" PlaceholderColor="White" />
                     </Grid>
                 </Frame>
 
@@ -56,7 +61,7 @@
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
                         <Image Source="nombre.png" WidthRequest="24" HeightRequest="24" VerticalOptions="Center" />
-                        <Entry Grid.Column="1" Placeholder="Ingrese sus apellidos" TextColor="White" PlaceholderColor="White" />
+                        <Entry Grid.Column="1" x:Name="entryApellidos" Placeholder="Ingrese sus apellidos" TextColor="White" PlaceholderColor="White" />
                     </Grid>
                 </Frame>
 
@@ -68,7 +73,7 @@
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
                         <Image Source="rusuario.png" WidthRequest="24" HeightRequest="24" VerticalOptions="Center" />
-                        <Entry Grid.Column="1" Placeholder="Ingrese un usuario" TextColor="White" PlaceholderColor="White" />
+                        <Entry Grid.Column="1" x:Name="entryUsuario" Placeholder="Ingrese un usuario" TextColor="White" PlaceholderColor="White" />
                     </Grid>
                 </Frame>
 
@@ -80,7 +85,7 @@
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
                         <Image Source="telefono.png" WidthRequest="24" HeightRequest="24" VerticalOptions="Center" />
-                        <Entry Grid.Column="1" Placeholder="Ingrese su teléfono" TextColor="White" PlaceholderColor="White" Keyboard="Telephone" />
+                        <Entry Grid.Column="1" x:Name="entryTelefono" Placeholder="Ingrese su teléfono" TextColor="White" PlaceholderColor="White" Keyboard="Telephone" />
                     </Grid>
                 </Frame>
 
@@ -92,7 +97,7 @@
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
                         <Image Source="correo.png" WidthRequest="24" HeightRequest="24" VerticalOptions="Center" />
-                        <Entry Grid.Column="1" Placeholder="Ingrese su correo electrónico" TextColor="White" PlaceholderColor="White" Keyboard="Email" />
+                        <Entry Grid.Column="1" x:Name="entryCorreo" Placeholder="Ingrese su correo electrónico" TextColor="White" PlaceholderColor="White" Keyboard="Email" />
                     </Grid>
                 </Frame>
 
@@ -111,7 +116,7 @@
                     VerticalOptions="Center"
                     Margin="5"/>
                         <Entry Grid.Column="1"
-                     x:Name="PasswordEntryp"
+                     x:Name="entryPassword"
                      Placeholder="Contraseña"
                      IsPassword="True"
                      TextColor="White"
@@ -146,7 +151,7 @@
                      VerticalOptions="Center"
                      Margin="5"/>
                         <Entry Grid.Column="1"
-                     x:Name="PasswordEntry"
+                     x:Name="entryCPassword"
                      Placeholder="Confirmar contraseña"
                      IsPassword="True"
                      TextColor="White"
