@@ -107,6 +107,8 @@
                             </StackLayout>-->
 
                             <HorizontalStackLayout HorizontalOptions="Center" Spacing="10" Margin="0,20,0,0">
+                                <Button x:Name="btnCerrar" Text="Cerrar Sesión" BackgroundColor="White" TextColor="#3D0550" WidthRequest="120" Clicked="btnCerrarSesion"/>
+
                                 <Button x:Name="btnActualizar" Text="Actualizar" BackgroundColor="White" TextColor="#3D0550" WidthRequest="120" Clicked="btnActualizar_Clicked"/>
                                 <!--<Button x:Name="btnCerrar" Text="Cerrar" BackgroundColor="White" TextColor="#3D0550" WidthRequest="120" Clicked="btnCerrar_Clicked"/>-->
                             </HorizontalStackLayout>
