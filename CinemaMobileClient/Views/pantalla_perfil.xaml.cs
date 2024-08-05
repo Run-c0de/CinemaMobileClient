@@ -265,4 +265,20 @@ public partial class pantalla_perfil : ContentPage
         btnActualizar.IsEnabled = isEnabled;
     }
 
+    private async void btnCerrarSesion(object sender, EventArgs e)
+    {
+        bool confirmar = await Application.Current.MainPage.DisplayAlert(
+            "Cerrar Sesión",
+            "¿Estás seguro de que deseas cerrar sesión?",
+            "Sí",
+            "No"
+        );
+
+        if (confirmar)
+        {
+            Preferences.Clear();
+            await Application.Current.MainPage.Navigation.PushAsync(new PerfilPage());
+        }
+    }
+
 }
