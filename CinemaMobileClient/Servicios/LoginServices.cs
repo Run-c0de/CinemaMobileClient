@@ -41,8 +41,6 @@ namespace CinemaMobileClient.Servicios
                     if (loginResponse != null)
                     {
                         result = loginResponse.data;
-                        Preferences.Set("userId", result.userId.ToString());
-                        Preferences.Set("username", result.username);
                     }
                 }
                 else

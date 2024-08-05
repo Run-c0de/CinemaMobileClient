@@ -97,7 +97,8 @@ public partial class Nueva_contrasenaPage : ContentPage
         {
             //await DisplayAlert("Exito", "¡Contraseña cambiada exitosamente!", "OK");
             var loginService = Servicios.ServiceProvider.GetService<ILoginServices>();
-            await Navigation.PushAsync(new loginPage(loginService));
+            //await Navigation.PushAsync(new loginPage(loginService));
+            await Navigation.PushModalAsync(new loginPage(loginService));
         }
     }
 }
