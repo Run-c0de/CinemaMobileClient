@@ -34,36 +34,22 @@ public partial class RegistroPage : ContentPage
     {
         isPasswordVisible = !isPasswordVisible;
 
-        // Cambia la visibilidad del texto de la contrase�a
+        // Cambia la visibilidad del texto de la contraseña
         entryPassword.IsPassword = !isPasswordVisible;
 
-        // Cambia el icono del bot�n para reflejar la visibilidad actual de la contrase�a
-        if (isPasswordVisible)
-        {
-            TogglePasswordVisibilityIcon.Source = "clave.png";
-        }
-        else
-        {
-            TogglePasswordVisibilityIcon.Source = "noclave.png";
-        }
+        // Cambia el icono del botón para reflejar la visibilidad actual de la contraseña
+        TogglePasswordVisibilityIcon.Source = isPasswordVisible ? "clave.png" : "noclave.png";
     }
 
     private void TogglePasswordVisibilityIconp_Clicked(object sender, EventArgs e)
     {
         isPasswordVisiblep = !isPasswordVisiblep;
 
-        // Cambia la visibilidad del texto de la contrase�a
-        entryPassword.IsPassword = !isPasswordVisiblep;
+        // Cambia la visibilidad del texto de la confirmación de la contraseña
+        entryCPassword.IsPassword = !isPasswordVisiblep;
 
-        // Cambia el icono del bot�n para reflejar la visibilidad actual de la contrase�a
-        if (isPasswordVisiblep)
-        {
-            TogglePasswordVisibilityIconp.Source = "clave.png";
-        }
-        else
-        {
-            TogglePasswordVisibilityIconp.Source = "noclave.png";
-        }
+        // Cambia el icono del botón para reflejar la visibilidad actual de la confirmación de la contraseña
+        TogglePasswordVisibilityIconp.Source = isPasswordVisiblep ? "clave.png" : "noclave.png";
     }
 
 
@@ -210,6 +196,7 @@ public partial class RegistroPage : ContentPage
             img.Source = "anadir.png";
             imageToSave = null;
             //await Navigation.PopAsync();
+            await Navigation.PopModalAsync();
 
         }
         else

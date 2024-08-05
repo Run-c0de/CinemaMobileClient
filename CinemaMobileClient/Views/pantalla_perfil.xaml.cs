@@ -30,9 +30,13 @@ public partial class pantalla_perfil : ContentPage
         NavigationPage.SetHasNavigationBar(this, false);
         _apiService = new ApiService();
         userId = Preferences.Get("userId", "");
+        //InitializePage();
+    }
+    protected override void OnAppearing()
+    {
+        base.OnAppearing();
         InitializePage();
     }
-
 
     private async void InitializePage()
     {
@@ -51,7 +55,7 @@ public partial class pantalla_perfil : ContentPage
             entryApellidos.Text = userData.Data.Apellidos;
             entryCorreo.Text = userData.Data.Correo;
             entryTelefono.Text = userData.Data.Telefono;
-            //base64Foto = userData.Data.ImgBase64;
+            base64Foto = userData.Data.ImgBase64;
             string userimageUrl = userData.Data.Foto;
 
 
@@ -216,12 +220,12 @@ public partial class pantalla_perfil : ContentPage
 
         ShowLoadingDialog();
 
-        if (string.IsNullOrEmpty(base64Foto))
-        {
-            await DisplayAlert("Alerta", "Por favor agregar una foto.", "OK");
-            HideLoadingDialog();
-            return;
-        }
+        //if (string.IsNullOrEmpty(base64Foto))
+        //{
+        //    await DisplayAlert("Alerta", "Por favor agregar una foto.", "OK");
+        //    HideLoadingDialog();
+        //    return;
+        //}
 
 
         if (string.IsNullOrEmpty(entryNombres.Text))
