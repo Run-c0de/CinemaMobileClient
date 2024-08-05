@@ -122,13 +122,15 @@ public partial class loginPage : ContentPage
         {
             var loginService = Servicios.ServiceProvider.GetService<ILoginServices>();
             await DisplayAlert("Inicio de sesión exitoso", $"¡Bienvenido, {response.username}!", "OK");
-            SaveSession(response.userId, response.username);
             if (!String.IsNullOrEmpty(response.codVerificacion))
             {
-                await Navigation.PushAsync(new verificar_contrasenaPage(response, loginService));
+                var credential = new Credentials() { username = username, password = password };
+                await Navigation.PushAsync(new verificar_contrasenaPage(response, credential, loginService));
             }
             else
             {
+                Preferences.Set("userId", response.userId.ToString());
+                Preferences.Set("username", response.username);
                 await Navigation.PushAsync(new MenuPage());
             }
         }
@@ -136,11 +138,6 @@ public partial class loginPage : ContentPage
         {
             await DisplayAlert("Error de inicio de sesión", response.message, "OK");
         }
-    }
-
-    private void SaveSession(int userId, string username)
-    {
-        // Implementa el guardado de sesión aquí
     }
 
     private void SaveVerificationCode(string codVerificacion, int userId, string username, string password)
