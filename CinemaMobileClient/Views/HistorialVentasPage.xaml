@@ -28,7 +28,7 @@
         <Grid Grid.Row="1">
             <ScrollView>
                 <StackLayout>
-                    <ListView x:Name="VentasListView" RowHeight="140"  SelectionMode="None">
+                    <ListView x:Name="VentasListView" RowHeight="140"  SelectionMode="Single" ItemTapped="VentasListView_ItemTapped">
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <ViewCell>

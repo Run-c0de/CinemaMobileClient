@@ -27,4 +27,22 @@
         public decimal precio { get; set; }
         public decimal cantidad { get; set; }
     }
+
+    public class Venta
+    {
+        public int VentaId { get; set; }
+        public string Pelicula { get; set; }
+        public string Portada { get; set; }
+        public string Genero { get; set; }
+        public DateTime Fecha { get; set; }
+        public decimal Total { get; set; }
+        public int BoletosComprados { get; set; }
+        public string HoraInicio { get; set; }
+        public string Sala { get; set; }
+    }
+
+    public class VentasResponse
+    {
+        public List<Venta> Data { get; set; }
+    }
 }
