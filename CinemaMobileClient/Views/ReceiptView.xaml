@@ -1,35 +1,92 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8"?>
+
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CinemaMobileClient.Views.ReceiptView"
              Title="{Binding Title}">
-  <ScrollView>
-    <VerticalStackLayout Spacing="25"
-                         Padding="30,0"
-                         VerticalOptions="Center">
-      <Label Text="Thank you for shopping!"
-             FontAttributes="Bold"
-             VerticalOptions="Center"
-             HorizontalOptions="Center" />
 
-      <StackLayout Orientation="Horizontal"
-                   VerticalOptions="Center"
-                   HorizontalOptions="Center">
 
-        <Label Text="Total Charge: $" FontAttributes="Bold" />
+    <ContentPage.Content>
+        <Grid BackgroundColor="#1C0038" RowDefinitions="0.08*, 0.92*">
+            <Grid Grid.Row="0"
+                  BackgroundColor="Transparent">
+                <Grid.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                        <GradientStopCollection>
+                            <GradientStop Offset="0" Color="#2E043D" />
+                            <GradientStop Offset="1" Color="#7B09A3" />
+                        </GradientStopCollection>
+                    </LinearGradientBrush>
+                </Grid.Background>
 
-        <Label Text="{Binding TotalPrice}" />
-      </StackLayout>
 
-      <Label Text="Your order is being processed"
-             FontAttributes="Italic"
-             VerticalOptions="Center"
-             HorizontalOptions="Center" />
+                <Label Text="{Binding viewName}"
+                       FontSize="18"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center"
+                       TextColor="White" />
+                <Image Source="user.png"
+                       VerticalOptions="Center"
+                       HorizontalOptions="End"
+                       Margin="0,0,20,0" />
+            </Grid>
 
-      <Button Text="Finished"
-              Command="{Binding CmdFinished}"
-              Clicked="OnCounterClicked"
-              HorizontalOptions="Center" />
-    </VerticalStackLayout>
-  </ScrollView>
+            <Grid Grid.Row="1">
+                <ScrollView>
+                    <VerticalStackLayout Padding="20" Spacing="20">
+
+                        <Label
+                            Text="Recibo de compra"
+                            SemanticProperties.HeadingLevel="Level1"
+                            SemanticProperties.Description="Enter Data"
+                            FontSize="18"
+                            HorizontalOptions="Fill" />
+                        
+                        <Label
+                            Text=""
+                            x:Name="Comprador"
+                            SemanticProperties.HeadingLevel="Level1"
+                            SemanticProperties.Description="Enter Data"
+                            FontSize="18"
+                            HorizontalOptions="Fill" />
+
+                     
+                        <Frame BorderColor="LightSlateGray"
+                               BackgroundColor="White"
+                               Padding="10">
+                            <Image
+                                x:Name="QrCodeImage"
+                                HeightRequest="200"
+                                WidthRequest="200" />
+                        </Frame>
+
+
+                        <Label Text="Thank you for shopping!"
+                               FontAttributes="Bold"
+                               VerticalOptions="Center"
+                               HorizontalOptions="Center" />
+
+                        <StackLayout Orientation="Horizontal"
+                                     VerticalOptions="Center"
+                                     HorizontalOptions="Center">
+
+                            <Label Text="" FontAttributes="Bold" x:Name="TotalCharge"/>
+
+                            <Label Text="{Binding TotalPrice}" />
+                        </StackLayout>
+
+                        <Button Text="Finished"
+                                Command="{Binding CmdFinished}"
+
+                                HorizontalOptions="Center" />
+                    </VerticalStackLayout>
+
+
+                </ScrollView>
+
+
+            </Grid>
+        </Grid>
+
+    </ContentPage.Content>
 </ContentPage>
