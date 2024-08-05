@@ -13,17 +13,21 @@ namespace CinemaMobileClient.ViewModels
     private string _cardNumber;
     private string _purchaseText;
 
+    private string _totalCharge;
+
     public PaymentViewModel(INavigationService navService, IStoreService store)
       : base(navService)
     {
       _storeService = store;
-      Title = "Verify Purchase";
-
       PurchaseText = $"Purchase for ${_storeService.TotalCost.ToString("##.00")}";
 
     }
-
-
+    public string TotalCharge
+    {
+      get => _totalCharge;
+      set => SetProperty(ref _totalCharge, value);
+    }
+    
 
     public string CardCvv
     {
@@ -53,17 +57,12 @@ namespace CinemaMobileClient.ViewModels
     {
       if (IsValidPurchase())
       {
-        // Pass along the total cost to Receipt page
         var args = new NavigationParameters
         {
           { "total", _storeService.TotalCost.ToString("##.00") }
         };
 
         await NavigationService.NavigateAsync(nameof(ReceiptView), args);
-      }
-      else
-      {
-
       }
     });
 

@@ -7,6 +7,9 @@
         public int horarioId { get; set; }
         public List<VentaEntrada> ventaEntrada { get; set; }
         public List<VentaProducto> ventaProducto { get; set; }
+
+
+        public decimal TotalCharge { get; set; }
     }
 
     public class VentaEntrada
