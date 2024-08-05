@@ -171,6 +171,19 @@
                     </Grid>
                 </Frame>
 
+                <!-- Button with ActivityIndicator -->
+                <Grid>
+                    
+                    <ActivityIndicator x:Name="activityIndicator"
+                        IsRunning="False"
+                        IsVisible="False"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Center"
+                        Color="White"
+                        WidthRequest="24"
+                        HeightRequest="24" />
+                </Grid>
+
                 <!-- Botones para registrar y cancelar -->
                 <HorizontalStackLayout HorizontalOptions="Center" Spacing="10" Margin="0,20,0,0">
                     <Button x:Name="btnRegistrar" Text="Registrarse" BackgroundColor="#670769" TextColor="White" WidthRequest="120" Clicked="btnRegistrar_Clicked"/>

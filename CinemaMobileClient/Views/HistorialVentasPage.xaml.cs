@@ -11,6 +11,12 @@ public partial class HistorialVentasPage : ContentPage
 		InitializeComponent();
         varUserId = Preferences.Get("userId", "");
         NavigationPage.SetHasNavigationBar(this, false);
+        //LoadVentasAsync(userId: varUserId);
+    }
+    protected override void OnAppearing()
+    {
+        base.OnAppearing();
+        //InitializePage();
         LoadVentasAsync(userId: varUserId);
     }
 

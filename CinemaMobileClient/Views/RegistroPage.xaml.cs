@@ -147,6 +147,7 @@ public partial class RegistroPage : ContentPage
 
     private async void btnRegistrar_Clicked(object sender, EventArgs e)
     {
+        
         ShowLoadingDialog();
 
         if (string.IsNullOrEmpty(base64Foto))
@@ -164,6 +165,10 @@ public partial class RegistroPage : ContentPage
             HideLoadingDialog();
             return;
         }
+        // Mostrar el ActivityIndicator dentro del botón
+        activityIndicator.IsVisible = true;
+        activityIndicator.IsRunning = true;
+        btnRegistrar.IsVisible = false;
 
 
         var data = new
