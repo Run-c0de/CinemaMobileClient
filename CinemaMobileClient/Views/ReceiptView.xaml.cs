@@ -8,12 +8,14 @@ public partial class ReceiptView : ContentPage
 
     private string getQR(string id) => $"https://ksoriano55.github.io/CinepolisWebApp/#/tickets/{id}";
     
-    public ReceiptView(VentaViewModel venta)
+    public ReceiptView(int ventaId)
     {
         InitializeComponent();
-        OnGenerateClicked(venta.ventaId.ToString());
+        OnGenerateClicked(ventaId.ToString());
         Comprador.Text = "Comprado";
-        TotalCharge.Text =  $"Total Charge: L. {venta.TotalCharge.ToString()}";
+        TotalCharge.Text = $"Total Charge: L. 100";
+        // Quita la barra de navegación
+        NavigationPage.SetHasNavigationBar(this, false);
     }
 
 

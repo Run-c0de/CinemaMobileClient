@@ -1,14 +1,6 @@
 
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Net.Http;
-using System.Threading.Tasks;
-using Microsoft.Maui.Controls;
 using Newtonsoft.Json;
-
-using CinemaMobileClient.Models;
-using CinemaMobileClient.Controllers;
+using CinemaMobileClient.ViewModels;
 
 namespace CinemaMobileClient.Views;
 public partial class HistorialVentasPage : ContentPage
@@ -39,22 +31,17 @@ public partial class HistorialVentasPage : ContentPage
         }
     }
 
-    public class Venta
+    private void verQr(object sender, TappedEventArgs e)
     {
-        public int VentaId { get; set; }
-        public string Pelicula { get; set; }
-        public string Portada { get; set; }
-        public string Genero { get; set; }
-        public DateTime Fecha { get; set; }
-        public decimal Total { get; set; }
-        public int BoletosComprados { get; set; }
-        public string HoraInicio { get; set; }
-        public string Sala { get; set; }
+
     }
 
-    public class VentasResponse
+    private async void VentasListView_ItemTapped(object sender, ItemTappedEventArgs e)
     {
-        public List<Venta> Data { get; set; }
+        if (e.Item != null)
+        {
+            var selectedItem = e.Item as Venta; 
+            await Navigation.PushAsync(new ReceiptView(selectedItem.VentaId));
+        }
     }
-
 }

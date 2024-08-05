@@ -100,6 +100,7 @@
             
         <PackageReference Include="Prism.DryIoc.Maui" Version="8.1.273-pre" />
         <PackageReference Include="Prism.Maui" Version="8.1.273-pre" />
+        <PackageReference Include="QRCoder" Version="1.6.0" />
         <PackageReference Include="SkiaSharp" Version="3.0.0-preview.4.1" />        
     </ItemGroup>
 
