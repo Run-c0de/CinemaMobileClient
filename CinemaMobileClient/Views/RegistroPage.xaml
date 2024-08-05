@@ -110,25 +110,25 @@
                             <ColumnDefinition Width="Auto" />
                         </Grid.ColumnDefinitions>
 
-                        <Image x:Name="PasswordIconp"
-                    Source="candado.png"
-                    WidthRequest="24" HeightRequest="24"
-                    VerticalOptions="Center"
-                    Margin="5"/>
+                        <Image x:Name="PasswordIcon"
+                       Source="candado.png"
+                       WidthRequest="24" HeightRequest="24"
+                       VerticalOptions="Center"
+                       Margin="5"/>
                         <Entry Grid.Column="1"
-                     x:Name="entryPassword"
-                     Placeholder="Contraseña"
-                     IsPassword="True"
-                     TextColor="White"
-                     PlaceholderColor="White"
-                     Margin="10,0,0,0" />
-                        <ImageButton x:Name="TogglePasswordVisibilityIconp"
-                     Grid.Column="2"
-                     BackgroundColor="Transparent"
-                     Clicked="TogglePasswordVisibilityIconp_Clicked"
-                     VerticalOptions="Center"
-                     WidthRequest="24" HeightRequest="24"
-                     Margin="0">
+                       x:Name="entryPassword"
+                       Placeholder="Contraseña"
+                       IsPassword="True"
+                       TextColor="White"
+                       PlaceholderColor="White"
+                       Margin="10,0,0,0" />
+                        <ImageButton x:Name="TogglePasswordVisibilityIcon"
+                             Grid.Column="2"
+                             BackgroundColor="Transparent"
+                             Clicked="TogglePasswordVisibility"
+                             VerticalOptions="Center"
+                             WidthRequest="24" HeightRequest="24"
+                             Margin="0">
                             <ImageButton.Source>
                                 <FileImageSource File="noclave.png" />
                             </ImageButton.Source>
@@ -145,31 +145,44 @@
                             <ColumnDefinition Width="Auto" />
                         </Grid.ColumnDefinitions>
 
-                        <Image x:Name="PasswordIcon"
-                     Source="candado.png"
-                     WidthRequest="24" HeightRequest="24"
-                     VerticalOptions="Center"
-                     Margin="5"/>
+                        <Image x:Name="PasswordIconp"
+                       Source="candado.png"
+                       WidthRequest="24" HeightRequest="24"
+                       VerticalOptions="Center"
+                       Margin="5"/>
                         <Entry Grid.Column="1"
-                     x:Name="entryCPassword"
-                     Placeholder="Confirmar contraseña"
-                     IsPassword="True"
-                     TextColor="White"
-                     PlaceholderColor="White"
-                     Margin="10,0,0,0" />
-                        <ImageButton x:Name="TogglePasswordVisibilityIcon"
-                     Grid.Column="2"
-                     BackgroundColor="Transparent"
-                     Clicked="TogglePasswordVisibility"
-                     VerticalOptions="Center"
-                     WidthRequest="24" HeightRequest="24"
-                     Margin="0">
+                       x:Name="entryCPassword"
+                       Placeholder="Confirmar contraseña"
+                       IsPassword="True"
+                       TextColor="White"
+                       PlaceholderColor="White"
+                       Margin="10,0,0,0" />
+                        <ImageButton x:Name="TogglePasswordVisibilityIconp"
+                             Grid.Column="2"
+                             BackgroundColor="Transparent"
+                             Clicked="TogglePasswordVisibilityIconp_Clicked"
+                             VerticalOptions="Center"
+                             WidthRequest="24" HeightRequest="24"
+                             Margin="0">
                             <ImageButton.Source>
                                 <FileImageSource File="noclave.png" />
                             </ImageButton.Source>
                         </ImageButton>
                     </Grid>
                 </Frame>
+
+                <!-- Button with ActivityIndicator -->
+                <Grid>
+                    
+                    <ActivityIndicator x:Name="activityIndicator"
+                        IsRunning="False"
+                        IsVisible="False"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Center"
+                        Color="White"
+                        WidthRequest="24"
+                        HeightRequest="24" />
+                </Grid>
 
                 <!-- Botones para registrar y cancelar -->
                 <HorizontalStackLayout HorizontalOptions="Center" Spacing="10" Margin="0,20,0,0">
