@@ -11,11 +11,12 @@ public partial class ReceiptView : ContentPage
     public ReceiptView(int ventaId)
     {
         InitializeComponent();
+        NavigationPage.SetHasNavigationBar(this, false);
         OnGenerateClicked(ventaId.ToString());
         Comprador.Text = "Comprado";
-        TotalCharge.Text = $"Total Charge: L. 100";
+        //TotalCharge.Text = $"Total Charge: L. 100";
         // Quita la barra de navegación
-        NavigationPage.SetHasNavigationBar(this, false);
+       
     }
 
 
@@ -27,5 +28,17 @@ public partial class ReceiptView : ContentPage
         PngByteQRCode qRCode = new PngByteQRCode(qrCodeData);
         byte[] qrCodeBytes = qRCode.GetGraphic(20);
         QrCodeImage.Source = ImageSource.FromStream(() => new MemoryStream(qrCodeBytes));
+    }
+
+    private async void OnCloseButtonClicked(object sender, EventArgs e)
+    {
+        await Navigation.PopModalAsync();
+    }
+
+    private async void Button_Clicked(object sender, EventArgs e)
+    {
+        //await Navigation.PushAsync(new HomePage());
+        //new NavigationPage(new HomePage());
+        Application.Current.MainPage = new NavigationPage(new MenuPage());
     }
 }

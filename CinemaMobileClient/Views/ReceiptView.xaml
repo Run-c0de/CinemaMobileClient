@@ -3,34 +3,37 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CinemaMobileClient.Views.ReceiptView"
-             Title="{Binding Title}">
+             >
 
 
     <ContentPage.Content>
         <Grid BackgroundColor="#1C0038" RowDefinitions="0.08*, 0.92*">
+            <!--Header-->
             <Grid Grid.Row="0"
-                  BackgroundColor="Transparent">
+            BackgroundColor="#7B09A3">
                 <Grid.Background>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
                         <GradientStopCollection>
-                            <GradientStop Offset="0" Color="#2E043D" />
-                            <GradientStop Offset="1" Color="#7B09A3" />
+                            <GradientStop Offset="0" Color="#2E043D"/>
+                            <GradientStop Offset="1" Color="#7B09A3"/>
                         </GradientStopCollection>
                     </LinearGradientBrush>
                 </Grid.Background>
 
-
-                <Label Text="{Binding viewName}"
-                       FontSize="18"
-                       HorizontalOptions="Center"
-                       VerticalOptions="Center"
-                       TextColor="White" />
-                <Image Source="user.png"
-                       VerticalOptions="Center"
-                       HorizontalOptions="End"
-                       Margin="0,0,20,0" />
+                <ImageButton Source="flecha.png"
+                VerticalOptions="Center"
+                HorizontalOptions="Start"
+                Margin="15,0,20,0"
+                Clicked="OnCloseButtonClicked"
+                MaximumWidthRequest="28"
+                MinimumHeightRequest="28">
+                        </ImageButton>
+                    <Label Text="COMPROBANTE QR"
+                    FontSize="18"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"
+                    TextColor="White"/> 
             </Grid>
-
             <Grid Grid.Row="1">
                 <ScrollView>
                     <VerticalStackLayout Padding="20" Spacing="20">
@@ -44,7 +47,7 @@
                         
                         <Label
                             Text=""
-                            x:Name="Comprador"
+                            x:Name=""
                             SemanticProperties.HeadingLevel="Level1"
                             SemanticProperties.Description="Enter Data"
                             FontSize="18"
@@ -61,7 +64,7 @@
                         </Frame>
 
 
-                        <Label Text="Thank you for shopping!"
+                        <Label Text="Gracias por la compra!"
                                FontAttributes="Bold"
                                VerticalOptions="Center"
                                HorizontalOptions="Center" />
@@ -70,14 +73,13 @@
                                      VerticalOptions="Center"
                                      HorizontalOptions="Center">
 
-                            <Label Text="" FontAttributes="Bold" x:Name="TotalCharge"/>
+                            <!--<Label Text="" FontAttributes="Bold" x:Name="TotalCharge"/>
 
-                            <Label Text="{Binding TotalPrice}" />
+                            <Label Text="{Binding TotalPrice}" />-->
                         </StackLayout>
 
-                        <Button Text="Finished"
-                                Command="{Binding CmdFinished}"
-
+                        <Button Text="Finalizar"
+                                Clicked="Button_Clicked"
                                 HorizontalOptions="Center" />
                     </VerticalStackLayout>
 

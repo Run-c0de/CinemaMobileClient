@@ -47,7 +47,7 @@ public partial class HistorialVentasPage : ContentPage
         if (e.Item != null)
         {
             var selectedItem = e.Item as Venta; 
-            await Navigation.PushAsync(new ReceiptView(selectedItem.VentaId));
+            await Navigation.PushModalAsync(new ReceiptView(selectedItem.VentaId));
         }
     }
 }
