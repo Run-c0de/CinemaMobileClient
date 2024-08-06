@@ -144,7 +144,11 @@ public partial class PaymentView : ContentPage
 
         var ventaServicio = Servicios.ServiceProvider.GetService<IVenta>();
         var venta = await ventaServicio.InsertVenta(_venta);
+        int idVenta = venta.VentaId;
+
 
         await DisplayAlert("Exito", $"Se ha guardado la compra", "OK");
+        //await DisplayAlert("Exito", $"Se ha guardado la compra. ID:"+ idVenta, "OK");
+        await Navigation.PushModalAsync(new ReceiptView(idVenta));
     }
 }

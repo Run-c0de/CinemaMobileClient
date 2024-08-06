@@ -95,9 +95,9 @@
                               RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto"
                               ColumnDefinitions="Auto,5*,5*">
 
-                            <local:CreditCardView Grid.Row="0"
+                            <!--<local:CreditCardView Grid.Row="0"
                                                   Grid.Column="0"
-                                                  Grid.ColumnSpan="3" />
+                                                  Grid.ColumnSpan="3" />-->
 
                             <Frame HasShadow="false"
                                    Padding="10"
@@ -176,23 +176,23 @@
                                 </StackLayout>
                             </Frame>
 
-                            <CheckBox Color="LightGray"
+                            <!--<CheckBox Color="LightGray"
                                       WidthRequest="30"
                                       HorizontalOptions="Start"
                                       Margin="30,0,0,0"
                                       Visual="Material"
                                       Grid.Row="3"
-                                      Grid.Column="0" />
+                                      Grid.Column="0" />-->
 
-                            <Label Text="Remember me"
+                            <!--<Label Text="Remember me"
                                    TextColor="{StaticResource PrimaryDark}"
                                    FontSize="16"
                                    VerticalOptions="Center"
                                    Grid.Row="3"
                                    Grid.Column="1"
-                                   Grid.ColumnSpan="2" />
+                                   Grid.ColumnSpan="2" />-->
 
-                            <Button Text="Pagar con Paypal"
+                            <!--<Button Text="Pagar con Paypal"
                                     Grid.Row="4"
                                     Grid.Column="0"
                                     Grid.ColumnSpan="3"
@@ -203,7 +203,7 @@
                                     FontSize="18"
                                     CornerRadius="25"
                                     Padding="18"
-                                    Margin="30,0" />
+                                    Margin="30,0" />-->
 
                             <BoxView HorizontalOptions="FillAndExpand"
                                      Color="{StaticResource Secondary}"
@@ -214,7 +214,7 @@
                                      Grid.Column="0"
                                      Grid.ColumnSpan="3" />
 
-                            <Button Text="{Binding PurchaseText}"
+                            <Button Text="Confirmar compra"
                                     Clicked="Button_Clicked"
                                     BackgroundColor="{Binding CardNumber, Converter={StaticResource CardColorConverter}}"
                                     CornerRadius="26"

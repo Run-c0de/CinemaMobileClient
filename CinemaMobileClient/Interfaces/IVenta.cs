@@ -4,6 +4,6 @@ namespace CinemaMobileClient.Interfaces
 {
     public interface IVenta
     {
-        Task<VentaViewModel> InsertVenta(VentaViewModel venta);
+        Task<Venta> InsertVenta(VentaViewModel venta);
     }
 }

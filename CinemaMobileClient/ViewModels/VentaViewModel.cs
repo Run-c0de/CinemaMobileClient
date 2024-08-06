@@ -39,10 +39,31 @@
         public int BoletosComprados { get; set; }
         public string HoraInicio { get; set; }
         public string Sala { get; set; }
+
+        public List<VentasProductoViewModel> productoDetalle { get; set; }
+        public List<VentaEntradaDetalleViewModels> entradaDetalle { get; set; }
+    }
+
+    public class VentasProductoViewModel
+    {
+        public int? productoId { get; set; }
+        public string descripcion { get; set; }
+        public decimal cantidad { get; set; }
+        public decimal? precio { get; set; }
+    }
+
+    public class VentaEntradaDetalleViewModels
+    {
+        public int ventaDetalleId { get; set; }
+        public string numeroBoleto { get; set; } = string.Empty;
+        public decimal precio { get; set; }
+        public decimal cantidad { get; set; }
     }
 
     public class VentasResponse
     {
         public List<Venta> Data { get; set; }
     }
+
+
 }

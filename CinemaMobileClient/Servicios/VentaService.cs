@@ -24,7 +24,7 @@ namespace CinemaMobileClient.Servicios
                 WriteIndented = true
             };
         }
-        public async Task<VentaViewModel> InsertVenta(VentaViewModel venta)
+        public async Task<Venta> InsertVenta(VentaViewModel venta)
         {
             try
             {
@@ -35,14 +35,9 @@ namespace CinemaMobileClient.Servicios
                 {
                     string content = await response.Content.ReadAsStringAsync();
 
-                    //var loginResponse = JsonSerializer.Deserialize<VentaViewModel>(content, _serializerOptions);
-
-                    //if (loginResponse != null)
-                    //{
-                    //    result = loginResponse.data;
-                    //    Preferences.Set("userId", result.userId.ToString());
-                    //    Preferences.Set("username", result.username);
-                    //}
+                    var Response = JsonSerializer.Deserialize<Venta>(content, _serializerOptions);
+                    return Response;
+                  
                 }
                 else
                 {
@@ -53,7 +48,7 @@ namespace CinemaMobileClient.Servicios
             }
             catch (Exception ex)
             {
-                return new VentaViewModel();
+                return new Venta();
             }
         }
     }
