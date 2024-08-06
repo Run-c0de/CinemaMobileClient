@@ -47,7 +47,7 @@
                         
                         <Label
                             Text=""
-                            x:Name=""
+                            x:Name="Comprador"
                             SemanticProperties.HeadingLevel="Level1"
                             SemanticProperties.Description="Enter Data"
                             FontSize="18"

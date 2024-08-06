@@ -16,7 +16,7 @@ public partial class ReceiptView : ContentPage
         Comprador.Text = "Comprado";
         //TotalCharge.Text = $"Total Charge: L. 100";
         // Quita la barra de navegación
-       
+
     }
 
 
